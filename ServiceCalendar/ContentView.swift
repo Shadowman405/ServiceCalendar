@@ -28,6 +28,7 @@ struct ContentView: View {
                         .foregroundColor(.accentColor)
                         
                     }
+                    .padding(40)
                     
                     Button("Log-In") {
                         self.isPresented.toggle()

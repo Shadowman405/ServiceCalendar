@@ -21,14 +21,24 @@ struct LoginView: View {
             VStack{
                 
                 TextField("Username", text: $userName)
-                    .textFieldStyle(.roundedBorder)
+                    //.textFieldStyle(.roundedBorder)
                     .padding(15)
+                    .background(.clear)
                 
                 TextField("Password", text: $password)
-                    .textFieldStyle(.roundedBorder)
+                    //.textFieldStyle(.roundedBorder)
                     .padding(15)
+                    .background(.clear)
                             
                 Button("Log In") {
+                    print("Succesfuly login\n \(userName) - \(password)")
+                    dismiss()
+                    
+                }
+                .foregroundColor(.black)
+                .padding(25)
+                
+                Button("Forget password") {
                     print("Succesfuly login\n \(userName) - \(password)")
                     dismiss()
                     
