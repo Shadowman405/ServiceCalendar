@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State private var userName = ""
     @State private var password = ""
+    @Environment(\.dismiss) private var dismiss
 
     
     var body: some View {
@@ -21,7 +22,12 @@ struct LoginView: View {
             TextField("Password", text: $password)
                 .textFieldStyle(.roundedBorder)
                 .padding(15)
-            Spacer()
+                        
+            Button("Log In") {
+                print("Succesfuly login\n \(userName) - \(password)")
+                dismiss()
+                
+            }
         }
     }
 }

@@ -20,7 +20,6 @@ struct ContentView: View {
                 }
                 
                 Button("Log-In") {
-                    print("Hello")
                     self.isPresented.toggle()
                 }
                 .sheet(isPresented: $isPresented, content: {
@@ -28,6 +27,15 @@ struct ContentView: View {
                 })
                 .buttonStyle(.bordered)
                 .tint(.indigo)
+                .cornerRadius(10)
+                .foregroundColor(.black)
+                .controlSize(.large)
+                
+                Button("Register") {
+                    print("Register")
+                }
+                .buttonStyle(.bordered)
+                .tint(.cyan)
                 .cornerRadius(10)
                 .foregroundColor(.black)
                 .controlSize(.large)
