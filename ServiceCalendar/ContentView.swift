@@ -17,7 +17,14 @@ struct ContentView: View {
                     .foregroundColor(.accentColor)
                 }
                 
-                Text("New app")
+                Button("Log-In") {
+                    print("Hello")
+                }
+                .buttonStyle(.bordered)
+                .tint(.indigo)
+                .cornerRadius(10)
+                .foregroundColor(.black)
+                .controlSize(.large)
             }
         }
         .padding()
