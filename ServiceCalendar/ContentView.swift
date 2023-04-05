@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var isPresented = false
+    
     var body: some View {
         ZStack {
             VStack(alignment: .center) {
@@ -19,7 +21,11 @@ struct ContentView: View {
                 
                 Button("Log-In") {
                     print("Hello")
+                    self.isPresented.toggle()
                 }
+                .sheet(isPresented: $isPresented, content: {
+                    LoginView()
+                })
                 .buttonStyle(.bordered)
                 .tint(.indigo)
                 .cornerRadius(10)
