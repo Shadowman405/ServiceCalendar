@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+//import FirebaseCoreInternal
 
 struct ContentView: View {
     @State private var isPresented = false

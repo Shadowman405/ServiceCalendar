@@ -12,6 +12,7 @@
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
 		BF4CBBB029DDBE6700EC5626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */; };
 		BF4CBBB729DDC29F00EC5626 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBB629DDC29F00EC5626 /* LoginView.swift */; };
+		BF4CBBB929DF1DE700EC5626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF4CBBB629DDC29F00EC5626 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */,
 				BF4CBBB629DDC29F00EC5626 /* LoginView.swift */,
 				BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */,
+				BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */,
 				BF4CBBAE29DDBE6700EC5626 /* Preview Content */,
 			);
 			path = ServiceCalendar;
@@ -114,6 +117,9 @@
 				Base,
 			);
 			mainGroup = BF4CBB9C29DDBE6500EC5626;
+			packageReferences = (
+				BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = BF4CBBA629DDBE6500EC5626 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -130,6 +136,7 @@
 			files = (
 				BF4CBBB029DDBE6700EC5626 /* Preview Assets.xcassets in Resources */,
 				BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */,
+				BF4CBBB929DF1DE700EC5626 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +350,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = BF4CBB9D29DDBE6500EC5626 /* Project object */;
 }
