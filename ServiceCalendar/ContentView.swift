@@ -10,6 +10,8 @@ import Firebase
 
 struct ContentView: View {
     @State private var isPresented = false
+    @State private var isPresentedReg = false
+
     
     var body: some View {
         
@@ -44,8 +46,12 @@ struct ContentView: View {
                     .font(.system(size: 20, weight: .heavy, design: .serif))
                     
                     Button("Register") {
-                        print("Register")
+                        self.isPresentedReg.toggle()
+
                     }
+                    .sheet(isPresented: $isPresentedReg, content: {
+                        RegisterView()
+                    })
                     .buttonStyle(.bordered)
                     .tint(.red)
                     .cornerRadius(10)
