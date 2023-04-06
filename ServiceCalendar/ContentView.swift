@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
-//import FirebaseCoreInternal
+import FirebaseAuth
 
 struct ContentView: View {
     @State private var isPresented = false
     
     var body: some View {
-        
         
         ZStack {
             LinearGradient(colors: [Color.red, Color.purple, Color.blue], startPoint: .top, endPoint: .bottom)

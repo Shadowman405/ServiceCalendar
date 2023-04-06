@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1090A829DF23E6007C8124 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BF1090A729DF23E6007C8124 /* FirebaseAuth */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -30,17 +31,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF1090A829DF23E6007C8124 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF1090A629DF23E6007C8124 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BF4CBB9C29DDBE6500EC5626 = {
 			isa = PBXGroup;
 			children = (
 				BF4CBBA729DDBE6500EC5626 /* ServiceCalendar */,
 				BF4CBBA629DDBE6500EC5626 /* Products */,
+				BF1090A629DF23E6007C8124 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -87,8 +97,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				BF1090AA29DF23FD007C8124 /* PBXTargetDependency */,
 			);
 			name = ServiceCalendar;
+			packageProductDependencies = (
+				BF1090A729DF23E6007C8124 /* FirebaseAuth */,
+			);
 			productName = ServiceCalendar;
 			productReference = BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */;
 			productType = "com.apple.product-type.application";
@@ -154,6 +168,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF1090AA29DF23FD007C8124 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = BF1090A929DF23FD007C8124 /* FirebaseAuth */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		BF4CBBB129DDBE6700EC5626 /* Debug */ = {
@@ -361,6 +382,19 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BF1090A729DF23E6007C8124 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		BF1090A929DF23FD007C8124 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BF4CBB9D29DDBE6500EC5626 /* Project object */;
 }

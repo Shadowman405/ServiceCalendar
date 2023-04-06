@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseCoreInternal
 
 struct LoginView: View {
     @State private var userName = ""
