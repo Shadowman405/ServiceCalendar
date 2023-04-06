@@ -9,8 +9,10 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
-    @State private var isPresented = false
     @State private var isPresentedReg = false
+    @State private var isUserLoggedIn = false
+    @State private var email = ""
+    @State private var password = ""
 
     
     var body: some View {
@@ -30,16 +32,27 @@ struct ContentView: View {
                         .foregroundColor(.accentColor)
                         
                     }
-                    .padding(40)
+                    .padding(10)
                     
-                    Button("Log-In") {
-                        self.isPresented.toggle()
+                    VStack {
+                        TextField("Email", text: $email)
+                            //.textFieldStyle(.roundedBorder)
+                            .padding(5)
+                        .background(.clear)
+                        
+                        TextField("Password", text: $password)
+                            //.textFieldStyle(.roundedBorder)
+                            .padding(5)
+                            .background(.clear)
                     }
-                    .sheet(isPresented: $isPresented, content: {
-                        LoginView()
-                    })
+                    .padding(25)
+                                
+                    Button("Login") {
+                        login()
+                        
+                    }
                     .buttonStyle(.bordered)
-                    .tint(.green)
+                    .tint(.red)
                     .cornerRadius(10)
                     .foregroundColor(.black)
                     .controlSize(.large)
@@ -61,6 +74,23 @@ struct ContentView: View {
                 }
             }
             .padding()
+            .onAppear {
+                Auth.auth().addStateDidChangeListener { auth, user in
+                    if user != nil {
+                        isUserLoggedIn.toggle()
+                    }
+                }
+            }
+        }
+    }
+    
+    func login() {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                print("Loged In")
+            }
         }
     }
 }

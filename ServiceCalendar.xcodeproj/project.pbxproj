@@ -13,7 +13,6 @@
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
 		BF4CBBB029DDBE6700EC5626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */; };
-		BF4CBBB729DDC29F00EC5626 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBB629DDC29F00EC5626 /* LoginView.swift */; };
 		BF4CBBB929DF1DE700EC5626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 		BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BF4CBBB629DDC29F00EC5626 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,7 +67,6 @@
 			children = (
 				BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */,
 				BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */,
-				BF4CBBB629DDC29F00EC5626 /* LoginView.swift */,
 				BF1090AB29DF5A16007C8124 /* RegisterView.swift */,
 				BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */,
 				BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */,
@@ -164,7 +161,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF4CBBB729DDC29F00EC5626 /* LoginView.swift in Sources */,
 				BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */,
 				BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */,
 				BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */,
