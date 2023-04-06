@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BF1090A829DF23E6007C8124 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BF1090A729DF23E6007C8124 /* FirebaseAuth */; };
+		BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090AB29DF5A16007C8124 /* RegisterView.swift */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF1090AB29DF5A16007C8124 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCalendarApp.swift; sourceTree = "<group>"; };
 		BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */,
 				BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */,
 				BF4CBBB629DDC29F00EC5626 /* LoginView.swift */,
+				BF1090AB29DF5A16007C8124 /* RegisterView.swift */,
 				BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */,
 				BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */,
 				BF4CBBAE29DDBE6700EC5626 /* Preview Content */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF4CBBB729DDC29F00EC5626 /* LoginView.swift in Sources */,
+				BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */,
 				BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */,
 				BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */,
 			);
