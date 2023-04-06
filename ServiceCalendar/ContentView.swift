@@ -16,7 +16,14 @@ struct ContentView: View {
 
     
     var body: some View {
-        
+        if isUserLoggedIn {
+            ServiceList()
+        } else {
+            content
+        }
+    }
+    
+    var content: some View {
         ZStack {
             LinearGradient(colors: [Color.red, Color.purple, Color.blue], startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
