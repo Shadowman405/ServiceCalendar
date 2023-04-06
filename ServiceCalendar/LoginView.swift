@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
-import FirebaseCoreInternal
+import Firebase
 
 struct LoginView: View {
-    @State private var userName = ""
+    @State private var email = ""
     @State private var password = ""
     @Environment(\.dismiss) private var dismiss
 
@@ -21,7 +21,7 @@ struct LoginView: View {
             
             VStack{
                 
-                TextField("Username", text: $userName)
+                TextField("Email", text: $email)
                     //.textFieldStyle(.roundedBorder)
                     .padding(15)
                     .background(.clear)
@@ -31,8 +31,8 @@ struct LoginView: View {
                     .padding(15)
                     .background(.clear)
                             
-                Button("Log In") {
-                    print("Succesfuly login\n \(userName) - \(password)")
+                Button("Login") {
+                    login()
                     dismiss()
                     
                 }
@@ -40,7 +40,7 @@ struct LoginView: View {
                 .padding(25)
                 
                 Button("Forget password") {
-                    print("Succesfuly login\n \(userName) - \(password)")
+                    print("Succesfuly login\n \(email) - \(password)")
                     dismiss()
                     
                 }
@@ -48,7 +48,26 @@ struct LoginView: View {
             }
         }
     }
+    
+    func login() {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            } else {
+                print("Loged In")
+            }
+        }
+    }
+    
+    func register() {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+    }
 }
+
 
 struct LoginView_Previews: PreviewProvider {
     static var previews: some View {

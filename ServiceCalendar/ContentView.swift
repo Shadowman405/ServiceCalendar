@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import FirebaseAuth
+import Firebase
 
 struct ContentView: View {
     @State private var isPresented = false
