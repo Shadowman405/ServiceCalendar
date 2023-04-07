@@ -8,7 +8,7 @@
 import SwiftUI
 import Firebase
 
-struct ServiceList: View {
+struct CarsGrid: View {
     @State private var isUserLoggedIn = false
     
     var body: some View {
@@ -43,6 +43,6 @@ struct ServiceList: View {
 
 struct ServiceList_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceList()
+        CarsGrid()
     }
 }
