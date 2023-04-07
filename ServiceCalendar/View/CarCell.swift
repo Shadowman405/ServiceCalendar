@@ -11,16 +11,26 @@ struct CarCell: View {
     var car: Car
     
     var body: some View {
-        VStack {
-            Text(car.carName)
-            
-            Image(car.carImage)
-                .resizable()
-                .cornerRadius(20)
-                .frame(height: 270,alignment: .center)
+        ZStack {
+            VStack {
+                Image(car.carImage)
+                    .resizable()
+                    .cornerRadius(20)
+                    .frame(height: 270,alignment: .center)
                 .padding(10)
+            }
+            Text(car.carName)
+                .font(.custom("Snell Roundhand", size: 30))
+                .fontWeight(.thin)
+                .foregroundColor(.black)
+                .offset(y: -90)
             
-            Text("Current Milage - \(car.carMileage)")
+            
+            Text( "Milage - \(car.carMileage)")
+                .font(.custom("Snell Roundhand", size: 30))
+                .fontWeight(.thin)
+                .foregroundColor(.black)
+                .offset(y: 110)
         }
     }
 }
