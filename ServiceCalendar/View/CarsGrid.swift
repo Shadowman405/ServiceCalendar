@@ -10,10 +10,21 @@ import Firebase
 
 struct CarsGrid: View {
     @State private var isUserLoggedIn = false
+    @ObservedObject var carGrid: CarGrid
+    
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 10, alignment: nil)
+    ]
     
     var body: some View {
         VStack {
-            Text("Sone list")
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(carGrid.cars){ car in
+                        CarCell(car: car)
+                    }
+                }
+            }
             
             Button("Sign Out") {
                 signOut()
@@ -43,6 +54,6 @@ struct CarsGrid: View {
 
 struct ServiceList_Previews: PreviewProvider {
     static var previews: some View {
-        CarsGrid()
+        CarsGrid(carGrid: CarGrid())
     }
 }

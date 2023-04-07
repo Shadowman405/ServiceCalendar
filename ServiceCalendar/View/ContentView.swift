@@ -17,7 +17,7 @@ struct ContentView: View {
     
     var body: some View {
         if isUserLoggedIn {
-            CarsGrid()
+            CarsGrid(carGrid: CarGrid())
         } else {
             content
         }

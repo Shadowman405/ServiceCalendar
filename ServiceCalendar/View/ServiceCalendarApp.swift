@@ -10,6 +10,7 @@ import Firebase
 
 @main
 struct ServiceCalendarApp: App {
+    @StateObject private var carsGrid = CarGrid()
     
     init() {
         FirebaseApp.configure()
@@ -18,6 +19,7 @@ struct ServiceCalendarApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(carsGrid)
         }
     }
 }
