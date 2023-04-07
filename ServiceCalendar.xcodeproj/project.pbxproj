@@ -10,6 +10,8 @@
 		BF1090A829DF23E6007C8124 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = BF1090A729DF23E6007C8124 /* FirebaseAuth */; };
 		BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090AB29DF5A16007C8124 /* RegisterView.swift */; };
 		BF1090AE29DF5F9E007C8124 /* ServiceList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090AD29DF5F9E007C8124 /* ServiceList.swift */; };
+		BF1090B029E08BC9007C8124 /* CarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090AF29E08BC9007C8124 /* CarCell.swift */; };
+		BF1090B429E08C0D007C8124 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090B329E08C0D007C8124 /* Car.swift */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* Begin PBXFileReference section */
 		BF1090AB29DF5A16007C8124 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		BF1090AD29DF5F9E007C8124 /* ServiceList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceList.swift; sourceTree = "<group>"; };
+		BF1090AF29E08BC9007C8124 /* CarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarCell.swift; sourceTree = "<group>"; };
+		BF1090B329E08C0D007C8124 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCalendarApp.swift; sourceTree = "<group>"; };
 		BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -47,6 +51,26 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BF1090B129E08BD8007C8124 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */,
+				BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */,
+				BF1090AB29DF5A16007C8124 /* RegisterView.swift */,
+				BF1090AD29DF5F9E007C8124 /* ServiceList.swift */,
+				BF1090AF29E08BC9007C8124 /* CarCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF1090B229E08BE7007C8124 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF1090B329E08C0D007C8124 /* Car.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		BF4CBB9C29DDBE6500EC5626 = {
 			isa = PBXGroup;
 			children = (
@@ -67,10 +91,8 @@
 		BF4CBBA729DDBE6500EC5626 /* ServiceCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */,
-				BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */,
-				BF1090AB29DF5A16007C8124 /* RegisterView.swift */,
-				BF1090AD29DF5F9E007C8124 /* ServiceList.swift */,
+				BF1090B229E08BE7007C8124 /* Model */,
+				BF1090B129E08BD8007C8124 /* View */,
 				BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */,
 				BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */,
 				BF4CBBAE29DDBE6700EC5626 /* Preview Content */,
@@ -166,7 +188,9 @@
 			files = (
 				BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */,
 				BF1090AE29DF5F9E007C8124 /* ServiceList.swift in Sources */,
+				BF1090B429E08C0D007C8124 /* Car.swift in Sources */,
 				BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */,
+				BF1090B029E08BC9007C8124 /* CarCell.swift in Sources */,
 				BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
