@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 
 struct ContentView: View {
+    @Binding var logedIn: Bool
     @State private var isPresentedReg = false
     @State private var isUserLoggedIn = false
     @State private var email = ""
@@ -16,7 +17,7 @@ struct ContentView: View {
 
     
     var body: some View {
-        if isUserLoggedIn {
+        if logedIn {
             CarsGrid(carGrid: CarGrid())
         } else {
             content
@@ -85,6 +86,7 @@ struct ContentView: View {
                 Auth.auth().addStateDidChangeListener { auth, user in
                     if user != nil {
                         isUserLoggedIn.toggle()
+                        logedIn.toggle()
                     }
                 }
             }
@@ -95,6 +97,7 @@ struct ContentView: View {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
+                logedIn = true
             } else {
                 print("Loged In")
             }
@@ -103,7 +106,9 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @State private var testisPresentedReg = false
+    
     static var previews: some View {
-        ContentView()
+        ContentView(logedIn: .constant(true))
     }
 }

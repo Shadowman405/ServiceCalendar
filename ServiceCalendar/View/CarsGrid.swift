@@ -43,7 +43,7 @@ struct CarsGrid: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: ContentView()) {
+                    NavigationLink(destination: ContentView(logedIn: $isUserLoggedIn)) {
                         Button {
                             signOut()
                         } label: {
@@ -59,6 +59,7 @@ struct CarsGrid: View {
     func signOut() {
         do {
             try Auth.auth().signOut()
+            isUserLoggedIn = false
             print("signed out")
         } catch {
             print("Error")
