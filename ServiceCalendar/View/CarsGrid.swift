@@ -56,9 +56,10 @@ struct CarsGrid: View {
     }
     
     func signOut() {
+        isUserLoggedIn = false
+        print("Status - \(isUserLoggedIn)")
         do {
             try Auth.auth().signOut()
-            isUserLoggedIn = false
             print("signed out")
         } catch {
             print("Error")
