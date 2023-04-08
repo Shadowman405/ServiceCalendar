@@ -17,28 +17,37 @@ struct CarsGrid: View {
     ]
     
     var body: some View {
-        VStack {
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(carGrid.cars){ car in
-                        CarCell(car: car)
+        NavigationStack {
+            VStack {
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(carGrid.cars){ car in
+                            CarCell(car: car)
+                        }
+                    }
+                }
+                
+//                Button("Sign Out") {
+//                    signOut()
+//                    self.isUserLoggedIn.toggle()
+//                }
+//                .sheet(isPresented: $isUserLoggedIn, content: {
+//                    ContentView()
+//                })
+//                .buttonStyle(.bordered)
+//                .tint(.red)
+//                .cornerRadius(10)
+//                .foregroundColor(.black)
+//                .controlSize(.large)
+//                .font(.system(size: 20, weight: .heavy, design: .serif))
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("SignOut") {
+                        signOut()
                     }
                 }
             }
-            
-            Button("Sign Out") {
-                signOut()
-                self.isUserLoggedIn.toggle()
-            }
-            .sheet(isPresented: $isUserLoggedIn, content: {
-                ContentView()
-            })
-            .buttonStyle(.bordered)
-            .tint(.red)
-            .cornerRadius(10)
-            .foregroundColor(.black)
-            .controlSize(.large)
-            .font(.system(size: 20, weight: .heavy, design: .serif))
         }
     }
     
