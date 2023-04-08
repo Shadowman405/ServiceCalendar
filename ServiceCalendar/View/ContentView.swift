@@ -86,7 +86,6 @@ struct ContentView: View {
                 Auth.auth().addStateDidChangeListener { auth, user in
                     if user != nil {
                         isUserLoggedIn.toggle()
-                        logedIn.toggle()
                     }
                 }
             }
@@ -97,9 +96,9 @@ struct ContentView: View {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
-                logedIn = true
             } else {
                 print("Loged In")
+                logedIn.toggle()
             }
         }
     }
@@ -107,6 +106,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     @State private var testisPresentedReg = false
+    
     
     static var previews: some View {
         ContentView(logedIn: .constant(true))

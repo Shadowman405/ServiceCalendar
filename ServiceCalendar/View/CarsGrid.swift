@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct CarsGrid: View {
-    @State private var isUserLoggedIn = false
+    @State private var isUserLoggedIn = true
     @ObservedObject var carGrid: CarGrid
     
     let columns: [GridItem] = [
@@ -49,7 +49,6 @@ struct CarsGrid: View {
                         } label: {
                             Text("SignOut")
                         }
-                        .buttonStyle(.bordered)
                     }
                 }
             }
