@@ -25,68 +25,80 @@ struct ContentView: View {
     }
     
     var content: some View {
-        ZStack {
-            LinearGradient(colors: [Color.red, Color.purple, Color.blue], startPoint: .top, endPoint: .bottom)
-                .edgesIgnoringSafeArea(.all)
-            
+        NavigationStack {
             ZStack {
-                VStack(alignment: .center) {
-                    Text("Service Calendar")
-                        .font(.system(size: 36, weight: .heavy, design: .serif))
-                    
-                    HStack {
-                        Image("logo_v2fix")
-                            .scaledToFill()
-                        .foregroundColor(.accentColor)
+                LinearGradient(colors: [Color.red, Color.purple, Color.blue], startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
+                
+                ZStack {
+                    VStack(alignment: .center) {
+                        Text("Service Calendar")
+                            .font(.system(size: 36, weight: .heavy, design: .serif))
                         
-                    }
-                    .padding(10)
-                    
-                    VStack {
-                        TextField("Email", text: $email)
-                            //.textFieldStyle(.roundedBorder)
-                            .padding(5)
-                        .background(.clear)
+                        HStack {
+                            Image("logo_v2fix")
+                                .scaledToFill()
+                            .foregroundColor(.accentColor)
+                            
+                        }
+                        .padding(10)
                         
-                        TextField("Password", text: $password)
-                            //.textFieldStyle(.roundedBorder)
-                            .padding(5)
+                        VStack {
+                            TextField("Email", text: $email)
+                                //.textFieldStyle(.roundedBorder)
+                                .padding(5)
                             .background(.clear)
-                    }
-                    .padding(25)
-                                
-                    Button("Login") {
-                        login()
+                            
+                            TextField("Password", text: $password)
+                                //.textFieldStyle(.roundedBorder)
+                                .padding(5)
+                                .background(.clear)
+                        }
+                        .padding(25)
+                                    
+                        Button("Login") {
+                            login()
+                            
+                        }
+                        .buttonStyle(.bordered)
+                        .tint(.red)
+                        .cornerRadius(10)
+                        .foregroundColor(.black)
+                        .controlSize(.large)
+                        .font(.system(size: 20, weight: .heavy, design: .serif))
                         
-                    }
-                    .buttonStyle(.bordered)
-                    .tint(.red)
-                    .cornerRadius(10)
-                    .foregroundColor(.black)
-                    .controlSize(.large)
-                    .font(.system(size: 20, weight: .heavy, design: .serif))
-                    
-                    Button("Register") {
-                        self.isPresentedReg.toggle()
+                        Button("Register") {
+                            self.isPresentedReg.toggle()
 
+                        }
+                        .sheet(isPresented: $isPresentedReg, content: {
+                            RegisterView()
+                        })
+                        .buttonStyle(.bordered)
+                        .tint(.red)
+                        .cornerRadius(10)
+                        .foregroundColor(.black)
+                        .controlSize(.large)
+                        .font(.system(size: 20, weight: .heavy, design: .serif))
                     }
-                    .sheet(isPresented: $isPresentedReg, content: {
-                        RegisterView()
-                    })
-                    .buttonStyle(.bordered)
-                    .tint(.red)
-                    .cornerRadius(10)
-                    .foregroundColor(.black)
-                    .controlSize(.large)
-                    .font(.system(size: 20, weight: .heavy, design: .serif))
+                }
+                .padding()
+                .onAppear {
+                    Auth.auth().addStateDidChangeListener { auth, user in
+                        if user != nil {
+                            isUserLoggedIn.toggle()
+                        }
+                    }
                 }
             }
-            .padding()
-            .onAppear {
-                Auth.auth().addStateDidChangeListener { auth, user in
-                    if user != nil {
-                        isUserLoggedIn.toggle()
-                    }
+            .navigationTitle("Login")
+            .navigationDestination(for: Route.self) { route in
+                switch route {
+                case .carsGrid:
+                    CarsGrid(carGrid: CarGrid())
+                    
+                case.content:
+                    ContentView(logedIn: $isUserLoggedIn)
                 }
             }
         }
