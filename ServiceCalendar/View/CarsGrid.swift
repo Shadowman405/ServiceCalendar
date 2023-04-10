@@ -62,6 +62,7 @@ struct CarsGrid: View {
             }
         }
         .navigationTitle("My Cars")
+        .navigationBarBackButtonHidden(true)
     }
     
     func signOut() {

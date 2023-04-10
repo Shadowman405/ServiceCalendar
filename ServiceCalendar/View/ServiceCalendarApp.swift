@@ -12,7 +12,7 @@ import Firebase
 struct ServiceCalendarApp: App {
     
 //    @StateObject private var carsGrid = CarGrid()
-//    @State var select = false
+    @State var select = false
     
     init() {
         FirebaseApp.configure()
@@ -20,7 +20,8 @@ struct ServiceCalendarApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LoginView(logedIn: $select)
+            //ContentView()
                // .environmentObject(carsGrid)
         }
     }
