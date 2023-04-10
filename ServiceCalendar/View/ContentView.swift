@@ -42,19 +42,28 @@ struct ContentView: View {
                             
                         }
                         .padding(10)
+                        
+                        NavigationLink {
+                            LoginView(logedIn: $isPresentedReg)
+                        } label: {
+                            Text("GOOOOOOO")
+                        }
+
                                     
-                        NavigationLink(destination: LoginView(logedIn: $isUserLoggedIn), label: {
-                            Text("")
-                            Button("Start") {
-                                
-                            }
-                            .buttonStyle(.bordered)
-                            .tint(.red)
-                            .cornerRadius(10)
-                            .foregroundColor(.black)
-                            .controlSize(.large)
-                        .font(.system(size: 20, weight: .heavy, design: .serif))
-                        })
+//                        NavigationLink(destination: LoginView(logedIn: $isUserLoggedIn), label: {
+//                            Text("")
+//                            Button("Start") {
+//
+//                            }
+//                            .buttonStyle(.bordered)
+//                            .tint(.red)
+//                            .cornerRadius(10)
+//                            .foregroundColor(.black)
+//                            .controlSize(.large)
+//                        .font(.system(size: 20, weight: .heavy, design: .serif))
+//                        })
+                        
+                        
                     }
                 }
                 .padding()

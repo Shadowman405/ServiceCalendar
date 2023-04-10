@@ -44,14 +44,20 @@ struct CarsGrid: View {
 //                .font(.system(size: 20, weight: .heavy, design: .serif))
             }
             .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: LoginView(logedIn: $isUserLoggedIn)) {
-                        Button {
-                            signOut()
-                        } label: {
-                            Text("SignOut")
-                        }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        LoginView(logedIn: $isUserLoggedIn)
+                    } label: {
+                        Text("Signout")
                     }
+
+//                    NavigationLink(destination: LoginView(logedIn: $isUserLoggedIn)) {
+//                        Button {
+//                            signOut()
+//                        } label: {
+//                            Text("SignOut")
+//                        }
+//                    }
                 }
             }
         }
