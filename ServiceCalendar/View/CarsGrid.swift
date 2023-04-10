@@ -9,7 +9,7 @@ import SwiftUI
 import Firebase
 
 struct CarsGrid: View {
-    @State private var isUserLoggedIn = true
+    @State private var isUserLoggedIn = false
     @ObservedObject var carGrid: CarGrid
     
     let columns: [GridItem] = [
@@ -43,14 +43,27 @@ struct CarsGrid: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    NavigationLink(destination: ContentView(logedIn: $isUserLoggedIn)) {
-                        Button {
-                            signOut()
-                        } label: {
-                            Text("SignOut")
-                        }
+//                    NavigationLink(destination: ContentView(logedIn: $isUserLoggedIn)) {
+//                        Button {
+//                            signOut()
+//                        } label: {
+//                            Text("SignOut")
+//                        }
+//                    }
+                    NavigationLink(value: Route.content) {
+                        Text("Logout")
                     }
                 }
+            }
+        }
+        .navigationTitle("My Cars")
+        .navigationDestination(for: Route.self) { route in
+            switch route {
+            case .carsGrid:
+                CarsGrid(carGrid: CarGrid())
+                
+            case.content:
+                ContentView(logedIn: .constant(false))
             }
         }
     }
