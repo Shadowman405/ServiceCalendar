@@ -11,3 +11,7 @@ enum Route: Hashable {
     case carsGrid
     case content
 }
+
+class isLogedInUser: ObservableObject {
+    @Published var logedIn = false
+}
