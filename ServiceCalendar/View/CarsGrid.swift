@@ -28,20 +28,6 @@ struct CarsGrid: View {
                         }
                     }
                 }
-                
-//                Button("Sign Out") {
-//                    signOut()
-//                    self.isUserLoggedIn.toggle()
-//                }
-//                .sheet(isPresented: $isUserLoggedIn, content: {
-//                    ContentView()
-//                })
-//                .buttonStyle(.bordered)
-//                .tint(.red)
-//                .cornerRadius(10)
-//                .foregroundColor(.black)
-//                .controlSize(.large)
-//                .font(.system(size: 20, weight: .heavy, design: .serif))
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -50,14 +36,6 @@ struct CarsGrid: View {
                     } label: {
                         Text("Signout")
                     }
-
-//                    NavigationLink(destination: LoginView(logedIn: $isUserLoggedIn)) {
-//                        Button {
-//                            signOut()
-//                        } label: {
-//                            Text("SignOut")
-//                        }
-//                    }
                 }
             }
         }
