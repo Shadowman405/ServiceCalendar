@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct TabBar: View {
+    var action: () -> Void
+    
     var body: some View {
         ZStack {
             HStack {
                 Button {
-                    print("Beep")
+                    action()
                 } label: {
                     Image(systemName: "mappin.and.ellipse")
                         .frame(width: 44,height: 44)
@@ -39,6 +41,6 @@ struct TabBar: View {
 
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
-        TabBar()
+        TabBar(action: {})
     }
 }
