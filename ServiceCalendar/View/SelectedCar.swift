@@ -11,7 +11,14 @@ struct SelectedCar: View {
     var selectedCar: Car
     
     var body: some View {
-        Text(selectedCar.carName)
+        NavigationView {
+            ZStack {
+                Text(selectedCar.carName)
+                
+                TabBar(action: {})
+            }
+        }
+        .navigationBarHidden(true)
     }
 }
 
