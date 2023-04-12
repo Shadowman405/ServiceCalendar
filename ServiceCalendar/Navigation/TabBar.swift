@@ -12,6 +12,14 @@ struct TabBar: View {
     
     var body: some View {
         ZStack {
+            Arc()
+                .fill(Color.blue)
+                .frame(height: 88)
+                .overlay {
+                    Arc()
+                        .stroke(Color.pink, lineWidth: 0.7)
+                }
+            
             HStack {
                 Button {
                     action()
@@ -31,7 +39,7 @@ struct TabBar: View {
 
             }
             .font(.title2)
-            .foregroundColor(.blue)
+            .foregroundColor(.white)
             .padding(EdgeInsets(top: 20, leading: 32, bottom: 24, trailing: 32))
         }
         .frame(maxHeight: .infinity, alignment: .bottom)
