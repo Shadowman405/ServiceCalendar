@@ -6,8 +6,15 @@
 //
 
 import SwiftUI
+import BottomSheet
+
+enum BotomSheetPosition: CGFloat, CaseIterable {
+    case top = 0.82
+    case middle = 0.385
+}
 
 struct SelectedCar: View {
+    @State var bottomSheetPosition: BotomSheetPosition = .middle
     var selectedCar: Car
     
     var body: some View {
@@ -15,11 +22,11 @@ struct SelectedCar: View {
             ZStack {
                 VStack {
                     Text(selectedCar.carName)
-                        .padding(30)
+                        .padding(25)
                     
                     Image(selectedCar.carImage)
                         .resizable()
-                        .frame(height: 300)
+                        .frame(height: 250)
                         .cornerRadius(20)
                         .padding()
                     
@@ -27,6 +34,12 @@ struct SelectedCar: View {
                 }
                 
                 
+                BottomSheetView(position: $bottomSheetPosition) {
+                    
+                } content: {
+                    
+                }
+
                 
                 TabBar(action: {})
             }

@@ -17,6 +17,7 @@
 		BF1090BC29E5E6A8007C8124 /* SelectedCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090BB29E5E6A8007C8124 /* SelectedCar.swift */; };
 		BF1090BF29E5E84B007C8124 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090BE29E5E84B007C8124 /* TabBar.swift */; };
 		BF1090C229E73A49007C8124 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090C129E73A49007C8124 /* Shapes.swift */; };
+		BF1090C529E740BC007C8124 /* BottomSheet in Frameworks */ = {isa = PBXBuildFile; productRef = BF1090C429E740BC007C8124 /* BottomSheet */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF1090A829DF23E6007C8124 /* FirebaseAuth in Frameworks */,
+				BF1090C529E740BC007C8124 /* BottomSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +160,7 @@
 			name = ServiceCalendar;
 			packageProductDependencies = (
 				BF1090A729DF23E6007C8124 /* FirebaseAuth */,
+				BF1090C429E740BC007C8124 /* BottomSheet */,
 			);
 			productName = ServiceCalendar;
 			productReference = BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */;
@@ -189,6 +192,7 @@
 			mainGroup = BF4CBB9C29DDBE6500EC5626;
 			packageReferences = (
 				BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BF1090C329E740BC007C8124 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 			);
 			productRefGroup = BF4CBBA629DDBE6500EC5626 /* Products */;
 			projectDirPath = "";
@@ -437,6 +441,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		BF1090C329E740BC007C8124 /* XCRemoteSwiftPackageReference "BottomSheet" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Wouter125/BottomSheet";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -457,6 +469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		BF1090C429E740BC007C8124 /* BottomSheet */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF1090C329E740BC007C8124 /* XCRemoteSwiftPackageReference "BottomSheet" */;
+			productName = BottomSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
