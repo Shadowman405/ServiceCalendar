@@ -37,7 +37,7 @@ struct SelectedCar: View {
                 BottomSheetView(position: $bottomSheetPosition) {
                     
                 } content: {
-                    
+                    ForecastView()
                 }
 
                 
