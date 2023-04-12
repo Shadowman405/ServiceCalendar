@@ -15,12 +15,15 @@ struct SelectedCar: View {
             ZStack {
                 VStack {
                     Text(selectedCar.carName)
+                        .padding(30)
                     
                     Image(selectedCar.carImage)
                         .resizable()
                         .frame(height: 300)
                         .cornerRadius(20)
                         .padding()
+                    
+                    Spacer()
                 }
                 
                 
@@ -28,7 +31,7 @@ struct SelectedCar: View {
                 TabBar(action: {})
             }
         }
-        .navigationBarHidden(true)
+        //.navigationBarHidden(true)
     }
 }
 

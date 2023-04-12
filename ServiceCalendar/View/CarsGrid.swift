@@ -19,12 +19,17 @@ struct CarsGrid: View {
     ]
     
     var body: some View {
-        NavigationStack {
+        NavigationView {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach(carGrid.cars){ car in
-                            CarCell(car: car)
+                            ZStack {
+                                CarCell(car: car)
+                                NavigationLink(destination: SelectedCar(selectedCar: car)) {
+                                    Text("dfwfwecwccwecw")
+                                }
+                            }
                         }
                     }
                 }
@@ -39,7 +44,6 @@ struct CarsGrid: View {
                 }
             }
         }
-        .navigationTitle("My Cars")
         .navigationBarBackButtonHidden(true)
     }
     
