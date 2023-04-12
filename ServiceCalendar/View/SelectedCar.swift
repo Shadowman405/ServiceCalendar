@@ -41,7 +41,9 @@ struct SelectedCar: View {
                 }
 
                 
-                TabBar(action: {})
+                TabBar(action: {
+                    bottomSheetPosition = .top
+                })
             }
         }
         //.navigationBarHidden(true)
