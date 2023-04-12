@@ -13,7 +13,17 @@ struct SelectedCar: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Text(selectedCar.carName)
+                VStack {
+                    Text(selectedCar.carName)
+                    
+                    Image(selectedCar.carImage)
+                        .resizable()
+                        .frame(height: 300)
+                        .cornerRadius(20)
+                        .padding()
+                }
+                
+                
                 
                 TabBar(action: {})
             }
