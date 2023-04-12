@@ -13,7 +13,7 @@ struct TabBar: View {
     var body: some View {
         ZStack {
             Arc()
-                .fill(Color.blue)
+                .fill(Gradient(colors: [Color.purple, Color.blue]))
                 .frame(height: 88)
                 .overlay {
                     Arc()
