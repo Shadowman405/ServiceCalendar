@@ -16,6 +16,7 @@
 		BF1090BA29E45C5E007C8124 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090B929E45C5E007C8124 /* LoginView.swift */; };
 		BF1090BC29E5E6A8007C8124 /* SelectedCar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090BB29E5E6A8007C8124 /* SelectedCar.swift */; };
 		BF1090BF29E5E84B007C8124 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090BE29E5E84B007C8124 /* TabBar.swift */; };
+		BF1090C229E73A49007C8124 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090C129E73A49007C8124 /* Shapes.swift */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		BF1090B929E45C5E007C8124 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		BF1090BB29E5E6A8007C8124 /* SelectedCar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCar.swift; sourceTree = "<group>"; };
 		BF1090BE29E5E84B007C8124 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		BF1090C129E73A49007C8124 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCalendarApp.swift; sourceTree = "<group>"; };
 		BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -90,6 +92,14 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		BF1090C029E73A41007C8124 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				BF1090C129E73A49007C8124 /* Shapes.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		BF4CBB9C29DDBE6500EC5626 = {
 			isa = PBXGroup;
 			children = (
@@ -110,6 +120,7 @@
 		BF4CBBA729DDBE6500EC5626 /* ServiceCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				BF1090C029E73A41007C8124 /* Utils */,
 				BF1090BD29E5E83A007C8124 /* Navigation */,
 				BF1090B229E08BE7007C8124 /* Model */,
 				BF1090B129E08BD8007C8124 /* View */,
@@ -214,6 +225,7 @@
 				BF1090B029E08BC9007C8124 /* CarCell.swift in Sources */,
 				BF1090B829E44CCD007C8124 /* Route.swift in Sources */,
 				BF1090BA29E45C5E007C8124 /* LoginView.swift in Sources */,
+				BF1090C229E73A49007C8124 /* Shapes.swift in Sources */,
 				BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */,
 				BF1090BF29E5E84B007C8124 /* TabBar.swift in Sources */,
 			);
