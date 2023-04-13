@@ -15,6 +15,7 @@ enum BotomSheetPosition: CGFloat, CaseIterable {
 
 struct SelectedCar: View {
     @State var bottomSheetPosition: BotomSheetPosition = .middle
+    @State var bottomSheetChange = false
     var selectedCar: Car
     
     var body: some View {
@@ -42,7 +43,13 @@ struct SelectedCar: View {
 
                 
                 TabBar(action: {
-                    bottomSheetPosition = .top
+                    bottomSheetChange.toggle()
+                    //bottomSheetPosition = .top
+                    if bottomSheetChange {
+                        bottomSheetPosition = .top
+                    } else {
+                        bottomSheetPosition = .middle
+                    }
                 })
             }
         }
