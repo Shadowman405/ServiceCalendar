@@ -13,3 +13,7 @@ extension View {
             .background(Blur(radius: radius,opaque: opaque))
     }
 }
+
+extension Color {
+    static let bottomSheetBorderMiddle = LinearGradient(gradient: Gradient(stops: [.init(color: .white, location: 0), .init(color: .clear, location: 0.2)]), startPoint: .top, endPoint: .bottom)
+}
