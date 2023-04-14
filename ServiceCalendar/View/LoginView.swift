@@ -49,7 +49,7 @@ struct LoginView: View {
                                 .padding(5)
                             .background(.clear)
                             
-                            TextField("Password", text: $password)
+                            SecureField("Password", text: $password)
                                 //.textFieldStyle(.roundedBorder)
                                 .padding(5)
                                 .background(.clear)
