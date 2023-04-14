@@ -13,6 +13,7 @@ struct ForecastView: View {
             
         }
         .background(Gradient(colors: [Color.purple, Color.blue]))
+        .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 44))
         .overlay {
             Divider()
