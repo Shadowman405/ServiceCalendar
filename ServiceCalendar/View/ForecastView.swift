@@ -12,8 +12,8 @@ struct ForecastView: View {
         ScrollView {
             
         }
+        .backgroundBlur(radius: 25,opaque: true)
         .background(Gradient(colors: [Color.purple, Color.blue]))
-        .background(Blur(radius: 25,opaque: true))
         .clipShape(RoundedRectangle(cornerRadius: 44))
         .overlay {
             Divider()

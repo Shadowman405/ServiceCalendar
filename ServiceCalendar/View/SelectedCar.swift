@@ -27,7 +27,7 @@ struct SelectedCar: View {
                     
                     Image(selectedCar.carImage)
                         .resizable()
-                        .frame(height: 250)
+                        .frame(height: 300)
                         .cornerRadius(20)
                         .padding()
                     
