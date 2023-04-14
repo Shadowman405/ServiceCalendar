@@ -21,13 +21,17 @@ struct SelectedCar: View {
     var body: some View {
         NavigationView {
             ZStack {
+                LinearGradient(colors: [.blue ,.black], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+                    .opacity(0.8)
+                
                 VStack {
                     Text(selectedCar.carName)
                         .padding(25)
                     
                     Image(selectedCar.carImage)
                         .resizable()
-                        .frame(height: 300)
+                        .frame(height: 250)
                         .cornerRadius(20)
                         .padding()
                     
