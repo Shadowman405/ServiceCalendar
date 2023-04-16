@@ -28,6 +28,8 @@ struct SelectedCar: View {
             GeometryReader { geometry in
                 let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
                 
+                let imageOffset = screenHeight + 36
+                
                 ZStack {
                     LinearGradient(colors: [.blue ,.black], startPoint: .top, endPoint: .bottom)
                         .ignoresSafeArea()
@@ -36,12 +38,14 @@ struct SelectedCar: View {
                     VStack {
                         Text(selectedCar.carName)
                             .padding(25)
+                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
                         
                         Image(selectedCar.carImage)
                             .resizable()
                             .frame(height: 250)
                             .cornerRadius(20)
                             .padding()
+                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
                         
                         Spacer()
                     }
