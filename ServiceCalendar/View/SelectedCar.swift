@@ -52,10 +52,10 @@ struct SelectedCar: View {
                     
                     
                     BottomSheetView(position: $bottomSheetPosition) {
-                        Text(bottomSheetTranslationProrated.formatted())
+//                        Text(bottomSheetTranslationProrated.formatted())
                         
                     } content: {
-                        ForecastView()
+                        ForecastView(bottomSheetTranslationProrated: bottomSheetTranslationProrated)
                     }
                     .onBottomSheetDrag { translation in
                         bottomSheetTranslation = translation / screenHeight
