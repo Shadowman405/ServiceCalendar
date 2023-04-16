@@ -23,6 +23,8 @@ struct SelectedCar: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometry in
+                let screenHeight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
+                
                 ZStack {
                     LinearGradient(colors: [.blue ,.black], startPoint: .top, endPoint: .bottom)
                         .ignoresSafeArea()
@@ -49,7 +51,7 @@ struct SelectedCar: View {
                         ForecastView()
                     }
                     .onBottomSheetDrag { translation in
-                        bottomSheetTranslation = translation
+                        bottomSheetTranslation = translation / screenHeight
                     }
 
                     
