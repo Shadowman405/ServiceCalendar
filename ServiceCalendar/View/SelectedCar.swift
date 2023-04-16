@@ -16,6 +16,8 @@ enum BotomSheetPosition: CGFloat, CaseIterable {
 struct SelectedCar: View {
     @State var bottomSheetPosition: BotomSheetPosition = .middle
     @State var bottomSheetChange = false
+    @State var bottomSheetTranslation: CGFloat = BotomSheetPosition.middle.rawValue
+    
     var selectedCar: Car
     
     var body: some View {
@@ -43,6 +45,9 @@ struct SelectedCar: View {
                     
                 } content: {
                     ForecastView()
+                }
+                .onBottomSheetDrag { translation in
+                    bottomSheetTranslation = translation
                 }
 
                 
