@@ -15,7 +15,9 @@ struct SegmentedControl: View {
         VStack(spacing: 5) {
             HStack {
                 Button {
-                    selection = 0
+                    withAnimation(.easeInOut(duration: 0.4)) {
+                        selection = 0
+                    }
                 } label: {
                     Text("Service")
                 }
@@ -23,7 +25,9 @@ struct SegmentedControl: View {
 
                 
                 Button {
-                    selection = 1
+                    withAnimation(.easeInOut(duration: 0.4)) {
+                        selection = 1
+                    }
                 } label: {
                     Text("Spended Money")
                 }
