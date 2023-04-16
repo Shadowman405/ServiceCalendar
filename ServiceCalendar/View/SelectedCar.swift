@@ -22,44 +22,47 @@ struct SelectedCar: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                LinearGradient(colors: [.blue ,.black], startPoint: .top, endPoint: .bottom)
-                    .ignoresSafeArea()
-                    .opacity(0.8)
-                
-                VStack {
-                    Text(selectedCar.carName)
-                        .padding(25)
+            GeometryReader { geometry in
+                ZStack {
+                    LinearGradient(colors: [.blue ,.black], startPoint: .top, endPoint: .bottom)
+                        .ignoresSafeArea()
+                        .opacity(0.8)
                     
-                    Image(selectedCar.carImage)
-                        .resizable()
-                        .frame(height: 250)
-                        .cornerRadius(20)
-                        .padding()
-                    
-                    Spacer()
-                }
-                
-                
-                BottomSheetView(position: $bottomSheetPosition) {
-                    
-                } content: {
-                    ForecastView()
-                }
-                .onBottomSheetDrag { translation in
-                    bottomSheetTranslation = translation
-                }
-
-                
-                TabBar(action: {
-                    bottomSheetChange.toggle()
-                    //bottomSheetPosition = .top
-                    if bottomSheetChange {
-                        bottomSheetPosition = .top
-                    } else {
-                        bottomSheetPosition = .middle
+                    VStack {
+                        Text(selectedCar.carName)
+                            .padding(25)
+                        
+                        Image(selectedCar.carImage)
+                            .resizable()
+                            .frame(height: 250)
+                            .cornerRadius(20)
+                            .padding()
+                        
+                        Spacer()
                     }
-                })
+                    
+                    
+                    BottomSheetView(position: $bottomSheetPosition) {
+                        Text(bottomSheetTranslation.formatted())
+                        
+                    } content: {
+                        ForecastView()
+                    }
+                    .onBottomSheetDrag { translation in
+                        bottomSheetTranslation = translation
+                    }
+
+                    
+                    TabBar(action: {
+                        bottomSheetChange.toggle()
+                        //bottomSheetPosition = .top
+                        if bottomSheetChange {
+                            bottomSheetPosition = .top
+                        } else {
+                            bottomSheetPosition = .middle
+                        }
+                    })
+                }
             }
         }
         //.navigationBarHidden(true)
