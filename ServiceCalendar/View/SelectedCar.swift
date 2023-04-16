@@ -17,6 +17,9 @@ struct SelectedCar: View {
     @State var bottomSheetPosition: BotomSheetPosition = .middle
     @State var bottomSheetChange = false
     @State var bottomSheetTranslation: CGFloat = BotomSheetPosition.middle.rawValue
+    var bottomSheetTranslationProrated: CGFloat {
+        (bottomSheetTranslation - BotomSheetPosition.middle.rawValue) / (BotomSheetPosition.top.rawValue - BotomSheetPosition.middle.rawValue)
+    }
     
     var selectedCar: Car
     
@@ -45,7 +48,7 @@ struct SelectedCar: View {
                     
                     
                     BottomSheetView(position: $bottomSheetPosition) {
-                        Text(bottomSheetTranslation.formatted())
+                        Text(bottomSheetTranslationProrated.formatted())
                         
                     } content: {
                         ForecastView()
