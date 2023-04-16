@@ -64,13 +64,9 @@ struct SelectedCar: View {
                     
                     TabBar(action: {
                         bottomSheetChange.toggle()
-                        //bottomSheetPosition = .top
-                        if bottomSheetChange {
-                            bottomSheetPosition = .top
-                        } else {
-                            bottomSheetPosition = .middle
-                        }
+                        bottomSheetPosition = .top
                     })
+                    .offset(y: bottomSheetTranslationProrated * 115)
                 }
             }
         }
