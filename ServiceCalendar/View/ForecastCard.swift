@@ -13,7 +13,12 @@ struct ForecastCard: View {
     var isActive = true
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            RoundedRectangle(cornerRadius: 30)
+                .fill(Gradient(colors: [Color.purple, Color.blue]).opacity(isActive ? 1 : 0.2))
+                .frame(width: 60, height: 140)
+                .shadow(color: .black.opacity(0.25), radius: 10,x: 5, y: 4)
+        }
     }
 }
 
