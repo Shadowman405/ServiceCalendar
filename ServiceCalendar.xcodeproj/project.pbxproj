@@ -23,6 +23,7 @@
 		BF1090CB29E98322007C8124 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090CA29E98322007C8124 /* Extensions.swift */; };
 		BF1090CD29EC0605007C8124 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090CC29EC0605007C8124 /* SegmentedControl.swift */; };
 		BF1090CF29EE9990007C8124 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090CE29EE998F007C8124 /* Service.swift */; };
+		BF1090D129EE9D28007C8124 /* ForecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090D029EE9D28007C8124 /* ForecastCard.swift */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		BF1090CA29E98322007C8124 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF1090CC29EC0605007C8124 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
 		BF1090CE29EE998F007C8124 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		BF1090D029EE9D28007C8124 /* ForecastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCard.swift; sourceTree = "<group>"; };
 		BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCalendarApp.swift; sourceTree = "<group>"; };
 		BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				BF1090BB29E5E6A8007C8124 /* SelectedCar.swift */,
 				BF1090C629E74268007C8124 /* ForecastView.swift */,
 				BF1090CC29EC0605007C8124 /* SegmentedControl.swift */,
+				BF1090D029EE9D28007C8124 /* ForecastCard.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			files = (
 				BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */,
 				BF1090AE29DF5F9E007C8124 /* CarsGrid.swift in Sources */,
+				BF1090D129EE9D28007C8124 /* ForecastCard.swift in Sources */,
 				BF1090BC29E5E6A8007C8124 /* SelectedCar.swift in Sources */,
 				BF1090B429E08C0D007C8124 /* Car.swift in Sources */,
 				BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */,
