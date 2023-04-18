@@ -22,6 +22,7 @@
 		BF1090C929E981A1007C8124 /* Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090C829E981A1007C8124 /* Blur.swift */; };
 		BF1090CB29E98322007C8124 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090CA29E98322007C8124 /* Extensions.swift */; };
 		BF1090CD29EC0605007C8124 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090CC29EC0605007C8124 /* SegmentedControl.swift */; };
+		BF1090CF29EE9990007C8124 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090CE29EE998F007C8124 /* Service.swift */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 		BF1090C829E981A1007C8124 /* Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blur.swift; sourceTree = "<group>"; };
 		BF1090CA29E98322007C8124 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		BF1090CC29EC0605007C8124 /* SegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedControl.swift; sourceTree = "<group>"; };
+		BF1090CE29EE998F007C8124 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCalendarApp.swift; sourceTree = "<group>"; };
 		BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				BF1090B329E08C0D007C8124 /* Car.swift */,
 				BF1090B729E44CCD007C8124 /* Route.swift */,
+				BF1090CE29EE998F007C8124 /* Service.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				BF1090C929E981A1007C8124 /* Blur.swift in Sources */,
 				BF1090B829E44CCD007C8124 /* Route.swift in Sources */,
 				BF1090BA29E45C5E007C8124 /* LoginView.swift in Sources */,
+				BF1090CF29EE9990007C8124 /* Service.swift in Sources */,
 				BF1090C229E73A49007C8124 /* Shapes.swift in Sources */,
 				BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */,
 				BF1090BF29E5E84B007C8124 /* TabBar.swift in Sources */,
