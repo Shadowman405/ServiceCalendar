@@ -18,6 +18,15 @@ struct Service: Identifiable {
     var date: Date
     var doneService: Bool
     var checkMoney: Int
+    
+    var icon: String {
+        switch doneService {
+        case true:
+            return "checkmark.circle.fill"
+        case false:
+            return "checkmark.circle"
+        }
+    }
 }
 
 extension ServiceSegmentedControlModel {
