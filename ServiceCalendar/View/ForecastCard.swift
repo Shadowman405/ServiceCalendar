@@ -28,7 +28,17 @@ struct ForecastCard: View {
             
             //MARK: - Content
             VStack(spacing: 16) {
+                Text(service.date, format: segmentedControlChoice == ServiceSegmentedControlModel.service ? .dateTime.month() : .dateTime.year())
+                    .font(.subheadline.weight(.semibold))
                 
+                VStack(spacing: -4) {
+                    Image(systemName: service.icon)
+                        .foregroundColor(service.doneService ? .green : .red)
+                        .padding()
+                    
+                    Text("\(service.mileage)")
+                }
+                .frame(height: 42)
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 16)
