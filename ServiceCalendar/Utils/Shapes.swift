@@ -18,8 +18,9 @@ struct Arc: Shape {
         
         return path
     }
-    
-    struct Trapezoid: Shape {
+}
+
+struct Trapezoid: Shape {
         func path(in rect: CGRect) -> Path {
             var path = Path()
             let width = rect.size.width
@@ -41,4 +42,3 @@ struct Arc: Shape {
             return path
         }
     }
-}

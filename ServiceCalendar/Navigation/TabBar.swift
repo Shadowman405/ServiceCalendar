@@ -19,6 +19,7 @@ struct TabBar: View {
                     Arc()
                         .stroke(Color.pink, lineWidth: 0.7)
                 }
+
             
             HStack {
                 Button {
