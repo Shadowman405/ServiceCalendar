@@ -13,16 +13,23 @@ struct ForecastView: View {
     
     var body: some View {
         ScrollView {
-            VStack(spacing: 20) {
+            VStack() {
                 SegmentedControl(selection: $selection)
                 
                 //MARK: - Service Cards
                 ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 12) {
-                        ForEach(ServiceSegmentedControlModel.mockService) { service in
-                            ForecastCard(service: service, segmentedControlChoice: .service)
+                        if selection == 0 {
+                            ForEach(ServiceSegmentedControlModel.mockService) { service in
+                                ForecastCard(service: service, segmentedControlChoice: .service)
+                            }
+                        } else {
+                            ForEach(ServiceSegmentedControlModel.mockService) { service in
+                                ForecastCard(service: service, segmentedControlChoice: .service)
+                            }
                         }
                     }
+                    .padding(.vertical, 20)
                 }
                 .padding(.horizontal, 20)
             }

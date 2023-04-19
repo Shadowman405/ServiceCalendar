@@ -35,6 +35,6 @@ extension ServiceSegmentedControlModel {
         Service(mileage: 230000, date: .init(timeIntervalSinceNow: 0), doneService: false, checkMoney: 110),
         Service(mileage: 250000, date: .init(timeIntervalSinceNow: 0), doneService: false, checkMoney: 940),
         Service(mileage: 260000, date: .init(timeIntervalSinceNow: 0), doneService: false, checkMoney: 100),
-        Service(mileage: 264000, date: .init(timeIntervalSinceNow: 0), doneService: false, checkMoney: 66)
+        Service(mileage: 1264000, date: .init(timeIntervalSinceNow: 0), doneService: false, checkMoney: 66)
     ]
 }
