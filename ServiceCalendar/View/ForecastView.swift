@@ -23,10 +23,12 @@ struct ForecastView: View {
                             ForEach(ServiceSegmentedControlModel.mockService) { service in
                                 ForecastCard(service: service, segmentedControlChoice: .service)
                             }
+                            .transition(.offset(x: -430))
                         } else {
                             ForEach(ServiceSegmentedControlModel.mockService) { service in
                                 ForecastCard(service: service, segmentedControlChoice: .service)
                             }
+                            .transition(.offset(x: 430))
                         }
                     }
                     .padding(.vertical, 20)
