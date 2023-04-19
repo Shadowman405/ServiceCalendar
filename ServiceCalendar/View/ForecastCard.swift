@@ -17,7 +17,7 @@ struct ForecastCard: View {
             //MARK: - Card
             RoundedRectangle(cornerRadius: 30)
                 .fill(Gradient(colors: [Color.purple, Color.blue]).opacity(isActive ? 1 : 0.2))
-                .frame(width: 60, height: 140)
+                .frame(width: 90, height: 140)
                 .shadow(color: .black.opacity(0.25), radius: 10,x: 5, y: 4)
                 .overlay {
                     RoundedRectangle(cornerRadius: 30)
@@ -42,7 +42,7 @@ struct ForecastCard: View {
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 16)
-            .frame(width: 60,height: 140)
+            .frame(width: 90,height: 140)
         }
     }
 }
