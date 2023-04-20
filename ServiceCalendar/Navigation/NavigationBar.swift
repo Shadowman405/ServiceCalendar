@@ -38,8 +38,10 @@ struct NavigationBar: View {
         }
         .frame(height: 106, alignment: .top)
         .padding(.horizontal, 16)
-        .padding(.vertical, 2)
+        .padding(.top, 49)
         .background(Color.gray)
+        .frame(maxHeight: .infinity, alignment: .top)
+        .ignoresSafeArea()
     }
 }
 
