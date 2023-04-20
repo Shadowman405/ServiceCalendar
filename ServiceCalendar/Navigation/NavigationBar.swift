@@ -26,10 +26,20 @@ struct NavigationBar: View {
                     }
                     .frame(height: 44)
                 }
+                
+                Spacer()
+                
+                Image(systemName: "ellipsis.circle")
+                    .font(.system(size: 28))
+                    .frame(width: 44, height: 44, alignment: .trailing)
 
             }
             .frame(height: 52)
         }
+        .frame(height: 106, alignment: .top)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 2)
+        .background(Color.gray)
     }
 }
 
