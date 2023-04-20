@@ -29,6 +29,7 @@
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
 		BF4CBBB029DDBE6700EC5626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */; };
 		BF4CBBB929DF1DE700EC5626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */; };
+		BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				BF1090BE29E5E84B007C8124 /* TabBar.swift */,
+				BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				BF1090D129EE9D28007C8124 /* ForecastCard.swift in Sources */,
 				BF1090BC29E5E6A8007C8124 /* SelectedCar.swift in Sources */,
 				BF1090B429E08C0D007C8124 /* Car.swift in Sources */,
+				BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */,
 				BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */,
 				BF1090B029E08BC9007C8124 /* CarCell.swift in Sources */,
 				BF1090C929E981A1007C8124 /* Blur.swift in Sources */,
