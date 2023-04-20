@@ -9,7 +9,24 @@ import SwiftUI
 
 struct NavigationBar: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 8) {
+            HStack {
+                //MARK: - Back Button
+                Button {
+                    
+                } label: {
+                    Image(systemName: "chevron.left")
+                        .font(.system(size: 23).weight(.medium))
+                        .foregroundColor(.secondary)
+                    
+                    Text("My Car")
+                        .font(.title)
+                        .foregroundColor(.primary)
+                }
+
+            }
+            .frame(height: 52)
+        }
     }
 }
 
