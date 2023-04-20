@@ -15,13 +15,16 @@ struct NavigationBar: View {
                 Button {
                     
                 } label: {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 23).weight(.medium))
+                    HStack(spacing: 5) {
+                        Image(systemName: "chevron.left")
+                            .font(.system(size: 23).weight(.medium))
                         .foregroundColor(.secondary)
-                    
-                    Text("My Car")
-                        .font(.title)
-                        .foregroundColor(.primary)
+                        
+                        Text("My Car")
+                            .font(.title)
+                            .foregroundColor(.primary)
+                    }
+                    .frame(height: 44)
                 }
 
             }
