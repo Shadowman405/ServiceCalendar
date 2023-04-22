@@ -72,11 +72,14 @@ struct SelectedCar: View {
                 }
             }
             .toolbar(content: {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
                     } label: {
-                        Text("Back")
+//                        Text("Back")
+//                            .foregroundColor(.black)
+                        Image(systemName: "arrowshape.turn.up.backward.2")
+                            .foregroundColor(.black)
                     }
 
                 }
