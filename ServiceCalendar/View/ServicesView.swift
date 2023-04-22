@@ -9,7 +9,11 @@ import SwiftUI
 
 struct ServicesView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            LinearGradient(colors: [Color.blue, Color.purple, Color.black], startPoint: .top, endPoint: .bottom)
+                .ignoresSafeArea()
+        }
+        .navigationBarHidden(true)
     }
 }
 
