@@ -70,7 +70,7 @@ struct SelectedCar: View {
                 }
             }
         }
-        //.navigationBarHidden(true)
+        .navigationBarHidden(true)
     }
 }
 

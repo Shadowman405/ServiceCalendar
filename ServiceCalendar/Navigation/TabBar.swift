@@ -32,7 +32,7 @@ struct TabBar: View {
                 Spacer()
 
                 NavigationLink {
-                    
+                    ServicesView()
                 } label: {
                     Image(systemName: "list.star")
                         .frame(width: 44,height: 44)
