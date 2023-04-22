@@ -42,7 +42,7 @@ struct CarsGrid: View {
                         Text("Signout")
                     }
                 }
-            }
+            } 
         }
         .navigationBarBackButtonHidden(true)
     }

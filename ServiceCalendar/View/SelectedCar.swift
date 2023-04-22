@@ -14,6 +14,8 @@ enum BotomSheetPosition: CGFloat, CaseIterable {
 }
 
 struct SelectedCar: View {
+    @Environment(\.dismiss) var dismiss
+    
     @State var bottomSheetPosition: BotomSheetPosition = .middle
     @State var bottomSheetChange = false
     @State var bottomSheetTranslation: CGFloat = BotomSheetPosition.middle.rawValue
@@ -69,6 +71,16 @@ struct SelectedCar: View {
                     .offset(y: bottomSheetTranslationProrated * 115)
                 }
             }
+            .toolbar(content: {
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Back")
+                    }
+
+                }
+            })
         }
         .navigationBarHidden(true)
     }
