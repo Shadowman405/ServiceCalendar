@@ -30,6 +30,7 @@
 		BF4CBBB029DDBE6700EC5626 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */; };
 		BF4CBBB929DF1DE700EC5626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */; };
 		BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */; };
+		BF5D783929F45AEE00DDAF4D /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783829F45AEE00DDAF4D /* ServicesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		BF5D783829F45AEE00DDAF4D /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				BF1090C629E74268007C8124 /* ForecastView.swift */,
 				BF1090CC29EC0605007C8124 /* SegmentedControl.swift */,
 				BF1090D029EE9D28007C8124 /* ForecastCard.swift */,
+				BF5D783829F45AEE00DDAF4D /* ServicesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				BF1090B029E08BC9007C8124 /* CarCell.swift in Sources */,
 				BF1090C929E981A1007C8124 /* Blur.swift in Sources */,
 				BF1090B829E44CCD007C8124 /* Route.swift in Sources */,
+				BF5D783929F45AEE00DDAF4D /* ServicesView.swift in Sources */,
 				BF1090BA29E45C5E007C8124 /* LoginView.swift in Sources */,
 				BF1090CF29EE9990007C8124 /* Service.swift in Sources */,
 				BF1090C229E73A49007C8124 /* Shapes.swift in Sources */,
