@@ -40,7 +40,7 @@ struct NavigationBar: View {
         .padding(.horizontal, 16)
         .padding(.top, 49)
         .backgroundBlur(radius: 20, opaque: true)
-        .background(Color.gray)
+        .background(Color.clear)
         .frame(maxHeight: .infinity, alignment: .top)
         .ignoresSafeArea()
     }

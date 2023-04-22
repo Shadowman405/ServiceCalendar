@@ -13,6 +13,9 @@ struct ServicesView: View {
             LinearGradient(colors: [Color.blue, Color.purple, Color.black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
         }
+        .overlay(content: {
+            NavigationBar()
+        })
         .navigationBarHidden(true)
     }
 }
