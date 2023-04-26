@@ -10,8 +10,20 @@ import SwiftUI
 struct ServicesView: View {
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color.blue, Color.purple, Color.black], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color.clear, Color.blue, Color.black], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
+            
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 20) {
+                    ForEach(ServiceSegmentedControlModel.mockService){ service in
+                        ServiceWidget(service: service)
+                    }
+                }
+            }
+            .safeAreaInset(edge: .top) {
+                EmptyView()
+                    .frame(height: 90)
+            }
         }
         .overlay(content: {
             NavigationBar()
