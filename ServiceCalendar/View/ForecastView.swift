@@ -26,7 +26,7 @@ struct ForecastView: View {
                             .transition(.offset(x: -430))
                         } else {
                             ForEach(ServiceSegmentedControlModel.mockService) { service in
-                                ForecastCard(service: service, segmentedControlChoice: .service)
+                                ForecastCardMoney(service: service, segmentedControlChoice: .service)
                             }
                             .transition(.offset(x: 430))
                         }
