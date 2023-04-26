@@ -28,10 +28,12 @@ struct ServiceWidget: View {
                     }
                 }
                 
+                Spacer()
+                
                 VStack(alignment: .trailing) {
-                    Image(systemName: "creditcard")
-                        .frame(width: 60,height: 60)
-                        .foregroundColor(service.doneService ? .green : .red)
+                    Image("pipe")
+                        .resizable()
+                        .frame(width: 75, height: 75)
                         .padding()
                 }
             }
