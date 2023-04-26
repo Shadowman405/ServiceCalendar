@@ -33,7 +33,7 @@ struct ForecastView: View {
                     }
                     .padding(.vertical, 20)
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 5)
             }
             
         }
