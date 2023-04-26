@@ -31,6 +31,7 @@
 		BF4CBBB929DF1DE700EC5626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */; };
 		BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */; };
 		BF5D783929F45AEE00DDAF4D /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783829F45AEE00DDAF4D /* ServicesView.swift */; };
+		BF9727C629F9A8850076A233 /* ForecastCardMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		BF5D783829F45AEE00DDAF4D /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
+		BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCardMoney.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				BF1090C629E74268007C8124 /* ForecastView.swift */,
 				BF1090CC29EC0605007C8124 /* SegmentedControl.swift */,
 				BF1090D029EE9D28007C8124 /* ForecastCard.swift */,
+				BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */,
 				BF5D783829F45AEE00DDAF4D /* ServicesView.swift */,
 			);
 			path = View;
@@ -248,6 +251,7 @@
 				BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */,
 				BF1090AE29DF5F9E007C8124 /* CarsGrid.swift in Sources */,
 				BF1090D129EE9D28007C8124 /* ForecastCard.swift in Sources */,
+				BF9727C629F9A8850076A233 /* ForecastCardMoney.swift in Sources */,
 				BF1090BC29E5E6A8007C8124 /* SelectedCar.swift in Sources */,
 				BF1090B429E08C0D007C8124 /* Car.swift in Sources */,
 				BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */,
