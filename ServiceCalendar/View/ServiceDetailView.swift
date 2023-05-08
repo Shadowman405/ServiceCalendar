@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ServiceDetailView: View {
-    @Binding var selectedService : Service
+    var selectedService : Service
+    @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ZStack {
@@ -19,12 +20,25 @@ struct ServiceDetailView: View {
                 Text("\(selectedService.mileage)")
             }
         }
+        .toolbar(content: {
+            ToolbarItemGroup(placement: .navigationBarLeading) {
+                Button {
+                    dismiss()
+                } label: {
+//                        Text("Back")
+//                            .foregroundColor(.black)
+                    Image(systemName: "arrowshape.turn.up.backward.2")
+                        .foregroundColor(.black)
+                }
+
+            }
+        })
         .ignoresSafeArea()
     }
 }
 
 struct ServiceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDetailView(selectedService: .constant(Service(mileage: 200000, date: .now, doneService: false, checkMoney: 200)))
+        ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: false, checkMoney: 200))
     }
 }

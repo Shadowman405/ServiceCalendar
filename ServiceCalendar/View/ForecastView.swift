@@ -21,7 +21,10 @@ struct ForecastView: View {
                     HStack(spacing: 12) {
                         if selection == 0 {
                             ForEach(ServiceSegmentedControlModel.mockService) { service in
-                                ForecastCard(service: service, segmentedControlChoice: .service)
+//                                ForecastCard(service: service, segmentedControlChoice: .service)
+                                NavigationLink(destination: ServiceDetailView(selectedService: service)) {
+                                    ForecastCard(service: service, segmentedControlChoice: .service)
+                                }
                             }
                             .transition(.offset(x: -430))
                         } else {
