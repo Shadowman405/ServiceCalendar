@@ -12,16 +12,29 @@ struct ServiceDetailView: View {
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
-        HStack {
             ZStack {
                 LinearGradient(colors: [Color.clear,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
-                HStack(spacing: 50) {
-                    Text("Service at mileage:")
+                VStack(alignment: .leading) {
+                    HStack(spacing: 50) {
+                        Text("Service at mileage :")
+                        Text("\(selectedService.mileage) Km")
+                    }
+                    .padding()
                     
-                    Text("\(selectedService.mileage)")
+                    HStack(spacing: 50) {
+                        Text("Date :")
+                        Text(selectedService.date, style: .date)
+                        Text(selectedService.date, style: .time)
+                    }
+                    .padding()
+                    
+                    HStack(spacing: 50) {
+                        Text("Spended money :")
+                        Text("\(selectedService.checkMoney)$")
+                    }
+                    .padding()
                 }
             }
-        }
         .ignoresSafeArea()
     }
 }
