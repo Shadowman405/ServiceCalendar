@@ -30,6 +30,7 @@ struct ForecastCard: View {
             VStack(spacing: 16) {
                 Text(service.date, format: segmentedControlChoice == ServiceSegmentedControlModel.service ? .dateTime.month() : .dateTime.year())
                     .font(.subheadline.weight(.semibold))
+                    .foregroundColor(.black)
                 
                 VStack(spacing: -4) {
                     Image(systemName: service.icon)
@@ -37,6 +38,7 @@ struct ForecastCard: View {
                         .padding()
                     
                     Text("\(service.mileage)")
+                        .foregroundColor(.black)
                 }
                 .frame(height: 42)
             }
