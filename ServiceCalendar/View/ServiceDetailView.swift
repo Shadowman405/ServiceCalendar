@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ServiceDetailView: View {
-    
+    @Binding var selectedService : Service
     
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
-            HStack {
-                Text("Service at mileage")
-                Text("")
+            HStack(spacing: 50) {
+                Text("Service at mileage:")
+                
+                Text("\(selectedService.mileage)")
             }
         }
         .ignoresSafeArea()
@@ -24,6 +25,6 @@ struct ServiceDetailView: View {
 
 struct ServiceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDetailView()
+        ServiceDetailView(selectedService: .constant(Service(mileage: 200000, date: .now, doneService: false, checkMoney: 200)))
     }
 }
