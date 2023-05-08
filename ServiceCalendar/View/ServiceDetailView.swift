@@ -14,7 +14,7 @@ struct ServiceDetailView: View {
     var body: some View {
         HStack {
             ZStack {
-                LinearGradient(colors: [Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
+                LinearGradient(colors: [Color.clear,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
                 HStack(spacing: 50) {
                     Text("Service at mileage:")
                     
@@ -22,21 +22,7 @@ struct ServiceDetailView: View {
                 }
             }
         }
-//        .toolbar(content: {
-//            ToolbarItemGroup(placement: .navigationBarLeading) {
-//                Button {
-//                    dismiss()
-//                } label: {
-////                        Text("Back")
-////                            .foregroundColor(.black)
-//                    Image(systemName: "arrowshape.turn.up.backward.2")
-//                        .foregroundColor(.black)
-//                }
-//
-//            }
-//        })
-//    .ignoresSafeArea()
-
+        .ignoresSafeArea()
     }
 }
 

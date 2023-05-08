@@ -48,6 +48,7 @@ struct LoginView: View {
                                 //.textFieldStyle(.roundedBorder)
                                 .padding(5)
                             .background(.clear)
+                            .keyboardType(.emailAddress)
                             
                             SecureField("Password", text: $password)
                                 //.textFieldStyle(.roundedBorder)
