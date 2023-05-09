@@ -24,15 +24,13 @@ struct CarsGrid: View {
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach(carGrid.cars){ car in
-                            ZStack {
-                                CarCell(car: car)
                                 NavigationLink(destination: SelectedCar(selectedCar: car)) {
-                                    Text("dfwfwecwccwecw")
+                                    CarCell(car: car)
                                 }
-                            }
                         }
                     }
                 }
+                .background(LinearGradient(colors: [Color.blue,Color.purple], startPoint: .top, endPoint: .bottom))
             }
             .toolbar {
                 ToolbarItemGroup(placement: .navigationBarLeading) {
@@ -44,7 +42,7 @@ struct CarsGrid: View {
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        LoginView(logedIn: $isUserLoggedIn)
+                        AddNewCarView()
                     } label: {
                         Image(systemName: "plus.circle")
                     }
