@@ -35,7 +35,7 @@ struct CarsGrid: View {
                 }
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
                     NavigationLink {
                         LoginView(logedIn: $isUserLoggedIn)
                     } label: {
