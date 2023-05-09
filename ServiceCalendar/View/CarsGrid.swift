@@ -42,6 +42,13 @@ struct CarsGrid: View {
                         Text("Signout")
                     }
                 }
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                    NavigationLink {
+                        LoginView(logedIn: $isUserLoggedIn)
+                    } label: {
+                        Image(systemName: "plus.circle")
+                    }
+                }
             } 
         }
         .navigationBarBackButtonHidden(true)
