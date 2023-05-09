@@ -18,17 +18,21 @@ struct AddNewCarView: View {
                 HStack {
                     Text("Enter Car mark")
                         .padding()
+                    Spacer()
                     TextField("Mark...", text: $carMark)
                 }
                 HStack {
                     Text("Enter Car model")
                         .padding()
+                    Spacer()
                     TextField("Model...", text: $carModel)
                 }
                 HStack {
                     Text("Enter Car mileage")
                         .padding()
+                    Spacer()
                     TextField("Mileage...", text: $carMileage)
+                        .keyboardType(.numberPad)
                 }
                 Text("Choose Car photos")
             }
