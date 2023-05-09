@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct AddNewCarView: View {
     @State private var carMark : String = ""
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
-    
+    @State private var carPhoto: [PhotosPickerItem] = []
     
     var body: some View {
         ZStack {
@@ -19,7 +20,12 @@ struct AddNewCarView: View {
                 .ignoresSafeArea()
             
             VStack {
-                
+                PhotosPicker(selection: $carPhoto) {
+                    Image(systemName: "photo.stack")
+                        .resizable()
+                        .frame(width: 200,height: 200)
+                        .foregroundColor(.black)
+                }
                 
                 VStack(alignment: .leading,spacing: 10) {
                     HStack {
