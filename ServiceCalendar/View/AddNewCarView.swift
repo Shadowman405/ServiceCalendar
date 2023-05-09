@@ -8,8 +8,31 @@
 import SwiftUI
 
 struct AddNewCarView: View {
+    @State private var carMark : String = ""
+    @State private var carModel : String = ""
+    @State private var carMileage : String = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            VStack(alignment: .leading,spacing: 10) {
+                HStack {
+                    Text("Enter Car mark")
+                        .padding()
+                    TextField("Mark...", text: $carMark)
+                }
+                HStack {
+                    Text("Enter Car model")
+                        .padding()
+                    TextField("Model...", text: $carModel)
+                }
+                HStack {
+                    Text("Enter Car mileage")
+                        .padding()
+                    TextField("Mileage...", text: $carMileage)
+                }
+                Text("Choose Car photos")
+            }
+        }
     }
 }
 
