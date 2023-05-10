@@ -12,8 +12,8 @@ struct AddNewCarView: View {
     @State private var carMark : String = ""
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
-    @State private var carPhoto: PhotosPickerItem? = nil
-    @State private var selectedImageData: Data? = nil
+    @State private var carPhoto: [PhotosPickerItem] = []
+    @State private var selectedImages: [Image] = []
     
     var body: some View {
         ZStack {
@@ -22,22 +22,30 @@ struct AddNewCarView: View {
             
             VStack {
                 PhotosPicker(selection: $carPhoto) {
-                    if let selectedImageData,
-                       let uiImage = UIImage(data: selectedImageData) {
-                        Image(uiImage: uiImage)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 200,height: 200)
+                    if selectedImages.count != 0 {
+                        ScrollView {
+                            LazyVStack {
+                                ForEach(0..<selectedImages.count, id: \.self) { i in
+                                    selectedImages[i]
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 300, height: 300)
+                                }
+                            }
+                        }
                     } else {
-                        Image(systemName: "photo.stack")
-                            .resizable()
-                            .frame(width: 200,height: 200)
+                        Image(systemName: "photo.on.rectangle")
                     }
                 }
                 .onChange(of: carPhoto) { newItem in
-                    Task{
-                        if let data = try? await newItem?.loadTransferable(type: Data.self){
-                            selectedImageData = data
+                    for item in carPhoto {
+                        Task{
+                            if let data = try? await item.loadTransferable(type: Data.self){
+                                if let uiImage = UIImage(data: data){
+                                    let image = Image(uiImage: uiImage)
+                                    selectedImages.append(image)
+                                }
+                            }
                         }
                     }
                 }
