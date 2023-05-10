@@ -24,7 +24,7 @@ struct AddNewCarView: View {
                 PhotosPicker(selection: $carPhoto) {
                     if selectedImages.count != 0 {
                         ScrollView {
-                            LazyVStack {
+                            LazyHStack {
                                 ForEach(0..<selectedImages.count, id: \.self) { i in
                                     selectedImages[i]
                                         .resizable()
@@ -75,6 +75,15 @@ struct AddNewCarView: View {
                             .padding()
                     }
                 }
+                
+                Button {
+                    
+                } label: {
+                    Text("Save Car")
+                        .foregroundColor(.black)
+                }
+                .foregroundColor(.black)
+
             }
         }
     }
