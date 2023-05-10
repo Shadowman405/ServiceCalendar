@@ -12,7 +12,7 @@ struct AddNewCarView: View {
     @State private var carMark : String = ""
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
-    @State private var carPhoto: [PhotosPickerItem] = []
+    @State private var carPhoto: PhotosPickerItem? = nil
     @State private var selectedImageData: Data? = nil
     
     var body: some View {
@@ -22,14 +22,21 @@ struct AddNewCarView: View {
             
             VStack {
                 PhotosPicker(selection: $carPhoto) {
-                    Image(systemName: "photo.stack")
-                        .resizable()
-                        .frame(width: 200,height: 200)
-                        .foregroundColor(.black)
+                    if let selectedImageData,
+                       let uiImage = UIImage(data: selectedImageData) {
+                        Image(uiImage: uiImage)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 200,height: 200)
+                    } else {
+                        Image(systemName: "photo.stack")
+                            .resizable()
+                            .frame(width: 200,height: 200)
+                    }
                 }
-                .onChange(of: carPhoto[0]) { newItem in
+                .onChange(of: carPhoto) { newItem in
                     Task{
-                        if let data = try? await newItem.loadTransferable(type: Data.self){
+                        if let data = try? await newItem?.loadTransferable(type: Data.self){
                             selectedImageData = data
                         }
                     }
