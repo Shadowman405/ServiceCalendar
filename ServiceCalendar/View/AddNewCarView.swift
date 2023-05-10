@@ -14,9 +14,6 @@ struct AddNewCarView: View {
     @State private var carMileage : String = ""
     @State private var carPhoto: [PhotosPickerItem] = []
     @State private var selectedImages: [Image] = []
-    let columns: [GridItem] = [
-        GridItem(.flexible(), spacing: 10, alignment: nil)
-    ]
     
     var body: some View {
         ZStack {
@@ -25,18 +22,7 @@ struct AddNewCarView: View {
             
             VStack {
                 PhotosPicker(selection: $carPhoto) {
-//                    if selectedImages.count != 0 {
-//                        TabView {                                ForEach(0..<selectedImages.count, id: \.self) { i in
-//                                    selectedImages[i]
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .frame(width: 100, height: 100)
-//                                }
-//                        }
-//                    }
-
                         Text("Add photo")
-
                 }
                 .onChange(of: carPhoto) { newItem in
                     for item in carPhoto {
@@ -52,26 +38,17 @@ struct AddNewCarView: View {
                 }
                 
                 if !selectedImages.isEmpty {
-//                    TabView {
-//                        ForEach(0..<selectedImages.count, id: \.self) { i in
-//                                    selectedImages[i]
-//                                        .resizable()
-//                                        .aspectRatio(contentMode: .fit)
-//                                        .frame(width: 100, height: 100)
-//                                }
-//                    }
-                    ScrollView {
                         TabView {
                             ForEach(0..<selectedImages.count, id: \.self) { i in
                                 selectedImages[i]
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(height: 320)
+                                    .padding()
                             }
                         }
                         .frame(height: 320)
                         .tabViewStyle(.page)
-                    }
                 } else {
                     Image(systemName: "photo.on.rectangle")
                         .resizable()
@@ -105,7 +82,7 @@ struct AddNewCarView: View {
                 }
                 
                 Button {
-                    
+                    //saving car
                 } label: {
                     Text("Save Car")
                 }
