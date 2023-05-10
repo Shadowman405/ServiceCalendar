@@ -35,6 +35,8 @@ struct AddNewCarView: View {
                         }
                     } else {
                         Image(systemName: "photo.on.rectangle")
+                            .resizable()
+                            .frame(width: 80, height: 80)
                     }
                 }
                 .onChange(of: carPhoto) { newItem in
@@ -80,10 +82,9 @@ struct AddNewCarView: View {
                     
                 } label: {
                     Text("Save Car")
-                        .foregroundColor(.black)
                 }
-                .foregroundColor(.black)
-
+                .buttonStyle(.borderedProminent)
+                .foregroundColor(.green)
             }
         }
     }
