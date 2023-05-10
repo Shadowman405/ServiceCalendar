@@ -14,6 +14,9 @@ struct AddNewCarView: View {
     @State private var carMileage : String = ""
     @State private var carPhoto: [PhotosPickerItem] = []
     @State private var selectedImages: [Image] = []
+    let columns: [GridItem] = [
+        GridItem(.flexible(), spacing: 10, alignment: nil)
+    ]
     
     var body: some View {
         ZStack {
@@ -24,12 +27,12 @@ struct AddNewCarView: View {
                 PhotosPicker(selection: $carPhoto) {
                     if selectedImages.count != 0 {
                         ScrollView {
-                            LazyHStack {
+                            LazyVGrid(columns: columns) {
                                 ForEach(0..<selectedImages.count, id: \.self) { i in
                                     selectedImages[i]
                                         .resizable()
                                         .scaledToFit()
-                                        .frame(width: 300, height: 300)
+                                        .frame(width: 100, height: 100)
                                 }
                             }
                         }
@@ -39,6 +42,7 @@ struct AddNewCarView: View {
                             .frame(width: 80, height: 80)
                     }
                 }
+                .frame(height: 200)
                 .onChange(of: carPhoto) { newItem in
                     for item in carPhoto {
                         Task{
