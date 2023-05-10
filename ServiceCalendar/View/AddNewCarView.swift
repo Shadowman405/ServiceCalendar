@@ -75,10 +75,6 @@ struct AddNewCarView: View {
                         TextField("Mileage...", text: $carMileage)
                             .keyboardType(.numberPad)
                     }
-                    HStack {
-                        Text("Choose Car photos")
-                            .padding()
-                    }
                 }
                 
                 Button {
@@ -87,7 +83,7 @@ struct AddNewCarView: View {
                     Text("Save Car")
                 }
                 .buttonStyle(.borderedProminent)
-                .foregroundColor(.green)
+                .foregroundColor(.black)
             }
         }
     }
