@@ -13,10 +13,11 @@ struct AddNewCarView: View {
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
     @State private var carPhoto: [PhotosPickerItem] = []
+    @State private var selectedImageData: Data? = nil
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color.clear ,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
             VStack {
@@ -25,6 +26,13 @@ struct AddNewCarView: View {
                         .resizable()
                         .frame(width: 200,height: 200)
                         .foregroundColor(.black)
+                }
+                .onChange(of: carPhoto[0]) { newItem in
+                    Task{
+                        if let data = try? await newItem.loadTransferable(type: Data.self){
+                            selectedImageData = data
+                        }
+                    }
                 }
                 
                 VStack(alignment: .leading,spacing: 10) {
