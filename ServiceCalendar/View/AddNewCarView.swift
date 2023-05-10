@@ -25,24 +25,19 @@ struct AddNewCarView: View {
             
             VStack {
                 PhotosPicker(selection: $carPhoto) {
-                    if selectedImages.count != 0 {
-                        ScrollView {
-                            LazyVGrid(columns: columns) {
-                                ForEach(0..<selectedImages.count, id: \.self) { i in
-                                    selectedImages[i]
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 100, height: 100)
-                                }
-                            }
-                        }
-                    } else {
-                        Image(systemName: "photo.on.rectangle")
-                            .resizable()
-                            .frame(width: 80, height: 80)
-                    }
+//                    if selectedImages.count != 0 {
+//                        TabView {                                ForEach(0..<selectedImages.count, id: \.self) { i in
+//                                    selectedImages[i]
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 100, height: 100)
+//                                }
+//                        }
+//                    }
+
+                        Text("Add photo")
+
                 }
-                .frame(height: 200)
                 .onChange(of: carPhoto) { newItem in
                     for item in carPhoto {
                         Task{
@@ -54,6 +49,33 @@ struct AddNewCarView: View {
                             }
                         }
                     }
+                }
+                
+                if !selectedImages.isEmpty {
+//                    TabView {
+//                        ForEach(0..<selectedImages.count, id: \.self) { i in
+//                                    selectedImages[i]
+//                                        .resizable()
+//                                        .aspectRatio(contentMode: .fit)
+//                                        .frame(width: 100, height: 100)
+//                                }
+//                    }
+                    ScrollView {
+                        TabView {
+                            ForEach(0..<selectedImages.count, id: \.self) { i in
+                                selectedImages[i]
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(height: 320)
+                            }
+                        }
+                        .frame(height: 320)
+                        .tabViewStyle(.page)
+                    }
+                } else {
+                    Image(systemName: "photo.on.rectangle")
+                        .resizable()
+                        .frame(width: 80, height: 80)
                 }
                 
                 VStack(alignment: .leading,spacing: 10) {
