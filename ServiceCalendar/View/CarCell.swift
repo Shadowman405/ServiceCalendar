@@ -13,7 +13,7 @@ struct CarCell: View {
     var body: some View {
         ZStack {
             VStack {
-                Image(car.carImage)
+                car.carImage[0]
                     .resizable()
                     .cornerRadius(20)
                     .frame(height: 270,alignment: .center)
@@ -36,7 +36,7 @@ struct CarCell: View {
 }
 
 struct CarCell_Previews: PreviewProvider {
-    static var cars = Car(carName: "Mercedes-Benz", carImage: "MB", carMileage: 205000)
+    static var cars = Car(carName: "Mercedes-Benz", carImage: [Image("MB")], carMileage: 205000)
     
     static var previews: some View {
         CarCell(car: cars)

@@ -88,7 +88,7 @@ struct AddNewCarView: View {
         }
     }
     
-    func saveCar(carName: String, carImg: String, carMileAge: Int) {
+    func saveCar(carName: String, carImg: [Image], carMileAge: Int) {
         var newCar = Car(carName: carName, carImage: carImg, carMileage: carMileAge)
     }
 }

@@ -11,25 +11,25 @@ import SwiftUI
 final class CarGrid: ObservableObject {
    // @Published var cars: [Car] = getAllCars()
     @Published var cars: [Car] = [
-        Car(carName: "Mercedes-Benz", carImage: "MB", carMileage: 205000),
-        Car(carName: "Honda", carImage: "Honda", carMileage: 155000),
-        Car(carName: "Toyota", carImage: "Toyota", carMileage: 2000)
+        Car(carName: "Mercedes-Benz", carImage: [Image("MB")], carMileage: 205000),
+        Car(carName: "Honda", carImage: [Image("Honda")], carMileage: 155000),
+        Car(carName: "Toyota", carImage: [Image("Toyota")], carMileage: 2000)
     ]
 }
 
-struct Car: Hashable,Codable, Identifiable {
+struct Car: Identifiable {
     var id = UUID()
     var carName: String
-    var carImage: String
+    var carImage: [Image]
     var carMileage: Int
 }
 
-func getAllCars() -> [Car] {
-    let cars = [
-        Car(carName: "Mercedes-Benz", carImage: "MB", carMileage: 205000),
-        Car(carName: "Honda", carImage: "Honda", carMileage: 155000),
-        Car(carName: "Toyota", carImage: "Toyota", carMileage: 2000)
-    ]
-    
-    return cars
-}
+//func getAllCars() -> [Car] {
+//    let cars = [
+//        Car(carName: "Mercedes-Benz", carImage: "MB", carMileage: 205000),
+//        Car(carName: "Honda", carImage: "Honda", carMileage: 155000),
+//        Car(carName: "Toyota", carImage: "Toyota", carMileage: 2000)
+//    ]
+//    
+//    return cars
+//}

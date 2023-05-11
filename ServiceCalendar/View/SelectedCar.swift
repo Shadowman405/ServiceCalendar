@@ -42,7 +42,7 @@ struct SelectedCar: View {
                             .padding(25)
                             .offset(y: -bottomSheetTranslationProrated * imageOffset)
                         
-                        Image(selectedCar.carImage)
+                        selectedCar.carImage[0]
                             .resizable()
                             .frame(height: 250)
                             .cornerRadius(20)
@@ -92,6 +92,6 @@ struct SelectedCar: View {
 struct SelectedCar_Previews: PreviewProvider {
     
     static var previews: some View {
-        SelectedCar(selectedCar: Car(id: 0, carName: "Mercedes-Benz", carImage: "MB", carMileage: 205000))
+        SelectedCar(selectedCar: Car(carName: "Mercedes-Benz", carImage:[Image("MB")], carMileage: 205000))
     }
 }
