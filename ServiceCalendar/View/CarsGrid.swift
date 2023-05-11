@@ -42,7 +42,7 @@ struct CarsGrid: View {
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     NavigationLink {
-                        AddNewCarView()
+                        AddNewCarView(carGrid: CarGrid())
                     } label: {
                         Image(systemName: "plus.circle")
                     }

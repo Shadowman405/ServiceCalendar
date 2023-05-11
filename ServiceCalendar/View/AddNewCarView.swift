@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct AddNewCarView: View {
+    @ObservedObject var carGrid: CarGrid
     @State private var carMark : String = ""
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
@@ -79,6 +80,7 @@ struct AddNewCarView: View {
                 
                 Button {
                     //saving car
+                    saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
                 } label: {
                     Text("Save Car")
                 }
@@ -89,12 +91,14 @@ struct AddNewCarView: View {
     }
     
     func saveCar(carName: String, carImg: [Image], carMileAge: Int) {
-        var newCar = Car(carName: carName, carImage: carImg, carMileage: carMileAge)
+        let newCar = Car(carName: carName, carImage: carImg, carMileage: carMileAge)
+        carGrid.cars.append(newCar)
+        print(carGrid.cars)
     }
 }
 
 struct AddNewCarView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewCarView()
+        AddNewCarView(carGrid: CarGrid())
     }
 }
