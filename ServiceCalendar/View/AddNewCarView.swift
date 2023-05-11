@@ -87,6 +87,10 @@ struct AddNewCarView: View {
             }
         }
     }
+    
+    func saveCar(carName: String, carImg: String, carMileAge: Int) {
+        var newCar = Car(carName: carName, carImage: carImg, carMileage: carMileAge)
+    }
 }
 
 struct AddNewCarView_Previews: PreviewProvider {
