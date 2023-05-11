@@ -80,7 +80,9 @@ struct AddNewCarView: View {
                 
                 Button {
                     //saving car
-                    saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
+//                    saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
+                    
+                    carGrid.saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
                 } label: {
                     Text("Save Car")
                 }
