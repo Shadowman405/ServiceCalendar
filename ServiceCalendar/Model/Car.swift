@@ -14,7 +14,7 @@ class CarGrid: ObservableObject {
         Car(carName: "Mercedes-Benz", carImage: [Image("MB")], carMileage: 205000),
         Car(carName: "Honda", carImage: [Image("Honda")], carMileage: 155000),
         Car(carName: "Toyota", carImage: [Image("Toyota")], carMileage: 2000)
-    ]
+    ] 
     
     func saveCar(carName: String, carImg: [Image], carMileAge: Int) {
         let newCar = Car(carName: carName, carImage: carImg, carMileage: carMileAge)

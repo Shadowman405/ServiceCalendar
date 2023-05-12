@@ -7,14 +7,16 @@
 
 import SwiftUI
 import PhotosUI
+import Firebase
+import FirebaseFirestore
 
 struct AddNewCarView: View {
-    @ObservedObject var carGrid: CarGrid
     @State private var carMark : String = ""
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
     @State private var carPhoto: [PhotosPickerItem] = []
     @State private var selectedImages: [Image] = []
+
     
     var body: some View {
         ZStack {
@@ -82,7 +84,6 @@ struct AddNewCarView: View {
                     //saving car
 //                    saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
                     
-                    carGrid.saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
                 } label: {
                     Text("Save Car")
                 }
@@ -93,14 +94,12 @@ struct AddNewCarView: View {
     }
     
     func saveCar(carName: String, carImg: [Image], carMileAge: Int) {
-        let newCar = Car(carName: carName, carImage: carImg, carMileage: carMileAge)
-        carGrid.cars.append(newCar)
-        print(carGrid.cars)
+        
     }
 }
 
 struct AddNewCarView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewCarView(carGrid: CarGrid())
+        AddNewCarView()
     }
 }
