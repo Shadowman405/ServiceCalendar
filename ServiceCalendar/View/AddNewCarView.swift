@@ -95,22 +95,28 @@ struct AddNewCarView: View {
     }
     
     func persistImageToStorage() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
-        for i in 0...selectedImages.count - 1 {
-            guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
-            ref.putData(imageData) { metadata, error in
-                if let error = error {
-                    print(error)
-                }
-                
-                ref.downloadURL { url, error in
-                    if let error = error {
-                        print(error.localizedDescription)
+        FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
+            if user != nil {
+                guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+                let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+                for i in 0...selectedImages.count - 1 {
+                    guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
+                    ref.putData(imageData) { metadata, error in
+                        if let error = error {
+                            print(error)
+                        }
+                        
+                        ref.downloadURL { url, error in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            }
+                            
+                            print(url?.absoluteString ?? "")
+                        }
                     }
-                    
-                    print(url?.absoluteString ?? "")
                 }
+            } else {
+                print("User not logged in")
             }
         }
     }
