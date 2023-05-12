@@ -15,7 +15,7 @@ struct AddNewCarView: View {
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
     @State private var carPhoto: [PhotosPickerItem] = []
-    @State private var selectedImages: [Image] = []
+    @State private var selectedImages: [UIImage] = []
 
     
     var body: some View {
@@ -33,7 +33,7 @@ struct AddNewCarView: View {
                             if let data = try? await item.loadTransferable(type: Data.self){
                                 if let uiImage = UIImage(data: data){
                                     let image = Image(uiImage: uiImage)
-                                    selectedImages.append(image)
+                                    selectedImages.append(uiImage)
                                 }
                             }
                         }
@@ -43,7 +43,7 @@ struct AddNewCarView: View {
                 if !selectedImages.isEmpty {
                         TabView {
                             ForEach(0..<selectedImages.count, id: \.self) { i in
-                                selectedImages[i]
+                                Image(uiImage: selectedImages[i])
                                     .resizable()
                                     .aspectRatio(contentMode: .fit)
                                     .frame(height: 320)
@@ -93,18 +93,18 @@ struct AddNewCarView: View {
         }
     }
     
-    func persistImageToStorage() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
-        for i in 0...selectedImages.count {
-            let imageData = self.selectedImages[i]
-            ref.putData(imageData) { metadata, error in
-                if let error = error {
-                    print(error)
-                }
-            }
-        }
-    }
+//    func persistImageToStorage() {
+//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+//        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+//        for i in 0...selectedImages.count {
+//            let imageData = self.selectedImages[i]
+//            ref.putData(imageData) { metadata, error in
+//                if let error = error {
+//                    print(error)
+//                }
+//            }
+//        }
+//    }
 }
 
 struct AddNewCarView_Previews: PreviewProvider {
