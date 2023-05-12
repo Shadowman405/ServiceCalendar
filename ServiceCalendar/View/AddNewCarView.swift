@@ -93,8 +93,17 @@ struct AddNewCarView: View {
         }
     }
     
-    func saveCar(carName: String, carImg: [Image], carMileAge: Int) {
-        
+    func persistImageToStorage() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+        for i in 0...selectedImages.count {
+            let imageData = self.selectedImages[i]
+            ref.putData(imageData) { metadata, error in
+                if let error = error {
+                    print(error)
+                }
+            }
+        }
     }
 }
 
