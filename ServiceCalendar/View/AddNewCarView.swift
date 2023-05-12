@@ -32,7 +32,7 @@ struct AddNewCarView: View {
                         Task{
                             if let data = try? await item.loadTransferable(type: Data.self){
                                 if let uiImage = UIImage(data: data){
-                                    let image = Image(uiImage: uiImage)
+//                                    let image = Image(uiImage: uiImage)
                                     selectedImages.append(uiImage)
                                 }
                             }
@@ -83,6 +83,7 @@ struct AddNewCarView: View {
                 Button {
                     //saving car
 //                    saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
+                    persistImageToStorage()
                     
                 } label: {
                     Text("Save Car")
@@ -93,18 +94,26 @@ struct AddNewCarView: View {
         }
     }
     
-//    func persistImageToStorage() {
-//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-//        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
-//        for i in 0...selectedImages.count {
-//            let imageData = self.selectedImages[i]
-//            ref.putData(imageData) { metadata, error in
-//                if let error = error {
-//                    print(error)
-//                }
-//            }
-//        }
-//    }
+    func persistImageToStorage() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+        for i in 0...selectedImages.count - 1 {
+            guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
+            ref.putData(imageData) { metadata, error in
+                if let error = error {
+                    print(error)
+                }
+                
+                ref.downloadURL { url, error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                    }
+                    
+                    print(url?.absoluteString ?? "")
+                }
+            }
+        }
+    }
 }
 
 struct AddNewCarView_Previews: PreviewProvider {
