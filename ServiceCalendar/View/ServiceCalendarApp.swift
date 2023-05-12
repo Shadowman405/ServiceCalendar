@@ -12,9 +12,9 @@ import Firebase
 struct ServiceCalendarApp: App {
     @State var select = false
     
-    init() {
-        FirebaseApp.configure()
-    }
+//    init() {
+//        FirebaseApp.configure()
+//    }
     
     var body: some Scene {
         WindowGroup {

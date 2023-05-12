@@ -85,7 +85,7 @@ struct LoginView: View {
                 }
                 .padding()
                 .onAppear {
-                    Auth.auth().addStateDidChangeListener { auth, user in
+                    FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
                         if user != nil {
                             isUserLoggedIn.toggle()
                         }
@@ -98,7 +98,7 @@ struct LoginView: View {
 
     
     func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        FirebaseManager.shared.auth.signIn(withEmail: email, password: password) { result, error in
             if error != nil {
                 print(error!.localizedDescription)
             } else {
