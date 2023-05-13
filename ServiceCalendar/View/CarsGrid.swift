@@ -19,7 +19,7 @@ struct CarsGrid: View {
     ]
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns) {
@@ -38,6 +38,7 @@ struct CarsGrid: View {
                         LoginView(logedIn: $isUserLoggedIn)
                     } label: {
                         Text("Signout")
+                            .foregroundColor(.black)
                     }
                 }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
@@ -45,13 +46,15 @@ struct CarsGrid: View {
                         AddNewCarView()
                     } label: {
                         Image(systemName: "plus.circle")
+                            .foregroundColor(.black)
                     }
                 }
-            } 
+            }
+            .navigationTitle("My Cars")
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbarBackground( .blue, for: .navigationBar)
         }
-        .navigationTitle("My Cars")
-        .navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
     }
     
     func signOut() {
