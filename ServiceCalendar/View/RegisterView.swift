@@ -22,6 +22,7 @@ struct RegisterView: View {
                 
                 TextField("Email", text: $email)
                     //.textFieldStyle(.roundedBorder)
+                    .keyboardType(.emailAddress)
                     .padding(15)
                     .background(.clear)
                 
