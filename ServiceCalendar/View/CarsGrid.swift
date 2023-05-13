@@ -49,6 +49,8 @@ struct CarsGrid: View {
                 }
             } 
         }
+        .navigationTitle("My Cars")
+        .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
     }
     
