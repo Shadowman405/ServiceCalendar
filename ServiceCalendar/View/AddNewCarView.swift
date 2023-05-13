@@ -112,6 +112,9 @@ struct AddNewCarView: View {
                             }
                             
                             print(url?.absoluteString ?? "")
+                            
+                            guard let url = url else {return}
+                            self.storeUserInfo(carImg: url)
                         }
                     }
                 }
@@ -119,6 +122,10 @@ struct AddNewCarView: View {
                 print("User not logged in")
             }
         }
+    }
+    
+    private func storeUserInfo(carImg: URL) {
+        FirebaseManager.shared.firestore.document(<#T##documentPath: String##String#>)
     }
 }
 
