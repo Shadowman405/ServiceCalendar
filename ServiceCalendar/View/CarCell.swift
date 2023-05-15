@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct CarCell: View {
     var car: Car
@@ -13,7 +14,8 @@ struct CarCell: View {
     var body: some View {
         ZStack {
             VStack {
-                Image(uiImage: UIImage(named: car.carImage[0])!)
+//                Image(uiImage: UIImage(named: car.carImage[0])!)
+                WebImage(url: URL(string: car.carImage[0]))
                     .resizable()
                     .cornerRadius(20)
                     .frame(height: 270,alignment: .center)

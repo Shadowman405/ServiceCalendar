@@ -7,6 +7,7 @@
 
 import SwiftUI
 import BottomSheet
+import SDWebImageSwiftUI
 
 enum BotomSheetPosition: CGFloat, CaseIterable {
     case top = 0.82
@@ -42,7 +43,7 @@ struct SelectedCar: View {
                             .padding(25)
                             .offset(y: -bottomSheetTranslationProrated * imageOffset)
                         
-                        Image(uiImage: UIImage(named: selectedCar.carImage[0])!)
+                        WebImage(url: URL(string: selectedCar.carImage[0]))
                             .resizable()
                             .frame(height: 250)
                             .cornerRadius(20)
