@@ -24,9 +24,9 @@ struct CarsGrid: View {
             VStack {
                 ScrollView {
                     LazyVGrid(columns: columns) {
-                        ForEach(carGrid.cars){ car in
-                                NavigationLink(destination: SelectedCar(selectedCar: car)) {
-                                    CarCell(car: car)
+                        ForEach(viewModel.decodedCar){ car in
+                            NavigationLink(destination: SelectedCar(selectedCar: car)) {
+                                CarCell(car: car)
                                 }
                         }
                     }
@@ -71,7 +71,7 @@ struct CarsGrid: View {
 
 class CarsViewModel: ObservableObject {
     @Published var errorMesage = ""
-    @Published var decodedCar: Car?
+    @Published var decodedCar: [Car] = []
     
     init() {
         fetchCars()
@@ -95,9 +95,9 @@ class CarsViewModel: ObservableObject {
             let carMileage = data["carMilage"] as? String ?? ""
             let carImage = data["carImage"] as? String ?? ""
             
-            let decodedCar = Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)
-            
-            print(decodedCar)
+            self.decodedCar.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
+
+            print(self.decodedCar)
         }
     }
 }
