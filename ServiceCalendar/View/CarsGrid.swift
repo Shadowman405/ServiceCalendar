@@ -12,6 +12,7 @@ struct CarsGrid: View {
     @State var isUserLoggedIn : Bool = false
     @ObservedObject var carGrid: CarGrid
     @EnvironmentObject var logedInUser: isLogedInUser
+    @ObservedObject var viewModel = CarsViewModel()
 
     
     let columns: [GridItem] = [
@@ -67,6 +68,27 @@ struct CarsGrid: View {
         }
     }
 }
+
+class CarsViewModel: ObservableObject {
+    init() {
+        fetchCars()
+    }
+    
+    private func fetchCars() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uid).getDocument { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            
+            guard let data = snapshot?.data() else { return}
+            print(data)
+        }
+    }
+}
+
 
 
 

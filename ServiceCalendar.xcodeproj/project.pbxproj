@@ -42,7 +42,6 @@
 		BF420E8C2A0D8EE0006DD00E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E8B2A0D8EE0006DD00E /* FirebaseStorage */; };
 		BF420E8E2A0D8EE0006DD00E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E8D2A0D8EE0006DD00E /* FirebaseStorageCombine-Community */; };
 		BF420E922A0E57BC006DD00E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E912A0E57BC006DD00E /* FirebaseManager.swift */; };
-		BF420E942A12C603006DD00E /* CarsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E932A12C603006DD00E /* CarsViewModel.swift */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -73,7 +72,6 @@
 		BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCarView.swift; sourceTree = "<group>"; };
 		BF420E912A0E57BC006DD00E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
-		BF420E932A12C603006DD00E /* CarsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewModel.swift; sourceTree = "<group>"; };
 		BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ServiceCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCalendarApp.swift; sourceTree = "<group>"; };
 		BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 				BF9727C729F9AA100076A233 /* ServiceWidget.swift */,
 				BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */,
 				BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */,
-				BF420E932A12C603006DD00E /* CarsViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,7 +325,6 @@
 				BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */,
 				BF1090BF29E5E84B007C8124 /* TabBar.swift in Sources */,
 				BF1090C729E74268007C8124 /* ForecastView.swift in Sources */,
-				BF420E942A12C603006DD00E /* CarsViewModel.swift in Sources */,
 				BF420E6D2A0A8150006DD00E /* AddNewCarView.swift in Sources */,
 				BF1090CD29EC0605007C8124 /* SegmentedControl.swift in Sources */,
 				BF9727C829F9AA100076A233 /* ServiceWidget.swift in Sources */,
