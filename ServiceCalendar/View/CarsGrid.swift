@@ -77,6 +77,7 @@ class CarsViewModel: ObservableObject {
     }
     
     private func fetchCars() {
+        let decoder = JSONDecoder()
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
         
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uid).getDocument { snapshot, error in
@@ -86,7 +87,16 @@ class CarsViewModel: ObservableObject {
             }
             
             guard let data = snapshot?.data() else { return}
-            print(data)
+            
+            let uid = data["uid"] as? String ?? ""
+            let carName = data["carMark"] as? String ?? ""
+            let carModel = data["carModel"] as? String ?? ""
+            let carMileage = data["carMilage"] as? String ?? ""
+            let carImage = data["carImage"] as? String ?? ""
+            
+            let decodedCar = Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)
+            
+            print(decodedCar)
         }
     }
 }
