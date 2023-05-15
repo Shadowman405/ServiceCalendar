@@ -42,6 +42,7 @@
 		BF420E8C2A0D8EE0006DD00E /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E8B2A0D8EE0006DD00E /* FirebaseStorage */; };
 		BF420E8E2A0D8EE0006DD00E /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E8D2A0D8EE0006DD00E /* FirebaseStorageCombine-Community */; };
 		BF420E922A0E57BC006DD00E /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E912A0E57BC006DD00E /* FirebaseManager.swift */; };
+		BF420E972A12D3C2006DD00E /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E962A12D3C2006DD00E /* SDWebImageSwiftUI */; };
 		BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */; };
 		BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */; };
 		BF4CBBAD29DDBE6700EC5626 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBAC29DDBE6700EC5626 /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 				BF1090C529E740BC007C8124 /* BottomSheet in Frameworks */,
 				BF420E7C2A0D8EE0006DD00E /* FirebaseFirestore in Frameworks */,
 				BF420E742A0D8EE0006DD00E /* FirebaseAuth in Frameworks */,
+				BF420E972A12D3C2006DD00E /* SDWebImageSwiftUI in Frameworks */,
 				BF420E822A0D8EE0006DD00E /* FirebaseFunctions in Frameworks */,
 				BF420E862A0D8EE0006DD00E /* FirebasePerformance in Frameworks */,
 				BF420E8A2A0D8EE0006DD00E /* FirebaseRemoteConfigSwift in Frameworks */,
@@ -245,6 +247,7 @@
 				BF420E892A0D8EE0006DD00E /* FirebaseRemoteConfigSwift */,
 				BF420E8B2A0D8EE0006DD00E /* FirebaseStorage */,
 				BF420E8D2A0D8EE0006DD00E /* FirebaseStorageCombine-Community */,
+				BF420E962A12D3C2006DD00E /* SDWebImageSwiftUI */,
 			);
 			productName = ServiceCalendar;
 			productReference = BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */;
@@ -277,6 +280,7 @@
 			packageReferences = (
 				BF1090C329E740BC007C8124 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 				BF420E6E2A0D8EE0006DD00E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				BF420E952A12D3C2006DD00E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = BF4CBBA629DDBE6500EC5626 /* Products */;
 			projectDirPath = "";
@@ -554,6 +558,14 @@
 				kind = branch;
 			};
 		};
+		BF420E952A12D3C2006DD00E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		BF4CBBBA29DF1E4D00EC5626 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -654,6 +666,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF420E6E2A0D8EE0006DD00E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		BF420E962A12D3C2006DD00E /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF420E952A12D3C2006DD00E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
