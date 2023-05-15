@@ -92,6 +92,6 @@ struct SelectedCar: View {
 struct SelectedCar_Previews: PreviewProvider {
     
     static var previews: some View {
-        SelectedCar(selectedCar: Car(carName: "Mercedes-Benz", carImage:["MB"], carMileage: 205000))
+        SelectedCar(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
     }
 }

@@ -19,7 +19,7 @@ struct CarCell: View {
                     .frame(height: 270,alignment: .center)
                 .padding(10)
             }
-            Text(car.carName)
+            Text("\(car.carName)" + " - \(car.carModel)")
                 .font(.custom("Snell Roundhand", size: 30))
                 .fontWeight(.thin)
                 .foregroundColor(.black)
@@ -36,7 +36,7 @@ struct CarCell: View {
 }
 
 struct CarCell_Previews: PreviewProvider {
-    static var cars = Car(carName: "Mercedes-Benz", carImage: ["MB"], carMileage: 205000)
+    static var cars = Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000)
     
     static var previews: some View {
         CarCell(car: cars)
