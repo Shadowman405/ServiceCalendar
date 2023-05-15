@@ -71,6 +71,7 @@ struct CarsGrid: View {
 
 class CarsViewModel: ObservableObject {
     @Published var errorMesage = ""
+    @Published var decodedCar: Car?
     
     init() {
         fetchCars()
