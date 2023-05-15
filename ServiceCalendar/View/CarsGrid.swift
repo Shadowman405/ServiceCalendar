@@ -12,7 +12,7 @@ struct CarsGrid: View {
     @State var isUserLoggedIn : Bool = false
     @ObservedObject var carGrid: CarGrid
     @EnvironmentObject var logedInUser: isLogedInUser
-    @ObservedObject var viewModel = CarsViewModel()
+    @ObservedObject private var viewModel = CarsViewModel()
 
     
     let columns: [GridItem] = [
@@ -70,6 +70,8 @@ struct CarsGrid: View {
 }
 
 class CarsViewModel: ObservableObject {
+    @Published var errorMesage = ""
+    
     init() {
         fetchCars()
     }
