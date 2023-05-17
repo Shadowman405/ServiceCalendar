@@ -22,7 +22,7 @@ class CarGrid: ObservableObject {
     }
 }
 
-struct Car: Identifiable, Codable {
+struct Car: Identifiable, Codable, Hashable {
     var id = UUID()
     var carName: String
     var carModel: String
