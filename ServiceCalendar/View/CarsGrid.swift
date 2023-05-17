@@ -104,6 +104,8 @@ class CarsViewModel: ObservableObject {
 //    }
     
     func fetchCarsArray() {
+        var decodedCars: [Car] = []
+        
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
       FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").addSnapshotListener { snapshot, error in
             if let error = error {
@@ -121,10 +123,12 @@ class CarsViewModel: ObservableObject {
               let carMileage = data["carMilage"] as? String ?? ""
               let carImage = data["carImage"] as? String ?? ""
               
-              self.decodedCar.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
+              decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
           }
           
-          self.decodedCar = self.decodedCar.removeDuplicates()
+          self.decodedCar = decodedCars
+          print(self.decodedCar.count)
+          print(self.decodedCar)
             
         }
     }
