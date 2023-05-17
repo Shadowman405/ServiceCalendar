@@ -104,6 +104,7 @@ class CarsViewModel: ObservableObject {
 //    }
     
     func fetchCarsArray() {
+        self.decodedCar = []
         var decodedCars: [Car] = []
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
@@ -127,9 +128,7 @@ class CarsViewModel: ObservableObject {
           }
           
           self.decodedCar = decodedCars
-          print(self.decodedCar.count)
-          print(self.decodedCar)
-            
+          decodedCars = []
         }
     }
 }
