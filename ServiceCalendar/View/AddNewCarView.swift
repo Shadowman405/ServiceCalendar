@@ -102,7 +102,7 @@ struct AddNewCarView: View {
         )
     }
     
-    func persistImageToStorage() {
+    private func persistImageToStorage() {
         FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
