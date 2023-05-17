@@ -20,12 +20,14 @@ struct AddNewCarView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color.clear ,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
-                .ignoresSafeArea()
+//            LinearGradient(colors: [Color.clear ,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
+//                .ignoresSafeArea()
+        
             
             VStack {
                 PhotosPicker(selection: $carPhoto) {
                         Text("Add photo")
+                        .foregroundColor(.orange)
                 }
                 .onChange(of: carPhoto) { newItem in
                     for item in carPhoto {
@@ -92,6 +94,12 @@ struct AddNewCarView: View {
                 .foregroundColor(.black)
             }
         }
+        .background(
+            Image("back_1")
+                .resizable()
+                .ignoresSafeArea(.all)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+        )
     }
     
     func persistImageToStorage() {
