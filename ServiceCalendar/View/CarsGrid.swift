@@ -75,37 +75,38 @@ class CarsViewModel: ObservableObject {
     @Published var decodedCar: [Car] = []
     
     init() {
-        fetchCars()
+       // fetchCars()
         fetchCarsArray()
     }
     
-    private func fetchCars() {
-        //let decoder = JSONDecoder()
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-        
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uid).getDocument { snapshot, error in
-            if let error = error {
-                print(error.localizedDescription)
-                return
-            }
-            
-            guard let data = snapshot?.data() else { return}
-            
-            let uid = data["uid"] as? String ?? ""
-            let carName = data["carMark"] as? String ?? ""
-            let carModel = data["carModel"] as? String ?? ""
-            let carMileage = data["carMilage"] as? String ?? ""
-            let carImage = data["carImage"] as? String ?? ""
-            
-            self.decodedCar.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
-
-            print(self.decodedCar)
-        }
-    }
+//    private func fetchCars() {
+//        //let decoder = JSONDecoder()
+//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+//
+//        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uid).getDocument { snapshot, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//            }
+//
+//            guard let data = snapshot?.data() else { return}
+//
+//            let uid = data["uid"] as? String ?? ""
+//            let carName = data["carMark"] as? String ?? ""
+//            let carModel = data["carModel"] as? String ?? ""
+//            let carMileage = data["carMilage"] as? String ?? ""
+//            let carImage = data["carImage"] as? String ?? ""
+//
+//            self.decodedCar.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
+//
+//            print(self.decodedCar)
+//        }
+//    }
     
     private func fetchCarsArray() {
+        decodedCar = []
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").getDocuments { snapshot, error in
+      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").addSnapshotListener { snapshot, error in
             if let error = error {
                 print(error.localizedDescription)
                 return
@@ -114,7 +115,14 @@ class CarsViewModel: ObservableObject {
           let doc = snapshot!.documents
           for eachDoc in doc {
               let data = eachDoc.data()
-              print(data)
+              
+              _ = data["uid"] as? String ?? ""
+              let carName = data["carMark"] as? String ?? ""
+              let carModel = data["carModel"] as? String ?? ""
+              let carMileage = data["carMilage"] as? String ?? ""
+              let carImage = data["carImage"] as? String ?? ""
+              
+              self.decodedCar.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
           }
             
         }
