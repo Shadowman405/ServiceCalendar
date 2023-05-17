@@ -76,10 +76,11 @@ class CarsViewModel: ObservableObject {
     
     init() {
         fetchCars()
+        fetchCarsArray()
     }
     
     private func fetchCars() {
-        let decoder = JSONDecoder()
+        //let decoder = JSONDecoder()
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
         
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uid).getDocument { snapshot, error in
@@ -99,6 +100,23 @@ class CarsViewModel: ObservableObject {
             self.decodedCar.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
 
             print(self.decodedCar)
+        }
+    }
+    
+    private func fetchCarsArray() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").getDocuments { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+        }
+            
+          let doc = snapshot!.documents
+          for eachDoc in doc {
+              let data = eachDoc.data()
+              print(data)
+          }
+            
         }
     }
 }
