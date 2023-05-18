@@ -103,6 +103,8 @@ struct AddNewCarView: View {
     }
     
     private func persistImageToStorage() {
+        var imagesArray = [String]()
+        
         FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
@@ -119,27 +121,32 @@ struct AddNewCarView: View {
                                 print(error.localizedDescription)
                             }
                             
-                            print(url?.absoluteString ?? "")
+                            //print(url?.absoluteString ?? "")
                             
                             guard let url = url else {return}
-                            self.storeUserInfo(carImg: url)
+                            imagesArray.append(url.absoluteString)
+                            print("URL \(url)")
+                            //self.storeUserInfo(carImg: url)
                         }
                     }
                 }
+                print(imagesArray.count)
+                self.storeUserInfo(carImg: imagesArray)
             } else {
                 print("User not logged in")
             }
         }
     }
     
-    private func storeUserInfo(carImg: URL) {
+    private func storeUserInfo(carImg: [String]) {
+        print(carImg)
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
         let uniqueID = "\(uid)\(UUID())"
         let carData = ["uid": uid,
                        "carMark": self.carMark,
                        "carModel": self.carModel,
                        "carMileage": self.carMileage,
-                       "carImage" : ["carImage": carImg.absoluteString]] as [String : Any]
+                       "carImage" : ["carImage": carImg]] as [String : Any]
         FirebaseManager.shared.firestore.collection("users")
             .document(uid).collection("cars").document(uniqueID).setData(carData) { error in
                 if let error = error {
