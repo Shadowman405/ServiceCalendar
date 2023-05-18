@@ -116,6 +116,8 @@ class CarsViewModel: ObservableObject {
 //        }
 //    }
     
+    
+    
     func fetchCarsArray() {
         self.decodedCar = []
         var decodedCars: [Car] = []
@@ -135,7 +137,7 @@ class CarsViewModel: ObservableObject {
               let carName = data["carMark"] as? String ?? ""
               let carModel = data["carModel"] as? String ?? ""
               let carMileage = data["carMilage"] as? String ?? ""
-              let carImage = data["carImage"] as? String ?? ""
+              let carImage = data["carImage"] as? String ?? "" 
               
               decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
           }
