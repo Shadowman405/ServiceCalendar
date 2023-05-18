@@ -135,7 +135,11 @@ struct AddNewCarView: View {
     private func storeUserInfo(carImg: URL) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
         let uniqueID = "\(uid)\(UUID())"
-        let carData = ["uid": uid,"carMark": self.carMark, "carModel": self.carModel, "carMileage": self.carMileage, "carImage": carImg.absoluteString]
+        let carData = ["uid": uid,
+                       "carMark": self.carMark,
+                       "carModel": self.carModel,
+                       "carMileage": self.carMileage,
+                       "carImage" : ["carImage": carImg.absoluteString]] as [String : Any]
         FirebaseManager.shared.firestore.collection("users")
             .document(uid).collection("cars").document(uniqueID).setData(carData) { error in
                 if let error = error {
