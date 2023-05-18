@@ -106,8 +106,6 @@ struct AddNewCarView: View {
     }
     
     private func persistImageToStorage() {
-        var imagesTempArray = [String]()
-        
         FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
@@ -130,23 +128,12 @@ struct AddNewCarView: View {
                             
                             imagesArray.append(url.absoluteString)
                             print(imagesArray)
-//                            if var data = imagesArray as?
-//                                [String] {
-//                                data.append(url.absoluteString)
-//
-//                                print("URL \(url)")
-//                                print(imagesArray)
-//                            }
-                            
-//                            imagesTempArray.append(url.absoluteString)
-//                            print(imagesTempArray)
-                            
-                            //self.storeUserInfo(carImg: url)
                         }
                     }
                 }
-                print(imagesTempArray)
-                self.storeUserInfo(carImg: self.imagesArray)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                    self.storeUserInfo(carImg: self.imagesArray)
+                }
             } else {
                 print("User not logged in")
             }
