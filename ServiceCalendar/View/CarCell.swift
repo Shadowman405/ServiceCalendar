@@ -14,12 +14,12 @@ struct CarCell: View {
     var body: some View {
         ZStack {
             VStack {
-//                Image(uiImage: UIImage(named: car.carImage[0])!)
                 WebImage(url: URL(string: car.carImage[0]))
                     .resizable()
                     .cornerRadius(20)
                     .frame(height: 270,alignment: .center)
                 .padding(10)
+
             }
             Text("\(car.carName)" + " - \(car.carModel)")
                 .font(.custom("Snell Roundhand", size: 30))
