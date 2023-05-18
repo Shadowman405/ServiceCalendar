@@ -16,6 +16,8 @@ struct AddNewCarView: View {
     @State private var carMileage : String = ""
     @State private var carPhoto: [PhotosPickerItem] = []
     @State private var selectedImages: [UIImage] = []
+    var imagesArray : [String] = []
+
 
     
     var body: some View {
@@ -85,7 +87,9 @@ struct AddNewCarView: View {
                 Button {
                     //saving car
 //                    saveCar(carName: "\(carMark)" + "\(carModel)", carImg: selectedImages, carMileAge: Int(carMileage) ?? 0)
-                    persistImageToStorage()
+                    Task {
+                        await persistImageToStorage()
+                    }
                     
                 } label: {
                     Text("Save Car")
@@ -103,8 +107,6 @@ struct AddNewCarView: View {
     }
     
     private func persistImageToStorage() {
-        var imagesArray = [String]()
-        
         FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
@@ -124,14 +126,17 @@ struct AddNewCarView: View {
                             //print(url?.absoluteString ?? "")
                             
                             guard let url = url else {return}
-                            imagesArray.append(url.absoluteString)
-                            print("URL \(url)")
+                            if var data = imagesArray as? [String] {
+                                data.append(url.absoluteString)
+                                
+                                print("URL \(url)")
+                            }
                             //self.storeUserInfo(carImg: url)
                         }
                     }
                 }
-                print(imagesArray.count)
-                self.storeUserInfo(carImg: imagesArray)
+                print(self.imagesArray.count)
+                self.storeUserInfo(carImg: self.imagesArray)
             } else {
                 print("User not logged in")
             }
