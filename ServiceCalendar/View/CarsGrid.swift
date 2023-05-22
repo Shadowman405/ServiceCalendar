@@ -80,6 +80,7 @@ struct CarsGrid: View {
     
     func printInfo() {
         print(viewModel.decodedCar[0].carName)
+        print(viewModel.decodedCar[0].carImage)
     }
 }
 
@@ -89,7 +90,8 @@ class CarsViewModel: ObservableObject {
     
     init() {
        // fetchCars()
-        fetchCarsArray()
+        //fetchCarsArray()
+        fetchCarsArrayNested()
     }
     
 //    private func fetchCars() {
@@ -117,7 +119,6 @@ class CarsViewModel: ObservableObject {
 //    }
     
     
-    
     func fetchCarsArray() {
         self.decodedCar = []
         var decodedCars: [Car] = []
@@ -137,12 +138,46 @@ class CarsViewModel: ObservableObject {
               let carName = data["carMark"] as? String ?? ""
               let carModel = data["carModel"] as? String ?? ""
               let carMileage = data["carMilage"] as? String ?? ""
-              let carImage = data["carImage"] as? String ?? "" 
+              let carImage = data["carImage"] as? [String] ?? [""]
               
-              decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: [carImage], carMileage: Int(carMileage) ?? 0)])
+              decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
           }
           
           self.decodedCar = decodedCars
+          decodedCars = []
+        }
+    }
+    
+    func fetchCarsArrayNested() {
+        self.decodedCar = []
+        var someImgs: [String] = []
+        var decodedCars: [Car] = []
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").addSnapshotListener { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+        }
+            
+          let doc = snapshot!.documents
+          for eachDoc in doc {
+              let data = eachDoc.data()
+              
+              _ = data["uid"] as? String ?? ""
+              let carName = data["carMark"] as? String ?? ""
+              let carModel = data["carModel"] as? String ?? ""
+              let carMileage = data["carMilage"] as? String ?? ""
+              if let image = data["carImage"] as? [String:Any] {
+                  let carImage = image["carImage"] as? String ?? ""
+                  someImgs.append(carImage)
+              }
+              
+              decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: someImgs , carMileage: Int(carMileage) ?? 0)])
+          }
+          
+          self.decodedCar = decodedCars
+          print("Car Img " + self.decodedCar[0].carImage[0])
           decodedCars = []
         }
     }
