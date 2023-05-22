@@ -43,12 +43,25 @@ struct SelectedCar: View {
                             .padding(25)
                             .offset(y: -bottomSheetTranslationProrated * imageOffset)
                         
-                        WebImage(url: URL(string: selectedCar.carImage[0]))
-                            .resizable()
-                            .frame(height: 250)
-                            .cornerRadius(20)
-                            .padding()
-                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
+//                        WebImage(url: URL(string: selectedCar.carImage[0]))
+//                            .resizable()
+//                            .frame(height: 250)
+//                            .cornerRadius(20)
+//                            .padding()
+//                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
+                        
+                        ScrollView(.horizontal){
+                            HStack{
+                                ForEach(selectedCar.carImage, id: \.self) { img in
+                                    WebImage(url: URL(string: img))
+                                        .resizable()
+                                        .frame(width: 300, height: 250)
+                                        .cornerRadius(20)
+                                        .padding()
+                                        .offset(y: -bottomSheetTranslationProrated * imageOffset)
+                                }
+                            }
+                        }
                         
                         Spacer()
                     }

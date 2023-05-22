@@ -169,9 +169,6 @@ class CarsViewModel: ObservableObject {
               let carModel = data["carModel"] as? String ?? ""
               let carMileage = data["carMilage"] as? String ?? ""
               if let image = data["carImage"] as? [String:Any] {
-//                  let carImage = image["carImage"] as? String ?? ""
-//                  print("IMAGE " + carImage)
-//                  someImgs.append(carImage)
                   if let nestedImg = image["carImage"] as? [String] {
                       someImgs = nestedImg
                       print(nestedImg)
@@ -183,7 +180,6 @@ class CarsViewModel: ObservableObject {
           }
           
           self.decodedCar = decodedCars
-          //print("Car Img " + self.decodedCar[0].carImage[0])
           decodedCars = []
         }
     }
