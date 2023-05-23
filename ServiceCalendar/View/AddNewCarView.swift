@@ -107,8 +107,10 @@ struct AddNewCarView: View {
         FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-                let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+//                let ref = FirebaseManager.shared.storage.reference(withPath: uid)
+                
                 for i in 0...selectedImages.count - 1 {
+                    let ref = FirebaseManager.shared.storage.reference().child("images/\(UUID().uuidString)")
                     guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
                     ref.putData(imageData) { metadata, error in
                         if let error = error {
