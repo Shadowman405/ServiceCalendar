@@ -111,28 +111,29 @@ struct AddNewCarView: View {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
                 let ref = FirebaseManager.shared.storage.reference(withPath: uid)
                 for i in 0...selectedImages.count - 1 {
-                    guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
-                    ref.putData(imageData) { metadata, error in
-                        if let error = error {
-                            print(error)
-                        }
-                        
-                        ref.downloadURL { url, error in
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                        guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
+                        ref.putData(imageData) { metadata, error in
                             if let error = error {
-                                print(error.localizedDescription)
+                                print(error)
                             }
                             
-                            print(url?.absoluteString ?? "")
-                            
-                            guard let url = url else {return}
-                            
-                            imagesArray.append(url.absoluteString)
-//                            print("IMGS ARRAY\n \(imagesArray)" )
+                            ref.downloadURL { url, error in
+                                if let error = error {
+                                    print(error.localizedDescription)
+                                }
+                                
+                                print(url?.absoluteString ?? "")
+                                
+                                guard let url = url else {return}
+                                
+                                imagesArray.append(url.absoluteString)
+                            }
                         }
                     }
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
-                    self.storeUserInfo(carImg: self.imagesArray)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                        self.storeUserInfo(carImg: self.imagesArray)
+                    }
                 }
             } else {
                 print("User not logged in")
