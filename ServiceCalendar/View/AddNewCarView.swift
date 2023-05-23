@@ -122,16 +122,16 @@ struct AddNewCarView: View {
                                 print(error.localizedDescription)
                             }
                             
-                            //print(url?.absoluteString ?? "")
+                            print(url?.absoluteString ?? "")
                             
                             guard let url = url else {return}
                             
                             imagesArray.append(url.absoluteString)
-                            print("IMGS ARRAY\n \(imagesArray)" )
+//                            print("IMGS ARRAY\n \(imagesArray)" )
                         }
                     }
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
                     self.storeUserInfo(carImg: self.imagesArray)
                 }
             } else {
