@@ -85,8 +85,7 @@ struct AddNewCarView: View {
                 }
                 
                 Button {
-               // persistImageToStorage()
-                    uploadPhoto()
+                persistImageToStorage()
                     
                     
                 } label: {
@@ -157,39 +156,7 @@ struct AddNewCarView: View {
     }
     
     func uploadPhoto() {
-        var tempImgsArray = [String]()
         
-        for j in 0...imagesArray.count {
-            FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
-                if user != nil {
-                    guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-                    let ref = FirebaseManager.shared.storage.reference(withPath: uid)
-                    for i in 0...selectedImages.count - 1 {
-                        guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
-                        ref.putData(imageData) { metadata, error in
-                            if let error = error {
-                                print(error)
-                            }
-                            
-                            ref.downloadURL { url, error in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                                
-                                print(url?.absoluteString ?? "")
-                                
-                                guard let url = url else {return}
-                                
-                                tempImgsArray.append(url.absoluteString)
-                            }
-                        }
-                    }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        self.storeUserInfo(carImg: tempImgsArray)
-                    }
-                }
-            }
-        }
     }
 }
 
