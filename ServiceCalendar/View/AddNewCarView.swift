@@ -111,29 +111,27 @@ struct AddNewCarView: View {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
                 let ref = FirebaseManager.shared.storage.reference(withPath: uid)
                 for i in 0...selectedImages.count - 1 {
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
-                        ref.putData(imageData) { metadata, error in
+                    guard let imageData = self.selectedImages[i].jpegData(compressionQuality: 0.5) else {return}
+                    ref.putData(imageData) { metadata, error in
+                        if let error = error {
+                            print(error)
+                        }
+                        
+                        ref.downloadURL { url, error in
                             if let error = error {
-                                print(error)
+                                print(error.localizedDescription)
                             }
                             
-                            ref.downloadURL { url, error in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                }
-                                
-                                print(url?.absoluteString ?? "")
-                                
-                                guard let url = url else {return}
-                                
-                                imagesArray.append(url.absoluteString)
-                            }
+                            print(url?.absoluteString ?? "")
+                            
+                            guard let url = url else {return}
+                            
+                            imagesArray.append(url.absoluteString)
                         }
                     }
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                        self.storeUserInfo(carImg: self.imagesArray)
-                    }
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self.storeUserInfo(carImg: self.imagesArray)
                 }
             } else {
                 print("User not logged in")
@@ -157,6 +155,12 @@ struct AddNewCarView: View {
                     return
                 }
             }
+    }
+    
+    func uploadPhoto() {
+        let storage = FirebaseManager.shared.storage.reference()
+        
+        
     }
 }
 
