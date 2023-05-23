@@ -127,11 +127,11 @@ struct AddNewCarView: View {
                             guard let url = url else {return}
                             
                             imagesArray.append(url.absoluteString)
-                            print(imagesArray)
+                            print("IMGS ARRAY\n \(imagesArray)" )
                         }
                     }
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     self.storeUserInfo(carImg: self.imagesArray)
                 }
             } else {
