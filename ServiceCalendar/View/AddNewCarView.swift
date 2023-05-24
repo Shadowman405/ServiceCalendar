@@ -22,10 +22,6 @@ struct AddNewCarView: View {
     
     var body: some View {
         ZStack {
-//            LinearGradient(colors: [Color.clear ,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
-//                .ignoresSafeArea()
-        
-            
             VStack {
                 PhotosPicker(selection: $carPhoto) {
                         Text("Add photo")
@@ -36,7 +32,6 @@ struct AddNewCarView: View {
                         Task{
                             if let data = try? await item.loadTransferable(type: Data.self){
                                 if let uiImage = UIImage(data: data){
-//                                    let image = Image(uiImage: uiImage)
                                     selectedImages.append(uiImage)
                                 }
                             }
@@ -49,8 +44,9 @@ struct AddNewCarView: View {
                             ForEach(0..<selectedImages.count, id: \.self) { i in
                                 Image(uiImage: selectedImages[i])
                                     .resizable()
-                                    .aspectRatio(contentMode: .fit)
                                     .frame(height: 320)
+                                    .cornerRadius(30)
+                                    .scaledToFit()
                                     .padding()
                             }
                         }
