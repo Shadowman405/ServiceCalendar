@@ -51,15 +51,6 @@ struct CarsGrid: View {
                             .foregroundColor(.black)
                     }
                 }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    Button {
-                        printInfo()
-                    } label: {
-                        Image(systemName: "info.circle")
-                            .foregroundColor(.black)
-                    }
-
-                }
             }
             .navigationTitle("My Cars")
             .navigationBarTitleDisplayMode(.inline)
@@ -76,11 +67,6 @@ struct CarsGrid: View {
         } catch {
             print("Error")
         }
-    }
-    
-    func printInfo() {
-        print(viewModel.decodedCar[0].carName)
-        print(viewModel.decodedCar[0].carImage)
     }
 }
 
