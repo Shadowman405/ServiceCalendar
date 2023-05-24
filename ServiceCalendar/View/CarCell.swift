@@ -23,6 +23,7 @@ struct CarCell: View {
                 } else {
                     WebImage(url: URL(string: car.carImage[0]))
                         .resizable()
+                        .scaledToFit()
                         .cornerRadius(20)
                         .frame(height: 270,alignment: .center)
                     .padding(10)
