@@ -167,11 +167,11 @@ class CarsViewModel: ObservableObject {
               _ = data["uid"] as? String ?? ""
               let carName = data["carMark"] as? String ?? ""
               let carModel = data["carModel"] as? String ?? ""
-              let carMileage = data["carMilage"] as? String ?? ""
+              let carMileage = data["carMileage"] as? String ?? ""
               if let image = data["carImage"] as? [String:Any] {
                   if let nestedImg = image["carImage"] as? [String] {
                       someImgs = nestedImg
-                      print(nestedImg)
+                      print(carMileage)
                       
                   }
               }
