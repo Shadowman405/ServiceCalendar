@@ -38,10 +38,13 @@ struct SelectedCar: View {
                         .ignoresSafeArea()
                         .opacity(0.8)
                     
+                    PlusButton()
+                    
                     VStack {
                         Text(selectedCar.carName)
                             .padding(25)
                             .offset(y: -bottomSheetTranslationProrated * imageOffset)
+                        
                         
 //                        WebImage(url: URL(string: selectedCar.carImage[0]))
 //                            .resizable()
@@ -64,6 +67,8 @@ struct SelectedCar: View {
                         }
                         
                         Spacer()
+                        
+                        
                     }
                     
                     
@@ -71,6 +76,7 @@ struct SelectedCar: View {
 //                        Text(bottomSheetTranslationProrated.formatted())
                         
                     } content: {
+                        
                         ForecastView(bottomSheetTranslationProrated: bottomSheetTranslationProrated)
                     }
                     .onBottomSheetDrag { translation in

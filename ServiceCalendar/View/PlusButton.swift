@@ -12,13 +12,22 @@ struct PlusButton: View {
         
         ZStack {
             Circle()
-                .foregroundColor(.blue)
+                .foregroundColor(Color.blue)
                 .padding()
-            .frame(width: 110, height: 110)
+            .frame(width: 100, height: 100)
             
             Image(systemName: "plus.circle")
                 .resizable()
                 .frame(width: 70,height: 70)
+            
+            Button {
+                print("Beep")
+            } label: {
+                Image(systemName: "plus.circle")
+                    .resizable()
+                    .frame(width: 70,height: 70)
+            }
+
         }
     }
 }
