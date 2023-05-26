@@ -28,9 +28,12 @@ struct PlusButton: View {
             
             //MARK: - Content
             VStack(spacing: 16) {
+                Text("Add new")
+                
                 Image(systemName: "plus.circle")
                     .resizable()
                     .frame(width: 40,height: 40)
+                    .foregroundColor(.black)
             }
             .padding(.horizontal, 8)
             .padding(.vertical, 16)

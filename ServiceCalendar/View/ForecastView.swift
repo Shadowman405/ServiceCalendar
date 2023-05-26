@@ -32,15 +32,22 @@ struct ForecastView: View {
                                 Button {
                                     print("Beep")
                                 } label: {
-                                    Image(systemName: "plus.circle")
+                                    PlusButton()
                                 }
-
                             }
                         } else {
-                            ForEach(ServiceSegmentedControlModel.mockService) { service in
-                                ForecastCardMoney(service: service, segmentedControlChoice: .service)
+                            HStack {
+                                ForEach(ServiceSegmentedControlModel.mockService) { service in
+                                    ForecastCardMoney(service: service, segmentedControlChoice: .service)
+                                }
+                                .transition(.offset(x: 430))
+                                
+                                Button {
+                                    print("Beep")
+                                } label: {
+                                    PlusButton()
+                                }
                             }
-                            .transition(.offset(x: 430))
                         }
                     }
                     .padding(.vertical, 20)
