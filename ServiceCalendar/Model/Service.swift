@@ -11,7 +11,7 @@ enum ServiceSegmentedControlModel {
     case service
     case spendedMoney
 }
-
+ 
 struct Service: Identifiable {
     var id = UUID()
     var mileage: Int

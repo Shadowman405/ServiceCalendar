@@ -24,6 +24,7 @@
 		BF1090CF29EE9990007C8124 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090CE29EE998F007C8124 /* Service.swift */; };
 		BF1090D129EE9D28007C8124 /* ForecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090D029EE9D28007C8124 /* ForecastCard.swift */; };
 		BF2301B52A20029F00929FA8 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2301B42A20029E00929FA8 /* PlusButton.swift */; };
+		BF2301B72A21384000929FA8 /* AddNewServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2301B62A21384000929FA8 /* AddNewServiceView.swift */; };
 		BF420E6B2A0977C3006DD00E /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */; };
 		BF420E6D2A0A8150006DD00E /* AddNewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */; };
 		BF420E702A0D8EE0006DD00E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E6F2A0D8EE0006DD00E /* FirebaseAnalytics */; };
@@ -72,6 +73,7 @@
 		BF1090CE29EE998F007C8124 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		BF1090D029EE9D28007C8124 /* ForecastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCard.swift; sourceTree = "<group>"; };
 		BF2301B42A20029E00929FA8 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		BF2301B62A21384000929FA8 /* AddNewServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewServiceView.swift; sourceTree = "<group>"; };
 		BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCarView.swift; sourceTree = "<group>"; };
 		BF420E912A0E57BC006DD00E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */,
 				BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */,
 				BF2301B42A20029E00929FA8 /* PlusButton.swift */,
+				BF2301B62A21384000929FA8 /* AddNewServiceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				BF1090CD29EC0605007C8124 /* SegmentedControl.swift in Sources */,
 				BF9727C829F9AA100076A233 /* ServiceWidget.swift in Sources */,
 				BF1090CB29E98322007C8124 /* Extensions.swift in Sources */,
+				BF2301B72A21384000929FA8 /* AddNewServiceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
