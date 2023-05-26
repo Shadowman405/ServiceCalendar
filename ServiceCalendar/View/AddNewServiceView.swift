@@ -24,6 +24,7 @@ struct AddNewServiceView: View {
                         .padding()
                     Spacer()
                     TextField("Mileage...", text: $mileage)
+                        .keyboardType(.numberPad)
                 }
                 HStack {
     //                Text("Enter date")
@@ -39,6 +40,13 @@ struct AddNewServiceView: View {
                     Spacer()
                     TextField("Service cost...", text: $checkMoney)
                         .keyboardType(.numberPad)
+                }
+                HStack {
+//                    Text("Is service done?")
+//                        .padding()
+//                    Spacer()
+                    Toggle("Is service done?", isOn: $isDone)
+                        .padding()
                 }
             }
         }
