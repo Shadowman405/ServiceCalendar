@@ -29,9 +29,7 @@ struct ForecastView: View {
                                 }
                                 .transition(.offset(x: -430))
                                 
-                                Button {
-                                    print("Beep")
-                                } label: {
+                                NavigationLink(destination: AddNewServiceView()) {
                                     PlusButton()
                                 }
                             }
@@ -42,9 +40,7 @@ struct ForecastView: View {
                                 }
                                 .transition(.offset(x: 430))
                                 
-                                Button {
-                                    print("Beep")
-                                } label: {
+                                NavigationLink(destination: AddNewServiceView()) {
                                     PlusButton()
                                 }
                             }
