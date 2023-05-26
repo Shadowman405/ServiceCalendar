@@ -38,20 +38,11 @@ struct SelectedCar: View {
                         .ignoresSafeArea()
                         .opacity(0.8)
                     
-                    PlusButton()
                     
                     VStack {
                         Text(selectedCar.carName)
                             .padding(25)
                             .offset(y: -bottomSheetTranslationProrated * imageOffset)
-                        
-                        
-//                        WebImage(url: URL(string: selectedCar.carImage[0]))
-//                            .resizable()
-//                            .frame(height: 250)
-//                            .cornerRadius(20)
-//                            .padding()
-//                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
                         
                         ScrollView(.horizontal){
                             HStack{
