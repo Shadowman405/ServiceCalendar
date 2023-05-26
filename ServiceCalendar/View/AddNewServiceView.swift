@@ -27,6 +27,7 @@ struct AddNewServiceView: View {
 //                Spacer()
                 DatePicker("Select Date", selection: $date)
                     .padding()
+                    .datePickerStyle(.compact)
             }
             HStack {
                 Text("Enter cost of service")
