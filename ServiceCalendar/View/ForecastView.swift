@@ -31,7 +31,7 @@ struct ForecastView: View {
                                 }
                                 .transition(.offset(x: -430))
                                 
-                                NavigationLink(destination: AddNewServiceView()) {
+                                NavigationLink(destination: AddNewServiceView(selectedCar: selectedCar)) {
                                     PlusButton()
                                 }
                             }
@@ -42,7 +42,7 @@ struct ForecastView: View {
                                 }
                                 .transition(.offset(x: 430))
                                 
-                                NavigationLink(destination: AddNewServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))) {
+                                NavigationLink(destination: AddNewServiceView(selectedCar: selectedCar)) {
                                     PlusButton()
                                 }
                             }
