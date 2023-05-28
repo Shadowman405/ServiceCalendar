@@ -11,7 +11,7 @@ struct ForecastView: View {
     var bottomSheetTranslationProrated: CGFloat = 1
     @State private var selection = 0
     
-    var selectedCar: Car
+    var selectedCar: Car?
     
     var body: some View {
         ScrollView {
@@ -31,7 +31,7 @@ struct ForecastView: View {
                                 }
                                 .transition(.offset(x: -430))
                                 
-                                NavigationLink(destination: AddNewServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))) {
+                                NavigationLink(destination: AddNewServiceView()) {
                                     PlusButton()
                                 }
                             }

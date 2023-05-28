@@ -13,7 +13,7 @@ struct AddNewServiceView: View {
     @State private var isDone = false
     @State private var checkMoney = ""
     
-    var selectedCar: Car
+    var selectedCar: Car?
     
     var body: some View {
         ZStack {
@@ -56,6 +56,7 @@ struct AddNewServiceView: View {
                 Button {
                     print("beep")
                     print("\(date)")
+                    addNewService()
                 } label: {
                     Text("Add new service")
                 }
@@ -68,7 +69,7 @@ struct AddNewServiceView: View {
     
     func addNewService() {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
+        let uniqueID = "\(uid)\(selectedCar!.carName)\(selectedCar!.carModel)"
         let uniqueService = "\(uid)\(date)"
         let serviceData = [
             "mileage":mileage ,
