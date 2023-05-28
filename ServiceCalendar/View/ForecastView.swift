@@ -11,6 +11,8 @@ struct ForecastView: View {
     var bottomSheetTranslationProrated: CGFloat = 1
     @State private var selection = 0
     
+    var selectedCar: Car
+    
     var body: some View {
         ScrollView {
             VStack() {
@@ -29,7 +31,7 @@ struct ForecastView: View {
                                 }
                                 .transition(.offset(x: -430))
                                 
-                                NavigationLink(destination: AddNewServiceView()) {
+                                NavigationLink(destination: AddNewServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))) {
                                     PlusButton()
                                 }
                             }
@@ -40,7 +42,7 @@ struct ForecastView: View {
                                 }
                                 .transition(.offset(x: 430))
                                 
-                                NavigationLink(destination: AddNewServiceView()) {
+                                NavigationLink(destination: AddNewServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))) {
                                     PlusButton()
                                 }
                             }
@@ -77,6 +79,6 @@ struct ForecastView: View {
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastView()
+        ForecastView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
     }
 }

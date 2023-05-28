@@ -13,6 +13,8 @@ struct AddNewServiceView: View {
     @State private var isDone = false
     @State private var checkMoney = ""
     
+    var selectedCar: Car
+    
     var body: some View {
         ZStack {
             LinearGradient(colors: [Color.clear, Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
@@ -55,6 +57,6 @@ struct AddNewServiceView: View {
 
 struct AddNewServiceView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewServiceView()
+        AddNewServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
     }
 }
