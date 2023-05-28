@@ -20,38 +20,54 @@ struct AddNewServiceView: View {
             LinearGradient(colors: [Color.clear, Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
                 .ignoresSafeArea()
             
-            VStack(alignment: .leading,spacing: 10) {
-                HStack {
-                    Text("Enter Mileage")
-                        .padding()
-                    Spacer()
-                    TextField("Mileage...", text: $mileage)
-                        .keyboardType(.numberPad)
+            VStack {
+                VStack(alignment: .leading,spacing: 10) {
+                    HStack {
+                        Text("Enter Mileage")
+                            .padding()
+                        Spacer()
+                        TextField("Mileage...", text: $mileage)
+                            .keyboardType(.numberPad)
+                    }
+                    HStack {
+        //                Text("Enter date")
+        //                    .padding()
+        //                Spacer()
+                        DatePicker("Select Date", selection: $date)
+                            .padding()
+                            .datePickerStyle(.compact)
+                    }
+                    HStack {
+                        Text("Enter cost of service")
+                            .padding()
+                        Spacer()
+                        TextField("Service cost...", text: $checkMoney)
+                            .keyboardType(.numberPad)
+                    }
+                    HStack {
+    //                    Text("Is service done?")
+    //                        .padding()
+    //                    Spacer()
+                        Toggle("Is service done?", isOn: $isDone)
+                            .padding()
+                    }
                 }
-                HStack {
-    //                Text("Enter date")
-    //                    .padding()
-    //                Spacer()
-                    DatePicker("Select Date", selection: $date)
-                        .padding()
-                        .datePickerStyle(.compact)
+                
+                Button {
+                    print("beep")
+                    print("\(date)")
+                } label: {
+                    Text("Add new service")
                 }
-                HStack {
-                    Text("Enter cost of service")
-                        .padding()
-                    Spacer()
-                    TextField("Service cost...", text: $checkMoney)
-                        .keyboardType(.numberPad)
-                }
-                HStack {
-//                    Text("Is service done?")
-//                        .padding()
-//                    Spacer()
-                    Toggle("Is service done?", isOn: $isDone)
-                        .padding()
-                }
+                .buttonStyle(.borderedProminent)
+                .foregroundColor(.black)
             }
+            
         }
+    }
+    
+    func addNewService() {
+        
     }
 }
 
