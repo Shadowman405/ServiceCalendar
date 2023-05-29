@@ -75,46 +75,7 @@ struct ForecastView: View {
                 .frame(maxHeight: .infinity, alignment: .top)
         }
     }
-}
-
-class ServicesViewModel: ObservableObject {
-    @Published var errorMesage = ""
-    @Published var decodedService: [Service] = []
-    
-    var someCar: Car
-    
-    init(someCar: Car) {
-        self.someCar = someCar
-       // fetchCarsArrayNested()
-    }
-    
-    func fetchCarsArray() {
-        self.decodedService = []
-        var decodedService: [Service] = []
-        
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(someCar.carName)\(someCar.carModel)").addSnapshotListener { snapshot, error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            
-            let doc = snapshot!.reference
-          for eachDoc in doc {
-              let data = eachDoc.data()
-              
-              _ = data["uid"] as? String ?? ""
-              let carName = data["carMark"] as? String ?? ""
-              let carModel = data["carModel"] as? String ?? ""
-              let carMileage = data["carMilage"] as? String ?? ""
-              let carImage = data["carImage"] as? [String] ?? [""]
-              
-              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
-          }
-          
-          self.decodedService = decodedService
-          decodedService = []
-        }
-    }
+} 
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
