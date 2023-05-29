@@ -10,10 +10,10 @@ import SwiftUI
 struct ForecastView: View {
     var bottomSheetTranslationProrated: CGFloat = 1
     @State private var selection = 0
-    
     var selectedCar: Car?
     
     var body: some View {
+        
         ScrollView {
             VStack() {
                 SegmentedControl(selection: $selection)
@@ -81,8 +81,11 @@ class ServicesViewModel: ObservableObject {
     @Published var errorMesage = ""
     @Published var decodedService: [Service] = []
     
-    init() {
-        fetchCarsArrayNested()
+    var someCar: Car
+    
+    init(someCar: Car) {
+        self.someCar = someCar
+       // fetchCarsArrayNested()
     }
     
     func fetchCarsArray() {
@@ -90,13 +93,12 @@ class ServicesViewModel: ObservableObject {
         var decodedService: [Service] = []
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").addSnapshotListener { snapshot, error in
+        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(someCar.carName)\(someCar.carModel)").addSnapshotListener { snapshot, error in
             if let error = error {
                 print(error.localizedDescription)
-                return
-        }
+            }
             
-          let doc = snapshot!.documents
+            let doc = snapshot!.reference
           for eachDoc in doc {
               let data = eachDoc.data()
               
@@ -113,43 +115,6 @@ class ServicesViewModel: ObservableObject {
           decodedService = []
         }
     }
-    
-//    func fetchCarsArrayNested() {
-//        self.decodedCar = []
-//        var someImgs: [String] = []
-//        var decodedCars: [Car] = []
-//        
-//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-//      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").addSnapshotListener { snapshot, error in
-//            if let error = error {
-//                print(error.localizedDescription)
-//                return
-//        }
-//            
-//          let doc = snapshot!.documents
-//          for eachDoc in doc {
-//              let data = eachDoc.data()
-//              
-//              _ = data["uid"] as? String ?? ""
-//              let carName = data["carMark"] as? String ?? ""
-//              let carModel = data["carModel"] as? String ?? ""
-//              let carMileage = data["carMileage"] as? String ?? ""
-//              if let image = data["carImage"] as? [String:Any] {
-//                  if let nestedImg = image["carImage"] as? [String] {
-//                      someImgs = nestedImg
-//                      print(carMileage)
-//                      
-//                  }
-//              }
-//              
-//              decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: someImgs , carMileage: Int(carMileage) ?? 0)])
-//          }
-//          
-//          self.decodedCar = decodedCars
-//          decodedCars = []
-//        }
-//    }
-}
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
