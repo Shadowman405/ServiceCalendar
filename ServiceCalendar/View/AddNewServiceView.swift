@@ -72,17 +72,13 @@ struct AddNewServiceView: View {
         let uniqueID = "\(uid)\(selectedCar!.carName)\(selectedCar!.carModel)"
         let uniqueService = "\(uid)\(date)"
         let serviceData = [
-            "Services": [
-                "Service" : [
-                    "mileage":mileage ,
-                    "date": date,
-                    "isDone": isDone,
-                    "checkMoney": checkMoney
-                ] as [String : Any]
-            ] as [String : Any]
+            "mileage":mileage ,
+            "date": date,
+            "isDone": isDone,
+            "checkMoney": checkMoney
         ] as [String : Any]
         FirebaseManager.shared.firestore.collection("users")
-            .document(uid).collection("cars").document(uniqueID).collection("Services").document(uid).setData(serviceData)  { error in
+            .document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)  { error in
                 if let error = error {
                     print(error.localizedDescription)
                     return
