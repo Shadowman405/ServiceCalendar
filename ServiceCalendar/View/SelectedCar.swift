@@ -17,7 +17,7 @@ enum BotomSheetPosition: CGFloat, CaseIterable {
 struct SelectedCar: View {
     @Environment(\.dismiss) var dismiss
     
-    @State var bottomSheetPosition: BotomSheetPosition = .middle
+    @State var bottomSheetPosition: BotomSheetPosition = .middle 
     @State var bottomSheetChange = false
     @State var bottomSheetTranslation: CGFloat = BotomSheetPosition.middle.rawValue
     var bottomSheetTranslationProrated: CGFloat {

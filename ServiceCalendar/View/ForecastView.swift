@@ -77,6 +77,80 @@ struct ForecastView: View {
     }
 }
 
+class ServicesViewModel: ObservableObject {
+    @Published var errorMesage = ""
+    @Published var decodedService: [Service] = []
+    
+    init() {
+        fetchCarsArrayNested()
+    }
+    
+    func fetchCarsArray() {
+        self.decodedService = []
+        var decodedService: [Service] = []
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").addSnapshotListener { snapshot, error in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+        }
+            
+          let doc = snapshot!.documents
+          for eachDoc in doc {
+              let data = eachDoc.data()
+              
+              _ = data["uid"] as? String ?? ""
+              let carName = data["carMark"] as? String ?? ""
+              let carModel = data["carModel"] as? String ?? ""
+              let carMileage = data["carMilage"] as? String ?? ""
+              let carImage = data["carImage"] as? [String] ?? [""]
+              
+              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
+          }
+          
+          self.decodedService = decodedService
+          decodedService = []
+        }
+    }
+    
+//    func fetchCarsArrayNested() {
+//        self.decodedCar = []
+//        var someImgs: [String] = []
+//        var decodedCars: [Car] = []
+//        
+//        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+//      FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").addSnapshotListener { snapshot, error in
+//            if let error = error {
+//                print(error.localizedDescription)
+//                return
+//        }
+//            
+//          let doc = snapshot!.documents
+//          for eachDoc in doc {
+//              let data = eachDoc.data()
+//              
+//              _ = data["uid"] as? String ?? ""
+//              let carName = data["carMark"] as? String ?? ""
+//              let carModel = data["carModel"] as? String ?? ""
+//              let carMileage = data["carMileage"] as? String ?? ""
+//              if let image = data["carImage"] as? [String:Any] {
+//                  if let nestedImg = image["carImage"] as? [String] {
+//                      someImgs = nestedImg
+//                      print(carMileage)
+//                      
+//                  }
+//              }
+//              
+//              decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: someImgs , carMileage: Int(carMileage) ?? 0)])
+//          }
+//          
+//          self.decodedCar = decodedCars
+//          decodedCars = []
+//        }
+//    }
+}
+
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
         ForecastView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
