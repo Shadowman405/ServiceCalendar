@@ -103,7 +103,7 @@ class ServicesViewModel: ObservableObject {
         var decodedServices: [Service] = []
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName)\(selectedCar?.carModel)") .collection("Services").addSnapshotListener { snapshot, error in
+        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").addSnapshotListener { snapshot, error in
             if let error = error {
                 print("error")
                 print(error.localizedDescription)
