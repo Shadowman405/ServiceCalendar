@@ -26,7 +26,7 @@ struct CarsGrid: View {
                 ScrollView {
                     LazyVGrid(columns: columns) {
                         ForEach(viewModel.decodedCar){ car in
-                            NavigationLink(destination: SelectedCar(selectedCar: car)) {
+                            NavigationLink(destination: SelectedCar(bottomSheetPosition: .middle, bottomSheetChange: false, bottomSheetTranslation: 0, selectedCar: car)) {
                                 CarCell(car: car)
                                 }
                         }

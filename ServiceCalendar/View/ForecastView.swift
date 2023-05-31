@@ -10,13 +10,12 @@ import SwiftUI
 struct ForecastView: View {
     var bottomSheetTranslationProrated: CGFloat = 1
     @State private var selection = 0
-    @ObservedObject var vm: ServicesViewModel
     var selectedCar: Car?
     
     init(bottomSheetTranslationProrated:CGFloat?, selectedCar: Car?){
         self.bottomSheetTranslationProrated = bottomSheetTranslationProrated ?? 1
         self.selectedCar = selectedCar
-        self.vm = .init(selectedCar: selectedCar)
+        //\self.vm = .init(selectedCar: selectedCar)
     }
     
     
@@ -81,51 +80,6 @@ struct ForecastView: View {
                 .frame(width: 48,height: 5)
                 .frame(height:20)
                 .frame(maxHeight: .infinity, alignment: .top)
-        }
-    }
-}
-
-class ServicesViewModel: ObservableObject {
-    @Published var errorMesage = ""
-    @Published var decodedService: [Service] = []
-    var selectedCar: Car?
-    
-    init(selectedCar: Car?) {
-        self.selectedCar = selectedCar
-        print("Selected car\n\(selectedCar?.carName)")
-       // fetchCars()
-        fetchServicesArray()
-    }
-    
-    
-    func fetchServicesArray() {
-        self.decodedService = []
-        var decodedServices: [Service] = []
-        
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").addSnapshotListener { snapshot, error in
-            if let error = error {
-                print("error")
-                print(error.localizedDescription)
-        }
-            
-          let doc = snapshot!.documents
-          for eachDoc in doc {
-              let data = eachDoc.data()
-              
-              print("Data\n\(data)")
-              
-//              _ = data["uid"] as? String ?? ""
-//              let carName = data["carMark"] as? String ?? ""
-//              let carModel = data["carModel"] as? String ?? ""
-//              let carMileage = data["carMilage"] as? String ?? ""
-//              let carImage = data["carImage"] as? [String] ?? [""]
-//
-//              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
-          }
-          
-//          self.decodedCar = decodedServices
-//          decodedServices = []
         }
     }
 }

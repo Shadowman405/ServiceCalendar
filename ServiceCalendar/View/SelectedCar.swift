@@ -24,7 +24,18 @@ struct SelectedCar: View {
         (bottomSheetTranslation - BotomSheetPosition.middle.rawValue) / (BotomSheetPosition.top.rawValue - BotomSheetPosition.middle.rawValue)
     }
     
+    @ObservedObject var vm: ServicesViewModel
+    
     var selectedCar: Car
+    
+    init(bottomSheetPosition: BotomSheetPosition, bottomSheetChange: Bool = false, bottomSheetTranslation: CGFloat,selectedCar: Car) {
+        //self.dismiss = dismiss
+//        self.bottomSheetPosition = bottomSheetPosition
+//        self.bottomSheetChange = bottomSheetChange
+//        self.bottomSheetTranslation = bottomSheetTranslation
+        self.vm = .init(selectedCar: selectedCar)
+        self.selectedCar = selectedCar
+    }
     
     var body: some View {
         NavigationView {
@@ -100,9 +111,54 @@ struct SelectedCar: View {
     }
 }
 
+class ServicesViewModel: ObservableObject {
+    @Published var errorMesage = ""
+    @Published var decodedService: [Service] = []
+    var selectedCar: Car?
+    
+    init(selectedCar: Car?) {
+        self.selectedCar = selectedCar
+        print("Selected car\n\(selectedCar?.carName)")
+       // fetchCars()
+        fetchServicesArray()
+    }
+    
+    
+    func fetchServicesArray() {
+        self.decodedService = []
+        var decodedServices: [Service] = []
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").addSnapshotListener { snapshot, error in
+            if let error = error {
+                print("error")
+                print(error.localizedDescription)
+        }
+            
+          let doc = snapshot!.documents
+          for eachDoc in doc {
+              let data = eachDoc.data()
+              
+              print("Data\n\(data)")
+              
+//              _ = data["uid"] as? String ?? ""
+//              let carName = data["carMark"] as? String ?? ""
+//              let carModel = data["carModel"] as? String ?? ""
+//              let carMileage = data["carMilage"] as? String ?? ""
+//              let carImage = data["carImage"] as? [String] ?? [""]
+//
+//              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
+          }
+          
+//          self.decodedCar = decodedServices
+//          decodedServices = []
+        }
+    }
+}
+
 struct SelectedCar_Previews: PreviewProvider {
     
     static var previews: some View {
-        SelectedCar(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
+        SelectedCar(bottomSheetPosition: .middle, bottomSheetTranslation: 0, selectedCar:  Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
     }
 }
