@@ -12,13 +12,6 @@ struct ForecastView: View {
     @State private var selection = 0
     var selectedCar: Car?
     
-    init(bottomSheetTranslationProrated:CGFloat?, selectedCar: Car?){
-        self.bottomSheetTranslationProrated = bottomSheetTranslationProrated ?? 1
-        self.selectedCar = selectedCar
-        //\self.vm = .init(selectedCar: selectedCar)
-    }
-    
-    
     var body: some View {
         
         ScrollView {
@@ -86,6 +79,6 @@ struct ForecastView: View {
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastView(bottomSheetTranslationProrated: 1, selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
+        ForecastView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
     }
 }
