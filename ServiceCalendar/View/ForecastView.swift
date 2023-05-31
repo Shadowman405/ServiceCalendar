@@ -10,7 +10,13 @@ import SwiftUI
 struct ForecastView: View {
     var bottomSheetTranslationProrated: CGFloat = 1
     @State private var selection = 0
+    @ObservedObject var vm: ServicesViewModel
     var selectedCar: Car?
+    
+    init(selectedCar: Car?){
+        self.selectedCar = selectedCar
+        self.vm = .init(selectedCar: selectedCar)
+    }
     
     var body: some View {
         
@@ -80,8 +86,10 @@ struct ForecastView: View {
 class ServicesViewModel: ObservableObject {
     @Published var errorMesage = ""
     @Published var decodedService: [Service] = []
+    var selectedCar: Car?
     
-    init() {
+    init(selectedCar: Car?) {
+        self.selectedCar = selectedCar
        // fetchCars()
         fetchServicesArray()
     }
@@ -108,7 +116,7 @@ class ServicesViewModel: ObservableObject {
               let carMileage = data["carMilage"] as? String ?? ""
               let carImage = data["carImage"] as? [String] ?? [""]
               
-              decodedCars.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
+              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
           }
           
           self.decodedCar = decodedServices
