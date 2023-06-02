@@ -8,6 +8,7 @@
 import SwiftUI
 import BottomSheet
 import SDWebImageSwiftUI
+import Algorithms
 
 enum BotomSheetPosition: CGFloat, CaseIterable {
     case top = 0.82
@@ -138,27 +139,17 @@ class ServicesViewModel: ObservableObject {
           let doc = snapshot!.documents
           for eachDoc in doc {
               let data = eachDoc.data()
-              
-              //print("Data\n\(data)")
-              
               let mileage = data["mileage"] as? String ?? ""
               let checkmoney = data["checkMoney"] as? String ?? ""
               let date = data["date"] as? Date ?? Date.now
               let isDone = data["isDone"] as? Bool ?? false
               
               decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1))
-              
-//              _ = data["uid"] as? String ?? ""
-//              let carName = data["carMark"] as? String ?? ""
-//              let carModel = data["carModel"] as? String ?? ""
-//              let carMileage = data["carMilage"] as? String ?? ""
-//              let carImage = data["carImage"] as? [String] ?? [""]
-//
-//              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
           }
             
+            
             for service in decodedServices {
-                print(service)
+                print("Service:" + "\(service)")
             }
           
           self.decodedService = decodedServices

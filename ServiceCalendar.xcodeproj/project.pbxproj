@@ -25,6 +25,7 @@
 		BF1090D129EE9D28007C8124 /* ForecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF1090D029EE9D28007C8124 /* ForecastCard.swift */; };
 		BF2301B52A20029F00929FA8 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2301B42A20029E00929FA8 /* PlusButton.swift */; };
 		BF2301B72A21384000929FA8 /* AddNewServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2301B62A21384000929FA8 /* AddNewServiceView.swift */; };
+		BF2301BA2A2A6D1300929FA8 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = BF2301B92A2A6D1300929FA8 /* Algorithms */; };
 		BF420E6B2A0977C3006DD00E /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */; };
 		BF420E6D2A0A8150006DD00E /* AddNewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */; };
 		BF420E702A0D8EE0006DD00E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E6F2A0D8EE0006DD00E /* FirebaseAnalytics */; };
@@ -106,6 +107,7 @@
 				BF1090C529E740BC007C8124 /* BottomSheet in Frameworks */,
 				BF420E7C2A0D8EE0006DD00E /* FirebaseFirestore in Frameworks */,
 				BF420E742A0D8EE0006DD00E /* FirebaseAuth in Frameworks */,
+				BF2301BA2A2A6D1300929FA8 /* Algorithms in Frameworks */,
 				BF420E972A12D3C2006DD00E /* SDWebImageSwiftUI in Frameworks */,
 				BF420E822A0D8EE0006DD00E /* FirebaseFunctions in Frameworks */,
 				BF420E862A0D8EE0006DD00E /* FirebasePerformance in Frameworks */,
@@ -254,6 +256,7 @@
 				BF420E8B2A0D8EE0006DD00E /* FirebaseStorage */,
 				BF420E8D2A0D8EE0006DD00E /* FirebaseStorageCombine-Community */,
 				BF420E962A12D3C2006DD00E /* SDWebImageSwiftUI */,
+				BF2301B92A2A6D1300929FA8 /* Algorithms */,
 			);
 			productName = ServiceCalendar;
 			productReference = BF4CBBA529DDBE6500EC5626 /* ServiceCalendar.app */;
@@ -287,6 +290,7 @@
 				BF1090C329E740BC007C8124 /* XCRemoteSwiftPackageReference "BottomSheet" */,
 				BF420E6E2A0D8EE0006DD00E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				BF420E952A12D3C2006DD00E /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				BF2301B82A2A6D1300929FA8 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
 			);
 			productRefGroup = BF4CBBA629DDBE6500EC5626 /* Products */;
 			projectDirPath = "";
@@ -558,6 +562,14 @@
 				kind = branch;
 			};
 		};
+		BF2301B82A2A6D1300929FA8 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		BF420E6E2A0D8EE0006DD00E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -594,6 +606,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF1090C329E740BC007C8124 /* XCRemoteSwiftPackageReference "BottomSheet" */;
 			productName = BottomSheet;
+		};
+		BF2301B92A2A6D1300929FA8 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF2301B82A2A6D1300929FA8 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
 		};
 		BF420E6F2A0D8EE0006DD00E /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
