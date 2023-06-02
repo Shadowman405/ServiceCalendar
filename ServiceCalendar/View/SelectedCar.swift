@@ -139,7 +139,7 @@ class ServicesViewModel: ObservableObject {
           for eachDoc in doc {
               let data = eachDoc.data()
               
-              print("Data\n\(data)")
+              //print("Data\n\(data)")
               
               let mileage = data["mileage"] as? String ?? ""
               let checkmoney = data["checkMoney"] as? String ?? ""
@@ -156,6 +156,10 @@ class ServicesViewModel: ObservableObject {
 //
 //              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
           }
+            
+            for service in decodedServices {
+                print(service)
+            }
           
           self.decodedService = decodedServices
           decodedServices = []
