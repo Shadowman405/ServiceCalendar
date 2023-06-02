@@ -38,7 +38,7 @@ struct ForecastView: View {
                             }
                         } else {
                             HStack {
-                                ForEach(ServiceSegmentedControlModel.mockService) { service in
+                                ForEach(selectedServices!) { service in
                                     ForecastCardMoney(service: service, segmentedControlChoice: .service)
                                 }
                                 .transition(.offset(x: 430))
