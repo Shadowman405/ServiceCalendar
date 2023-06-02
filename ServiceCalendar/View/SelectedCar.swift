@@ -118,7 +118,7 @@ class ServicesViewModel: ObservableObject {
     
     init(selectedCar: Car?) {
         self.selectedCar = selectedCar
-        print("Selected car\n\(selectedCar?.carName)")
+        print("Selected car\n\(selectedCar?.carName ?? "some car")")
        // fetchCars()
         fetchServicesArray()
     }
@@ -141,6 +141,13 @@ class ServicesViewModel: ObservableObject {
               
               print("Data\n\(data)")
               
+              let mileage = data["mileage"] as? String ?? ""
+              let checkmoney = data["checkMoney"] as? String ?? ""
+              let date = data["date"] as? Date ?? Date.now
+              let isDone = data["isDone"] as? Bool ?? false
+              
+              decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1))
+              
 //              _ = data["uid"] as? String ?? ""
 //              let carName = data["carMark"] as? String ?? ""
 //              let carModel = data["carModel"] as? String ?? ""
@@ -150,8 +157,8 @@ class ServicesViewModel: ObservableObject {
 //              decodedService.append(contentsOf: [Car(carName: carName, carModel: carModel, carImage: carImage, carMileage: Int(carMileage) ?? 0)])
           }
           
-//          self.decodedCar = decodedServices
-//          decodedServices = []
+          self.decodedService = decodedServices
+          decodedServices = []
         }
     }
 }
@@ -159,6 +166,6 @@ class ServicesViewModel: ObservableObject {
 struct SelectedCar_Previews: PreviewProvider {
     
     static var previews: some View {
-        SelectedCar(bottomSheetPosition: .middle, bottomSheetTranslation: 0, selectedCar:  Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
+        SelectedCar(bottomSheetPosition: .middle, bottomSheetTranslation: 0, selectedCar:  Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000)    )
     }
 }
