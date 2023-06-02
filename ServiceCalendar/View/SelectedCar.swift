@@ -147,8 +147,9 @@ class ServicesViewModel: ObservableObject {
               decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1))
           }
             
+            var uniqued = decodedServices.uniqued()
             
-            for service in decodedServices {
+            for service in uniqued {
                 print("Service:" + "\(service)")
             }
           
