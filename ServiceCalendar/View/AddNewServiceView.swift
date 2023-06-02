@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddNewServiceView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var mileage = ""
     @State private var date = Date()
     @State private var isDone = false
@@ -57,6 +58,7 @@ struct AddNewServiceView: View {
                     print("beep")
                     print("\(date)")
                     addNewService()
+                    dismiss()
                 } label: {
                     Text("Add new service")
                 }
