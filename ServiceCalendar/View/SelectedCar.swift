@@ -80,7 +80,7 @@ struct SelectedCar: View {
                         
                     } content: {
                         
-                        ForecastView(bottomSheetTranslationProrated: bottomSheetTranslationProrated,selectedCar: selectedCar)
+                        ForecastView(bottomSheetTranslationProrated: bottomSheetTranslationProrated,selectedCar: selectedCar, selectedServices: vm.decodedService)
                     }
                     .onBottomSheetDrag { translation in
                         bottomSheetTranslation = translation / screenHeight
@@ -122,7 +122,7 @@ class ServicesViewModel: ObservableObject {
     
     init(selectedCar: Car?) {
         self.selectedCar = selectedCar
-        print("Selected car\n\(selectedCar?.carName ?? "some car")")
+//        print("Selected car\n\(selectedCar?.carName ?? "some car")")
        // fetchCars()
         //fetchServicesArray()
     }

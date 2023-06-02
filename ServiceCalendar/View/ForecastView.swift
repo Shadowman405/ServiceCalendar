@@ -11,6 +11,7 @@ struct ForecastView: View {
     var bottomSheetTranslationProrated: CGFloat = 1
     @State private var selection = 0
     var selectedCar: Car?
+    var selectedServices: [Service]?
     
     var body: some View {
         
@@ -23,7 +24,7 @@ struct ForecastView: View {
                     HStack(spacing: 12) {
                         if selection == 0 {
                             HStack {
-                                ForEach(ServiceSegmentedControlModel.mockService) { service in
+                                ForEach(selectedServices!) { service in
     //                                ForecastCard(service: service, segmentedControlChoice: .service)
                                     NavigationLink(destination: ServiceDetailView(selectedService: service)) {
                                         ForecastCard(service: service, segmentedControlChoice: .service)
