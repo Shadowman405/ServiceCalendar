@@ -109,6 +109,9 @@ struct SelectedCar: View {
             })
         }
         .navigationBarHidden(true)
+        .onAppear(
+            perform: vm.fetchServicesArray
+        )
     }
 }
 
@@ -121,7 +124,7 @@ class ServicesViewModel: ObservableObject {
         self.selectedCar = selectedCar
         print("Selected car\n\(selectedCar?.carName ?? "some car")")
        // fetchCars()
-        fetchServicesArray()
+        //fetchServicesArray()
     }
     
     
@@ -147,7 +150,7 @@ class ServicesViewModel: ObservableObject {
               decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1))
           }
             
-            var uniqued = decodedServices.uniqued()
+            let uniqued = decodedServices.uniqued()
             
             for service in uniqued {
                 print("Service:" + "\(service)")
