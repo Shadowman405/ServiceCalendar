@@ -28,6 +28,22 @@ struct Car: Identifiable, Codable, Hashable {
     var carModel: String
     var carImage: [String]
     var carMileage: Int
+    
+    init(id: UUID = UUID(), carName: String, carModel: String, carImage: [String], carMileage: Int) {
+        self.id = id
+        self.carName = carName
+        self.carModel = carModel
+        self.carImage = carImage
+        self.carMileage = carMileage
+    }
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case carName
+        case carModel
+        case carImage
+        case carMileage
+    }
 }
 
 //func getAllCars() -> [Car] {
