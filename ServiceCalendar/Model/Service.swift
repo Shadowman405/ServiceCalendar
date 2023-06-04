@@ -12,7 +12,7 @@ enum ServiceSegmentedControlModel {
     case spendedMoney
 }
  
-struct Service: Identifiable,Hashable {
+struct Service: Identifiable,Hashable, Codable {
     var id = UUID()
     var mileage: Int
     var date: Date
@@ -26,6 +26,22 @@ struct Service: Identifiable,Hashable {
         case false:
             return "checkmark.circle"
         }
+    }
+    
+    init(id: UUID = UUID(), mileage: Int, date: Date, doneService: Bool, checkMoney: Int) {
+        self.id = id
+        self.mileage = mileage
+        self.date = date
+        self.doneService = doneService
+        self.checkMoney = checkMoney
+    }
+    
+    enum CodingKeys: CodingKey {
+        case id
+        case mileage
+        case date
+        case doneService
+        case checkMoney
     }
 }
 
