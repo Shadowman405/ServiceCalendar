@@ -28,8 +28,8 @@ struct Service: Identifiable,Hashable, Codable {
         }
     }
     
-    init(id: UUID = UUID(), mileage: Int, date: Date, doneService: Bool, checkMoney: Int) {
-        self.id = id
+    init( mileage: Int, date: Date, doneService: Bool, checkMoney: Int) {
+        //self.id = id
         self.mileage = mileage
         self.date = date
         self.doneService = doneService
@@ -37,7 +37,7 @@ struct Service: Identifiable,Hashable, Codable {
     }
     
     enum CodingKeys: CodingKey {
-        case id
+       // case id
         case mileage
         case date
         case doneService
@@ -46,7 +46,7 @@ struct Service: Identifiable,Hashable, Codable {
     
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(self.id, forKey: .id)
+        //try container.encode(self.id, forKey: .id)
         try container.encode(self.mileage, forKey: .mileage)
         try container.encode(self.date, forKey: .date)
         try container.encode(self.doneService, forKey: .doneService)

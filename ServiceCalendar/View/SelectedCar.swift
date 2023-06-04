@@ -155,9 +155,9 @@ class ServicesViewModel: ObservableObject {
             
             let uniqued = decodedServices.uniqued()
             
-            for service in uniqued {
-                print("Service:" + "\(service)")
-            }
+//            for service in uniqued {
+//                print("Service:" + "\(service)")
+//            }
           
           self.decodedService = decodedServices
           decodedServices = []
@@ -167,7 +167,7 @@ class ServicesViewModel: ObservableObject {
     func fetchServiceCodable() {
         self.decodedService = []
         var decodedServices: [Service] = []
-        var someService: Service
+        var someService = Service(mileage: 0, date: Date(), doneService: false, checkMoney: 0)
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").addSnapshotListener { snapshot, error in
@@ -176,12 +176,25 @@ class ServicesViewModel: ObservableObject {
                 print(error.localizedDescription)
             }
             
-            self.decodedService = snapshot!.documents.compactMap({ (QueryDocumentSnapshot) -> Service? in
-                return try? QueryDocumentSnapshot.data(as: Service.self)
-            })
+//            self.decodedService = snapshot!.documents.compactMap({ (QueryDocumentSnapshot) -> Service? in
+//                return try? QueryDocumentSnapshot.data(as: Service.self)
+//            })
             
+            let doc = snapshot!.documents
+            
+            for eachDoc in doc {
+                do {
+                    someService = try! eachDoc.data(as: Service.self)
+                    decodedServices.append(someService)
+                } catch let error {
+                    print(error.localizedDescription)
+                }
+            }
+            
+            self.decodedService = decodedServices
             print("Service codable")
             print(self.decodedService)
+            decodedServices = []
         }
             
     }
