@@ -160,6 +160,28 @@ class ServicesViewModel: ObservableObject {
           decodedServices = []
         }
     }
+    
+    func fetchServiceCodable() {
+        self.decodedService = []
+        var someService: Service
+        var decodedServices: [Service] = []
+        
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
+        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").getDocuments { snapshot, error in
+            if let error = error {
+                print("error")
+                print(error.localizedDescription)
+        }
+            let doc = snapshot!.documents
+            
+            for eachDoc in doc {
+                do {
+                    someService = eachDoc.data()
+                    
+                }
+            }
+        }
+    }
 }
 
 struct SelectedCar_Previews: PreviewProvider {
