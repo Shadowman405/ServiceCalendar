@@ -9,6 +9,8 @@ import SwiftUI
 import BottomSheet
 import SDWebImageSwiftUI
 import Algorithms
+import Firebase
+import FirebaseFirestoreSwift
 
 enum BotomSheetPosition: CGFloat, CaseIterable {
     case top = 0.82
@@ -125,6 +127,7 @@ class ServicesViewModel: ObservableObject {
 //        print("Selected car\n\(selectedCar?.carName ?? "some car")")
        // fetchCars()
         //fetchServicesArray()
+        fetchServiceCodable()
     }
     
     
@@ -163,24 +166,24 @@ class ServicesViewModel: ObservableObject {
     
     func fetchServiceCodable() {
         self.decodedService = []
-        var someService: Service
         var decodedServices: [Service] = []
+        var someService: Service
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").getDocuments { snapshot, error in
+        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").addSnapshotListener { snapshot, error in
             if let error = error {
                 print("error")
                 print(error.localizedDescription)
-        }
-            let doc = snapshot!.documents
-            
-            for eachDoc in doc {
-                do {
-                    someService = eachDoc.data()
-                    
-                }
             }
+            
+            self.decodedService = snapshot!.documents.compactMap({ (QueryDocumentSnapshot) -> Service? in
+                return try? QueryDocumentSnapshot.data(as: Service.self)
+            })
+            
+            print("Service codable")
+            print(self.decodedService)
         }
+            
     }
 }
 

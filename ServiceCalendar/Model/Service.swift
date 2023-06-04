@@ -43,6 +43,15 @@ struct Service: Identifiable,Hashable, Codable {
         case doneService
         case checkMoney
     }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.id, forKey: .id)
+        try container.encode(self.mileage, forKey: .mileage)
+        try container.encode(self.date, forKey: .date)
+        try container.encode(self.doneService, forKey: .doneService)
+        try container.encode(self.checkMoney, forKey: .checkMoney)
+    }
 }
 
 extension ServiceSegmentedControlModel {
