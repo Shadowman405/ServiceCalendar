@@ -41,8 +41,15 @@ struct AddNewServiceView: View {
                             .datePickerStyle(.compact)
                     }
                     HStack {
-                        
+                            Picker("Choose type of service", selection: $serviceType) {
+                                Text("Gasoline").tag(0)
+                                Text("Service").tag(1)
+                                Text("Documents").tag(2)
+                                Text("Other").tag(3)
+                            }
+                            .pickerStyle(.segmented)
                     }
+                    .padding()
                     HStack {
                         Text("Enter cost of service")
                             .padding()
