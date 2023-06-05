@@ -39,12 +39,12 @@ struct AddNewServiceView: View {
                             .datePickerStyle(.compact)
                     }
                     HStack {
-                            Picker("Choose type of service", selection: $serviceType) {
-                                ForEach(typeOfServices, id: \.self) {
-                                    Text($0)
-                                }
+                        Picker("Choose type of service", selection: $serviceType) {
+                            ForEach(typeOfServices, id: \.self) {
+                                Text($0)
                             }
-                            .pickerStyle(.segmented)
+                        }
+                        .pickerStyle(.segmented)
                     }
                     .padding()
                     HStack {
@@ -55,19 +55,17 @@ struct AddNewServiceView: View {
                             .keyboardType(.numberPad)
                     }
                     HStack { // Do I realy need this ??
-    //                    Text("Is service done?")
-    //                        .padding()
-    //                    Spacer()
+                        //                    Text("Is service done?")
+                        //                        .padding()
+                        //                    Spacer()
                         Toggle("Is service done?", isOn: $isDone)
                             .padding()
                     }
                     HStack {
-                        NavigationStack {
-                            TextEditor(text: $serviceDescription)
-                                .padding(.horizontal)
-                                .foregroundColor(.black)
-                        }
-                        .navigationTitle("Description")
+                        TextField("Description", text: $serviceDescription,prompt: Text("Please enter description text..."))
+                            .padding()
+                            .background(Color.green.opacity(0.2))
+                            .cornerRadius(10)
                     }
                     .padding()
                 }
