@@ -80,6 +80,7 @@ struct AddNewServiceView: View {
             }
             
         }
+        .navigationTitle("Add New Service")
     }
     
     func addNewService() {
