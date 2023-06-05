@@ -61,6 +61,15 @@ struct AddNewServiceView: View {
                         Toggle("Is service done?", isOn: $isDone)
                             .padding()
                     }
+                    HStack {
+                        NavigationStack {
+                            TextEditor(text: $serviceDescription)
+                                .padding(.horizontal)
+                                .foregroundColor(.black)
+                        }
+                        .navigationTitle("Description")
+                    }
+                    .padding()
                 }
                 
                 Button {
