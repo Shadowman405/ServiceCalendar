@@ -54,15 +54,12 @@ struct AddNewServiceView: View {
                         TextField("Service cost...", text: $checkMoney)
                             .keyboardType(.numberPad)
                     }
-                    HStack { // Do I realy need this ??
-                        //                    Text("Is service done?")
-                        //                        .padding()
-                        //                    Spacer()
+                    HStack {
                         Toggle("Is service done?", isOn: $isDone)
                             .padding()
                     }
                     HStack {
-                        TextField("Description", text: $serviceDescription,prompt: Text("Please enter description text..."))
+                        TextField("Description", text: $serviceDescription,prompt: Text("Please enter description text..."), axis: .vertical)
                             .padding()
                             .background(Color.green.opacity(0.2))
                             .cornerRadius(10)
