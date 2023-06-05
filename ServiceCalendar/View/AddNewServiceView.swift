@@ -13,6 +13,7 @@ struct AddNewServiceView: View {
     @State private var date = Date()
     @State private var isDone = false
     @State private var checkMoney = ""
+    @State private var serviceDescription = ""
     @State private var serviceType = "Service"
     var typeOfServices = ["Gasoline", "Service", "Documents", "Other"]
     
@@ -33,9 +34,6 @@ struct AddNewServiceView: View {
                             .keyboardType(.numberPad)
                     }
                     HStack {
-        //                Text("Enter date")
-        //                    .padding()
-        //                Spacer()
                         DatePicker("Select Date", selection: $date)
                             .padding()
                             .datePickerStyle(.compact)
@@ -56,7 +54,7 @@ struct AddNewServiceView: View {
                         TextField("Service cost...", text: $checkMoney)
                             .keyboardType(.numberPad)
                     }
-                    HStack {
+                    HStack { // Do I realy need this ??
     //                    Text("Is service done?")
     //                        .padding()
     //                    Spacer()
