@@ -42,10 +42,9 @@ struct AddNewServiceView: View {
                     }
                     HStack {
                             Picker("Choose type of service", selection: $serviceType) {
-                                Text("Gasoline").tag(0)
-                                Text("Service").tag(1)
-                                Text("Documents").tag(2)
-                                Text("Other").tag(3)
+                                ForEach(typeOfServices, id: \.self) {
+                                    Text($0)
+                                }
                             }
                             .pickerStyle(.segmented)
                     }
