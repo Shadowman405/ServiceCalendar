@@ -13,6 +13,8 @@ struct AddNewServiceView: View {
     @State private var date = Date()
     @State private var isDone = false
     @State private var checkMoney = ""
+    @State private var serviceType = "Service"
+    var typeOfServices = ["Gasoline", "Service", "Documents", "Other"]
     
     var selectedCar: Car?
     
@@ -37,6 +39,9 @@ struct AddNewServiceView: View {
                         DatePicker("Select Date", selection: $date)
                             .padding()
                             .datePickerStyle(.compact)
+                    }
+                    HStack {
+                        
                     }
                     HStack {
                         Text("Enter cost of service")

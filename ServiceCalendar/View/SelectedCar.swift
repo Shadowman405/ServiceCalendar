@@ -127,7 +127,7 @@ class ServicesViewModel: ObservableObject {
 //        print("Selected car\n\(selectedCar?.carName ?? "some car")")
        // fetchCars()
         //fetchServicesArray()
-        fetchServiceCodable()
+        //fetchServiceCodable()
     }
     
     
