@@ -11,7 +11,34 @@ struct ServicesCostAllWidget: View {
     var services = [Service]()
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            RoundedRectangle(cornerRadius: 30)
+                .fill(Gradient(colors: [Color.purple, Color.blue]).opacity(1))
+                .frame(width: 200, height: 140)
+                .shadow(color: .black.opacity(0.25), radius: 10,x: 5, y: 4)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 30)
+                        .strokeBorder(.white.opacity(0.5))
+                        .blendMode(.overlay)
+                }
+                .innerShadow(shape: RoundedRectangle(cornerRadius: 30), color: .white.opacity(0.25),lineWidth: 1,offsetX: 1,offsetY: 1,blur: 0,blendMode: .overlay)
+            
+            VStack {
+                Text("Spended money\n on service for all time:")
+                    .padding()
+                Text("\(allTimeCostOfServices())")
+            }
+        }
+    }
+    
+    func allTimeCostOfServices() -> String {
+        var sum = 0
+        
+        for service in services {
+            sum += service.checkMoney
+        }
+        
+        return "\(sum)"
     }
 }
 
