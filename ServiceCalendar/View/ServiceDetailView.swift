@@ -33,6 +33,18 @@ struct ServiceDetailView: View {
                         Text("\(selectedService.checkMoney)$")
                     }
                     .padding()
+                    
+                    HStack(spacing: 50) {
+                        Text("Service Type :")
+                        Text("\(selectedService.serviceType)")
+                    }
+                    .padding()
+                    
+                    HStack(spacing: 50) {
+                        Text("Service Description :")
+                        Text("\(selectedService.serviceDescription)")
+                    }
+                    .padding()
                 }
             }
         .ignoresSafeArea()
