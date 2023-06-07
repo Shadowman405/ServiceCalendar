@@ -91,7 +91,9 @@ struct AddNewServiceView: View {
             "mileage":mileage ,
             "date": date,
             "isDone": isDone,
-            "checkMoney": checkMoney
+            "checkMoney": checkMoney,
+            "serviceType": serviceType,
+            "serviceDescription": serviceDescription
         ] as [String : Any]
         FirebaseManager.shared.firestore.collection("users")
             .document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)  { error in
