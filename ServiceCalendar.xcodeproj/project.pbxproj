@@ -26,6 +26,7 @@
 		BF2301B52A20029F00929FA8 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2301B42A20029E00929FA8 /* PlusButton.swift */; };
 		BF2301B72A21384000929FA8 /* AddNewServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2301B62A21384000929FA8 /* AddNewServiceView.swift */; };
 		BF2301BA2A2A6D1300929FA8 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = BF2301B92A2A6D1300929FA8 /* Algorithms */; };
+		BF2DD7CE2A310D45001E97BC /* ServicesCostAllWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF2DD7CD2A310D45001E97BC /* ServicesCostAllWidget.swift */; };
 		BF420E6B2A0977C3006DD00E /* ServiceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */; };
 		BF420E6D2A0A8150006DD00E /* AddNewCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */; };
 		BF420E702A0D8EE0006DD00E /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = BF420E6F2A0D8EE0006DD00E /* FirebaseAnalytics */; };
@@ -75,6 +76,7 @@
 		BF1090D029EE9D28007C8124 /* ForecastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCard.swift; sourceTree = "<group>"; };
 		BF2301B42A20029E00929FA8 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
 		BF2301B62A21384000929FA8 /* AddNewServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewServiceView.swift; sourceTree = "<group>"; };
+		BF2DD7CD2A310D45001E97BC /* ServicesCostAllWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCostAllWidget.swift; sourceTree = "<group>"; };
 		BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceDetailView.swift; sourceTree = "<group>"; };
 		BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewCarView.swift; sourceTree = "<group>"; };
 		BF420E912A0E57BC006DD00E /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */,
 				BF2301B42A20029E00929FA8 /* PlusButton.swift */,
 				BF2301B62A21384000929FA8 /* AddNewServiceView.swift */,
+				BF2DD7CD2A310D45001E97BC /* ServicesCostAllWidget.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF2DD7CE2A310D45001E97BC /* ServicesCostAllWidget.swift in Sources */,
 				BF1090AC29DF5A16007C8124 /* RegisterView.swift in Sources */,
 				BF1090AE29DF5F9E007C8124 /* CarsGrid.swift in Sources */,
 				BF1090D129EE9D28007C8124 /* ForecastCard.swift in Sources */,
