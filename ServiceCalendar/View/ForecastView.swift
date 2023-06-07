@@ -55,7 +55,8 @@ struct ForecastView: View {
                 
                 
                 ServicesCostAllWidget(services: selectedServices ?? [Service(mileage: 20000, date: Date(), doneService: true, checkMoney: 321, serviceType: "Service", serviceDescription: "Beep")])
-                    .padding(40)
+                    .padding(.top ,35)
+                    .padding(.leading, -175)
             }
             
         }
