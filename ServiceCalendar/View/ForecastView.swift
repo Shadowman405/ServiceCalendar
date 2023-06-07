@@ -54,7 +54,8 @@ struct ForecastView: View {
                 .padding(.horizontal, 5)
                 
                 
-                Text("Beep")
+                ServicesCostAllWidget(services: selectedServices ?? [Service(mileage: 20000, date: Date(), doneService: true, checkMoney: 321, serviceType: "Service", serviceDescription: "Beep")])
+                    .padding(40)
             }
             
         }
