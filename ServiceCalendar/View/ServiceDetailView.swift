@@ -41,6 +41,6 @@ struct ServiceDetailView: View {
 
 struct ServiceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: false, checkMoney: 200))
+        ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: false, checkMoney: 200,serviceType: "Documents", serviceDescription: "Insurance"))
     }
 }

@@ -149,8 +149,10 @@ class ServicesViewModel: ObservableObject {
               let checkmoney = data["checkMoney"] as? String ?? ""
               let date = data["date"] as? Date ?? Date.now
               let isDone = data["isDone"] as? Bool ?? false
+              let serviceType = data["serviceType"] as? String ?? ""
+              let serviceDescription = data["serviceDescription"] as? String ?? ""
               
-              decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1))
+              decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1,serviceType: serviceType,serviceDescription: serviceDescription))
           }
             
             let uniqued = decodedServices.uniqued()
@@ -167,7 +169,7 @@ class ServicesViewModel: ObservableObject {
     func fetchServiceCodable() {
         self.decodedService = []
         var decodedServices: [Service] = []
-        var someService = Service(mileage: 0, date: Date(), doneService: false, checkMoney: 0)
+        var someService = Service(mileage: 0, date: Date(), doneService: false, checkMoney: 0,serviceType: "Gasoline", serviceDescription: "Beep")
         
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").addSnapshotListener { snapshot, error in
