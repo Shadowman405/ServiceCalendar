@@ -56,6 +56,13 @@ struct Service: Identifiable,Hashable, Codable {
 //    }
 }
 
+struct ServiceType {
+    let gasoline = "Gasoline"
+    let service = "Service"
+    let documents = "Documents"
+    let other = "Other"
+}
+
 extension ServiceSegmentedControlModel {
     static let mockService: [Service] = [
         Service(mileage: 220000, date: .init(timeIntervalSinceNow: 0), doneService: true, checkMoney: 150,serviceType: "Gasoline", serviceDescription: "Beep"),
