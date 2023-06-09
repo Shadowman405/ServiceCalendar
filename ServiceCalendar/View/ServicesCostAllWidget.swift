@@ -36,6 +36,6 @@ struct ServicesCostAllWidget: View {
 
 struct ServicesCostAllWidget_Previews: PreviewProvider {
     static var previews: some View {
-        ServicesCostAllWidget(services: [Service(mileage: 20300, date: Date(), doneService: false, checkMoney: 110, serviceType: "Service", serviceDescription: "Beep")])
+        ServicesCostAllWidget(services: Service.mockService)
     }
 }

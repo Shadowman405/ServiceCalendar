@@ -86,6 +86,6 @@ struct ForecastView: View {
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000), selectedServices: [Service(mileage: 20000, date: Date(), doneService: true, checkMoney: 130, serviceType: "Gasoline", serviceDescription: "Beep")])
+        ForecastView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000), selectedServices: Service.mockService)
     }
 }
