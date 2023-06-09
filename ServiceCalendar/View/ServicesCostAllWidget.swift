@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ServicesCostAllWidget: View {
+    var descriptionText = ""
+    var sumText = ""
     var services = [Service]()
     
     var body: some View {
@@ -27,10 +29,6 @@ struct ServicesCostAllWidget: View {
                 Text("Spended money\n on service for all time:")
                     .padding()
                 Text("\(allTimeCostOfServices())")
-                
-                Text("Spended money\n on service for all time:")
-                    .padding()
-                Text("\(allTimeCostOfGasoline())")
             }
         }
     }

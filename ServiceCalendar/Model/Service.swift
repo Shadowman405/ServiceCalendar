@@ -62,6 +62,8 @@ struct ServiceType {
     let documents = "Documents"
     let other = "Other"
     
+    //func for widget in forecastView
+    
 }
 
 extension ServiceSegmentedControlModel {
