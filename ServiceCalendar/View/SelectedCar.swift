@@ -155,12 +155,7 @@ class ServicesViewModel: ObservableObject {
               decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1,serviceType: serviceType,serviceDescription: serviceDescription))
           }
             
-            let uniqued = decodedServices.uniqued()
-            
-//            for service in uniqued {
-//                print("Service:" + "\(service)")
-//            }
-          
+            //let uniqued = decodedServices.uniqued()
           self.decodedService = decodedServices
           decodedServices = []
         }
@@ -188,8 +183,6 @@ class ServicesViewModel: ObservableObject {
                 do {
                     someService = try! eachDoc.data(as: Service.self)
                     decodedServices.append(someService)
-                } catch let error {
-                    print(error.localizedDescription)
                 }
             }
             
