@@ -61,6 +61,7 @@ struct ServiceType {
     let service = "Service"
     let documents = "Documents"
     let other = "Other"
+    
 }
 
 extension ServiceSegmentedControlModel {

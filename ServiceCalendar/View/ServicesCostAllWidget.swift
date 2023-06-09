@@ -14,7 +14,7 @@ struct ServicesCostAllWidget: View {
         ZStack {
             RoundedRectangle(cornerRadius: 30)
                 .fill(Gradient(colors: [Color.purple, Color.blue]).opacity(1))
-                .frame(width: 200, height: 140)
+                .frame(width: 200, height: 240)
                 .shadow(color: .black.opacity(0.25), radius: 10,x: 5, y: 4)
                 .overlay {
                     RoundedRectangle(cornerRadius: 30)
@@ -27,6 +27,10 @@ struct ServicesCostAllWidget: View {
                 Text("Spended money\n on service for all time:")
                     .padding()
                 Text("\(allTimeCostOfServices())")
+                
+                Text("Spended money\n on service for all time:")
+                    .padding()
+                Text("\(allTimeCostOfGasoline())")
             }
         }
     }
@@ -37,7 +41,18 @@ struct ServicesCostAllWidget: View {
         for service in services {
             sum += service.checkMoney
         }
+        return "\(sum)"
+    }
+    
+    func allTimeCostOfGasoline() -> String {
+        let serviceType = ServiceType()
+        var sum = 0
         
+        for service in services {
+            if service.serviceType == serviceType.gasoline {
+                sum += service.checkMoney
+            }
+        }
         return "\(sum)"
     }
 }
