@@ -16,7 +16,7 @@ struct ServicesCostAllWidget: View {
         ZStack {
             RoundedRectangle(cornerRadius: 30)
                 .fill(Gradient(colors: [Color.purple, Color.blue]).opacity(1))
-                .frame(width: 200, height: 240)
+                .frame(width: 200, height: 140)
                 .shadow(color: .black.opacity(0.25), radius: 10,x: 5, y: 4)
                 .overlay {
                     RoundedRectangle(cornerRadius: 30)
