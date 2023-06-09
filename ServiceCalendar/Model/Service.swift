@@ -29,31 +29,6 @@ struct Service: Identifiable,Hashable, Codable {
             return "checkmark.circle"
         }
     }
-    
-//    init( mileage: Int, date: Date, doneService: Bool, checkMoney: Int) {
-//        //self.id = id
-//        self.mileage = mileage
-//        self.date = date
-//        self.doneService = doneService
-//        self.checkMoney = checkMoney
-//    }
-//    
-//    enum CodingKeys: CodingKey {
-//       // case id
-//        case mileage
-//        case date
-//        case doneService
-//        case checkMoney
-//    }
-//    
-//    func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        //try container.encode(self.id, forKey: .id)
-//        try container.encode(self.mileage, forKey: .mileage)
-//        try container.encode(self.date, forKey: .date)
-//        try container.encode(self.doneService, forKey: .doneService)
-//        try container.encode(self.checkMoney, forKey: .checkMoney)
-//    }
 }
 
 struct ServiceType {
@@ -62,8 +37,30 @@ struct ServiceType {
     let documents = "Documents"
     let other = "Other"
     
-    //func for widget in forecastView
+    // MARK: - func for widget in forecastView
     
+    //All time service
+    func allTimeCostOfServices(services: [Service]) -> String {
+        var sum = 0
+        
+        for service in services {
+            sum += service.checkMoney
+        }
+        return "\(sum)"
+    }
+    
+    //All time gasoline
+    func allTimeCostOfGasoline(services: [Service]) -> String {
+        let serviceType = ServiceType()
+        var sum = 0
+        
+        for service in services {
+            if service.serviceType == serviceType.gasoline {
+                sum += service.checkMoney
+            }
+        }
+        return "\(sum)"
+    }
 }
 
 extension ServiceSegmentedControlModel {

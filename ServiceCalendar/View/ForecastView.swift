@@ -10,6 +10,7 @@ import SwiftUI
 struct ForecastView: View {
     var bottomSheetTranslationProrated: CGFloat = 1
     @State private var selection = 0
+    let serviceType = ServiceType()
     var selectedCar: Car?
     var selectedServices: [Service]?
     
@@ -54,7 +55,7 @@ struct ForecastView: View {
                 .padding(.horizontal, 5)
                 
                 
-                ServicesCostAllWidget(services: selectedServices ?? [Service(mileage: 20000, date: Date(), doneService: true, checkMoney: 321, serviceType: "Service", serviceDescription: "Beep")])
+                ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices!))", services: selectedServices ?? Service.mockService)
                     .padding(.top ,35)
                     .padding(.leading, -175)
             }

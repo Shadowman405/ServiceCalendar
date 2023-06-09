@@ -26,32 +26,11 @@ struct ServicesCostAllWidget: View {
                 .innerShadow(shape: RoundedRectangle(cornerRadius: 30), color: .white.opacity(0.25),lineWidth: 1,offsetX: 1,offsetY: 1,blur: 0,blendMode: .overlay)
             
             VStack {
-                Text("Spended money\n on service for all time:")
+                Text(descriptionText)
                     .padding()
-                Text("\(allTimeCostOfServices())")
+                Text(sumText)
             }
         }
-    }
-    
-    func allTimeCostOfServices() -> String {
-        var sum = 0
-        
-        for service in services {
-            sum += service.checkMoney
-        }
-        return "\(sum)"
-    }
-    
-    func allTimeCostOfGasoline() -> String {
-        let serviceType = ServiceType()
-        var sum = 0
-        
-        for service in services {
-            if service.serviceType == serviceType.gasoline {
-                sum += service.checkMoney
-            }
-        }
-        return "\(sum)"
     }
 }
 
