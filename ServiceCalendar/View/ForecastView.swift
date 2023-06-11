@@ -68,6 +68,7 @@ struct ForecastView: View {
                                 .padding()
                         }
                     }
+                    .padding()
                 }
         }
         .backgroundBlur(radius: 25,opaque: true)
