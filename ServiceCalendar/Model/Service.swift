@@ -37,6 +37,11 @@ struct ServiceType {
     let documents = "Documents"
     let other = "Other"
     
+    let serviceIcon = "pipe"
+    let gasolineIcon = "gasoline"
+    let documentsIcon = "documents"
+    let ohterIcon = "other"
+    
     // MARK: - func for widget in forecastView
     
     //All time service

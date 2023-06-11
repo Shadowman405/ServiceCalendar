@@ -57,14 +57,14 @@ struct ForecastView: View {
                 
                     ScrollView(.horizontal) {
                         HStack {
-                            ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService)
+                            ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
                                 .padding()
 //                                .padding(.top ,35)
 //                                .padding(.leading, -175)
                             
                             
                             
-                            ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService)
+                            ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
                                 .padding()
                         }
                     }

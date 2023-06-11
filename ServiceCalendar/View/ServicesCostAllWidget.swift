@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ServicesCostAllWidget: View {
-    var descriptionText = ""
-    var sumText = ""
+    var descriptionText = "Test"
+    var sumText = "Test"
     var services = [Service]()
+    var serviceIcon = "pipe"
     
     var body: some View {
         ZStack {
@@ -28,7 +29,12 @@ struct ServicesCostAllWidget: View {
             VStack {
                 Text(descriptionText)
                     .padding()
-                Text(sumText)
+                HStack {
+                    Text(sumText)
+                    Image(serviceIcon)
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                }
             }
         }
     }
