@@ -55,16 +55,20 @@ struct ForecastView: View {
                 .padding(.horizontal, 5)
                 
                 
-                ScrollView(.horizontal) {
-                    ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService)
-                        .padding(.top ,35)
-                        .padding(.leading, -175)
-                    
-                    ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService)
-                        .padding()
+                    ScrollView(.horizontal) {
+                        HStack {
+                            ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService)
+                                .padding()
+//                                .padding(.top ,35)
+//                                .padding(.leading, -175)
+                            
+                            
+                            
+                            ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService)
+                                .padding()
+                        }
+                    }
                 }
-            }
-            
         }
         .backgroundBlur(radius: 25,opaque: true)
         .background(Gradient(colors: [Color.purple, Color.blue]))
