@@ -66,9 +66,12 @@ struct ForecastView: View {
                             
                             ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
                                 .padding()
+                            
+                            ServicesCostAllWidget(descriptionText: "Spended money\n on documents for all time:", sumText: "\(serviceType.allTimeCostOfDocuments(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
+                                .padding()
                         }
                     }
-                    .padding()
+                    .padding(.top, 20)
                 }
         }
         .backgroundBlur(radius: 25,opaque: true)

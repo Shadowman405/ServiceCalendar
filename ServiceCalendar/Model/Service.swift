@@ -66,6 +66,18 @@ struct ServiceType {
         }
         return "\(sum)"
     }
+    //All time documents
+    func allTimeCostOfDocuments(services: [Service]) -> String {
+        let serviceType = ServiceType()
+        var sum = 0
+        
+        for service in services {
+            if service.serviceType == serviceType.documents {
+                sum += service.checkMoney
+            }
+        }
+        return "\(sum)"
+    }
 }
 
 extension ServiceSegmentedControlModel {
