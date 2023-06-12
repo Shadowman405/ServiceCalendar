@@ -86,15 +86,32 @@ struct ServiceType {
         var sum = 0
         
         for service in services {
-            print(type(of: service.date))
-            print(service.date)
-            
             if service.serviceType == serviceType.other {
                 sum += service.checkMoney
             }
         }
         return "\(sum)"
     }
+    
+    //MARK: - Sorted by month
+    func allTimeCostOfServicesMonth(services: [Service]) -> String {
+        
+        let year = Calendar.current.component(.year, from: Date())
+        let month = Calendar.current.component(.month, from: Date())
+        let yearMonth = DateComponents(year: year, month: month)
+        
+        let filteredService = services.filter {
+            Calendar.current.dateComponents([.year,.month], from: $0.date) == yearMonth
+        }
+        
+        var sum = 0
+        
+        for service in filteredService {
+            sum += service.checkMoney
+        }
+        return "\(sum)"
+    }
+    
 }
 
 extension ServiceSegmentedControlModel {
