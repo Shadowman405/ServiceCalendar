@@ -72,6 +72,9 @@ struct ForecastView: View {
                             
                             ServicesCostAllWidget(descriptionText: "Spended money\n on other for all time:", sumText: "\(serviceType.allTimeCostOfOther(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
                                 .padding()
+                            
+                            ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfServicesMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
+                                .padding()
                         }
                     }
                     .padding(.top, 20)
