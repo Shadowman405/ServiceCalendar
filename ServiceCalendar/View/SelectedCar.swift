@@ -148,15 +148,21 @@ class ServicesViewModel: ObservableObject {
               let mileage = data["mileage"] as? String ?? ""
               let checkmoney = data["checkMoney"] as? String ?? ""
               
-              print("DATE !!!!!")
-              print(data["date"])
+//              print("DATE !!!!!")
+//              print(data["date"])
               
-              let date = data["date"] as? Date ?? Date.now
+              // resolving date issue
+              let time = data["date"] as? Timestamp
+              let date = time?.dateValue()
+              //
+              
+              //let date = data
+              //let date = data["date"] as? Date ?? Date.now
               let isDone = data["isDone"] as? Bool ?? false
               let serviceType = data["serviceType"] as? String ?? ""
               let serviceDescription = data["serviceDescription"] as? String ?? ""
               
-              decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date, doneService: isDone, checkMoney: Int(checkmoney) ?? 1,serviceType: serviceType,serviceDescription: serviceDescription))
+              decodedServices.append(Service(mileage: Int(mileage) ?? 1, date: date ?? Date.now, doneService: isDone, checkMoney: Int(checkmoney) ?? 1,serviceType: serviceType,serviceDescription: serviceDescription))
           }
             
             //let uniqued = decodedServices.uniqued()
