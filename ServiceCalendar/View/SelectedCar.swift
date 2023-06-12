@@ -147,6 +147,10 @@ class ServicesViewModel: ObservableObject {
               let data = eachDoc.data()
               let mileage = data["mileage"] as? String ?? ""
               let checkmoney = data["checkMoney"] as? String ?? ""
+              
+              print("DATE !!!!!")
+              print(data["date"])
+              
               let date = data["date"] as? Date ?? Date.now
               let isDone = data["isDone"] as? Bool ?? false
               let serviceType = data["serviceType"] as? String ?? ""
