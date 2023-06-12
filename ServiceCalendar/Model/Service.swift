@@ -86,6 +86,8 @@ struct ServiceType {
         var sum = 0
         
         for service in services {
+            print(service.date)
+            
             if service.serviceType == serviceType.other {
                 sum += service.checkMoney
             }
