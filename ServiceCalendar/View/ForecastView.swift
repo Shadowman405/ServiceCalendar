@@ -54,15 +54,12 @@ struct ForecastView: View {
                 }
                 .padding(.horizontal, 5)
                 
+//MARK: - Scroll view payments all time
                 
                     ScrollView(.horizontal) {
                         HStack {
                             ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
                                 .padding()
-//                                .padding(.top ,35)
-//                                .padding(.leading, -175)
-                            
-                            
                             
                             ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
                                 .padding()
@@ -76,12 +73,24 @@ struct ForecastView: View {
                     }
                     .padding(.top, 20)
                 
+//MARK: - Scroll view payments by month
+                     
                 ScrollView(.horizontal) {
-                    ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfServicesMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
-                        .padding()
+                    HStack {
+                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfServicesMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
+                            .padding()
+                        
+                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfGasolineMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
+                            .padding()
+                        
+                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfDocumentsMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
+                            .padding()
+                        
+                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfOtherMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
+                            .padding()
+                    }
                 }
-                .padding()
-                }
+            }
         }
         .backgroundBlur(radius: 25,opaque: true)
         .background(Gradient(colors: [Color.purple, Color.blue]))

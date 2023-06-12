@@ -42,6 +42,8 @@ struct ServiceType {
     let documentsIcon = "documents"
     let ohterIcon = "other"
     
+    
+    
     // MARK: - func for widget in forecastView
     
     //All time service
@@ -95,11 +97,9 @@ struct ServiceType {
     
     //MARK: - Sorted by month
     func allTimeCostOfServicesMonth(services: [Service]) -> String {
-        
         let year = Calendar.current.component(.year, from: Date())
         let month = Calendar.current.component(.month, from: Date())
         let yearMonth = DateComponents(year: year, month: month)
-        
         let filteredService = services.filter {
             Calendar.current.dateComponents([.year,.month], from: $0.date) == yearMonth
         }
@@ -112,6 +112,65 @@ struct ServiceType {
         return "\(sum)"
     }
     
+    //gasoline
+    func allTimeCostOfGasolineMonth(services: [Service]) -> String {
+        let year = Calendar.current.component(.year, from: Date())
+        let month = Calendar.current.component(.month, from: Date())
+        let yearMonth = DateComponents(year: year, month: month)
+        let filteredService = services.filter {
+            Calendar.current.dateComponents([.year,.month], from: $0.date) == yearMonth
+        }
+        
+        let serviceType = ServiceType()
+        var sum = 0
+        
+        for service in filteredService {
+            if service.serviceType == serviceType.gasoline {
+                sum += service.checkMoney
+            }
+        }
+        return "\(sum)"
+    }
+    
+    //documents
+    func allTimeCostOfDocumentsMonth(services: [Service]) -> String {
+        let year = Calendar.current.component(.year, from: Date())
+        let month = Calendar.current.component(.month, from: Date())
+        let yearMonth = DateComponents(year: year, month: month)
+        let filteredService = services.filter {
+            Calendar.current.dateComponents([.year,.month], from: $0.date) == yearMonth
+        }
+        
+        let serviceType = ServiceType()
+        var sum = 0
+        
+        for service in filteredService {
+            if service.serviceType == serviceType.documents {
+                sum += service.checkMoney
+            }
+        }
+        return "\(sum)"
+    }
+    
+    // other
+    func allTimeCostOfOtherMonth(services: [Service]) -> String {
+        let year = Calendar.current.component(.year, from: Date())
+        let month = Calendar.current.component(.month, from: Date())
+        let yearMonth = DateComponents(year: year, month: month)
+        let filteredService = services.filter {
+            Calendar.current.dateComponents([.year,.month], from: $0.date) == yearMonth
+        }
+        
+        let serviceType = ServiceType()
+        var sum = 0
+        
+        for service in filteredService {
+            if service.serviceType == serviceType.other {
+                sum += service.checkMoney
+            }
+        }
+        return "\(sum)"
+    }
 }
 
 extension ServiceSegmentedControlModel {
