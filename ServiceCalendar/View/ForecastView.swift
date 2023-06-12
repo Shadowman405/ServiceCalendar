@@ -80,13 +80,13 @@ struct ForecastView: View {
                         ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfServicesMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
                             .padding()
                         
-                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfGasolineMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
+                        ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline this month:", sumText: "\(serviceType.allTimeCostOfGasolineMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
                             .padding()
                         
-                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfDocumentsMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
+                        ServicesCostAllWidget(descriptionText: "Spended money\n on documents this month:", sumText: "\(serviceType.allTimeCostOfDocumentsMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
                             .padding()
                         
-                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfOtherMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
+                        ServicesCostAllWidget(descriptionText: "Spended money\n on other bills this month:", sumText: "\(serviceType.allTimeCostOfOtherMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
                             .padding()
                     }
                 }
