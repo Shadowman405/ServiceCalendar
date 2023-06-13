@@ -55,6 +55,9 @@ struct ForecastView: View {
                 .padding(.horizontal, 5)
                 
 //MARK: - Scroll view payments all time
+                Divider()
+                    .background(.white)
+                Text("Spended money all time :")
                 
                     ScrollView(.horizontal) {
                         HStack {
@@ -74,6 +77,9 @@ struct ForecastView: View {
                     .padding(.top, 20)
                 
 //MARK: - Scroll view payments by month
+                Divider()
+                    .background(.white)
+                Text("Spended money monthly :")
                      
                 ScrollView(.horizontal) {
                     HStack {
