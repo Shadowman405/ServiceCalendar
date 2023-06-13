@@ -54,47 +54,49 @@ struct ForecastView: View {
                 }
                 .padding(.horizontal, 5)
                 
-//MARK: - Scroll view payments all time
-                Divider()
-                    .background(.white)
-                Text("Spended money all time :")
-                
-                    ScrollView(.horizontal) {
-                        HStack {
-                            ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
-                                .padding()
-                            
-                            ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
-                                .padding()
-                            
-                            ServicesCostAllWidget(descriptionText: "Spended money\n on documents for all time:", sumText: "\(serviceType.allTimeCostOfDocuments(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
-                                .padding()
-                            
-                            ServicesCostAllWidget(descriptionText: "Spended money\n on other for all time:", sumText: "\(serviceType.allTimeCostOfOther(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
-                                .padding()
-                        }
-                    }
-                    .padding(.top, 20)
-                
-//MARK: - Scroll view payments by month
-                Divider()
-                    .background(.white)
-                Text("Spended money monthly :")
-                     
-                ScrollView(.horizontal) {
-                    HStack {
-                        ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfServicesMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
-                            .padding()
-                        
-                        ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline this month:", sumText: "\(serviceType.allTimeCostOfGasolineMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
-                            .padding()
-                        
-                        ServicesCostAllWidget(descriptionText: "Spended money\n on documents this month:", sumText: "\(serviceType.allTimeCostOfDocumentsMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
-                            .padding()
-                        
-                        ServicesCostAllWidget(descriptionText: "Spended money\n on other bills this month:", sumText: "\(serviceType.allTimeCostOfOtherMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
-                            .padding()
-                    }
+                if selection == 1 {
+                    //MARK: - Scroll view payments all time
+                                    Divider()
+                                        .background(.white)
+                                    Text("Spended money all time :")
+                                    
+                                        ScrollView(.horizontal) {
+                                            HStack {
+                                                ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
+                                                    .padding()
+                                                
+                                                ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline for all time:", sumText: "\(serviceType.allTimeCostOfGasoline(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
+                                                    .padding()
+                                                
+                                                ServicesCostAllWidget(descriptionText: "Spended money\n on documents for all time:", sumText: "\(serviceType.allTimeCostOfDocuments(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
+                                                    .padding()
+                                                
+                                                ServicesCostAllWidget(descriptionText: "Spended money\n on other for all time:", sumText: "\(serviceType.allTimeCostOfOther(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
+                                                    .padding()
+                                            }
+                                        }
+                                        .padding(.top, 20)
+                                    
+                    //MARK: - Scroll view payments by month
+                                    Divider()
+                                        .background(.white)
+                                    Text("Spended money monthly :")
+                                         
+                                    ScrollView(.horizontal) {
+                                        HStack {
+                                            ServicesCostAllWidget(descriptionText: "Spended money\n on services this month:", sumText: "\(serviceType.allTimeCostOfServicesMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
+                                                .padding()
+                                            
+                                            ServicesCostAllWidget(descriptionText: "Spended money\n on gasoline this month:", sumText: "\(serviceType.allTimeCostOfGasolineMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.gasolineIcon)
+                                                .padding()
+                                            
+                                            ServicesCostAllWidget(descriptionText: "Spended money\n on documents this month:", sumText: "\(serviceType.allTimeCostOfDocumentsMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.documentsIcon)
+                                                .padding()
+                                            
+                                            ServicesCostAllWidget(descriptionText: "Spended money\n on other bills this month:", sumText: "\(serviceType.allTimeCostOfOtherMonth(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.ohterIcon)
+                                                .padding()
+                                        }
+                                    }
                 }
             }
         }
