@@ -56,10 +56,6 @@ struct ForecastView: View {
                 
                 if selection == 1 {
                     //MARK: - Scroll view payments all time
-                                    Divider()
-                                        .background(.white)
-                                    Text("Spended money all time :")
-                                    
                                         ScrollView(.horizontal) {
                                             HStack {
                                                 ServicesCostAllWidget(descriptionText: "Spended money\n on service for all time:", sumText: "\(serviceType.allTimeCostOfServices(services: selectedServices ?? Service.mockService))", services: selectedServices ?? Service.mockService, serviceIcon: serviceType.serviceIcon)
