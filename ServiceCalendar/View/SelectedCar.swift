@@ -57,8 +57,9 @@ struct SelectedCar: View {
                                 ForEach(selectedCar.carImage, id: \.self) { img in
                                     WebImage(url: URL(string: img))
                                         .resizable()
-                                        .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height/2.5)
-                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height/2.3)
+                                        .scaledToFit()
+                                        //.aspectRatio(contentMode: .fit)
                                         .cornerRadius(20)
                                         .padding()
                                         .offset(y: -bottomSheetTranslationProrated * imageOffset)

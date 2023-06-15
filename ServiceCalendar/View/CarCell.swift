@@ -25,7 +25,7 @@ struct CarCell: View {
                         .resizable()
                         .scaledToFit()
                         .cornerRadius(20)
-                        .frame(height: 270,alignment: .center)
+                        .frame(height: 300,alignment: .center)
                     .padding(10)
                 }
 
@@ -41,7 +41,7 @@ struct CarCell: View {
                 .font(.custom("Snell Roundhand", size: 30))
                 .fontWeight(.thin)
                 .foregroundColor(.black)
-                .offset(y: 110)
+                .offset(y: 100)
         }
     }
 }
