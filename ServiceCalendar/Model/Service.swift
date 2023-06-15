@@ -48,10 +48,13 @@ struct ServiceType {
     
     //All time service
     func allTimeCostOfServices(services: [Service]) -> String {
+        let serviceType = ServiceType()
         var sum = 0
         
         for service in services {
-            sum += service.checkMoney
+            if service.serviceType == serviceType.service {
+                sum += service.checkMoney
+            }
         }
         return "\(sum)"
     }
@@ -104,10 +107,14 @@ struct ServiceType {
             Calendar.current.dateComponents([.year,.month], from: $0.date) == yearMonth
         }
         
+        let serviceType = ServiceType()
         var sum = 0
         
         for service in filteredService {
-            sum += service.checkMoney
+            if service.serviceType == serviceType.service {
+                sum += service.checkMoney
+            }
+
         }
         return "\(sum)"
     }
