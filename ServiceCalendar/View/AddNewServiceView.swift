@@ -60,6 +60,7 @@ struct AddNewServiceView: View {
                     }
                     HStack {
                         TextField("Description", text: $serviceDescription,prompt: Text("Please enter description text..."), axis: .vertical)
+                            .lineLimit(200)
                             .padding()
                             .background(Color.green.opacity(0.2))
                             .cornerRadius(10)
@@ -81,6 +82,7 @@ struct AddNewServiceView: View {
             
         }
         .navigationTitle("Add New Service")
+        .tint(.blue)
     }
     
     func addNewService() {
