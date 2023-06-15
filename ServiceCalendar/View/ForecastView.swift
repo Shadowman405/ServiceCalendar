@@ -25,6 +25,10 @@ struct ForecastView: View {
                     HStack(spacing: 12) {
                         if selection == 0 {
                             HStack {
+                                NavigationLink(destination: AddNewServiceView(selectedCar: selectedCar)) {
+                                    PlusButton()
+                                }
+                                
                                 ForEach(selectedServices!) { service in
     //                                ForecastCard(service: service, segmentedControlChoice: .service)
                                     NavigationLink(destination: ServiceDetailView(selectedService: service)) {
@@ -32,21 +36,17 @@ struct ForecastView: View {
                                     }
                                 }
                                 .transition(.offset(x: -430))
-                                
-                                NavigationLink(destination: AddNewServiceView(selectedCar: selectedCar)) {
-                                    PlusButton()
-                                }
                             }
                         } else {
                             HStack {
+                                NavigationLink(destination: AddNewServiceView(selectedCar: selectedCar)) {
+                                    PlusButton()
+                                }
+
                                 ForEach(selectedServices!) { service in
                                     ForecastCardMoney(service: service, segmentedControlChoice: .service)
                                 }
                                 .transition(.offset(x: 430))
-                                
-                                NavigationLink(destination: AddNewServiceView(selectedCar: selectedCar)) {
-                                    PlusButton()
-                                }
                             }
                         }
                     }
