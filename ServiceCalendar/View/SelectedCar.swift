@@ -52,16 +52,13 @@ struct SelectedCar: View {
                     
                     
                     VStack {
-//                        Text(selectedCar.carName)
-//                            .padding(25)
-//                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
-                        
                         ScrollView(.horizontal){
                             HStack{
                                 ForEach(selectedCar.carImage, id: \.self) { img in
                                     WebImage(url: URL(string: img))
                                         .resizable()
-                                        .frame(width: 300, height: 250)
+                                        .frame(width: UIScreen.main.bounds.width - 50, height: UIScreen.main.bounds.height/2.5)
+                                        .aspectRatio(contentMode: .fit)
                                         .cornerRadius(20)
                                         .padding()
                                         .offset(y: -bottomSheetTranslationProrated * imageOffset)
@@ -71,13 +68,9 @@ struct SelectedCar: View {
                         
                         Spacer()
                         
-                        
                     }
                     
-                    
                     BottomSheetView(position: $bottomSheetPosition) {
-//                        Text(bottomSheetTranslationProrated.formatted())
-                        
                     } content: {
                         
                         ForecastView(bottomSheetTranslationProrated: bottomSheetTranslationProrated,selectedCar: selectedCar, selectedServices: vm.decodedService)
