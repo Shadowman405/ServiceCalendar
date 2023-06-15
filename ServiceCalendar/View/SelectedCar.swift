@@ -54,9 +54,9 @@ struct SelectedCar: View {
                     
                     
                     VStack {
-                        Text(selectedCar.carName)
-                            .padding(25)
-                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
+//                        Text(selectedCar.carName)
+//                            .padding(25)
+//                            .offset(y: -bottomSheetTranslationProrated * imageOffset)
                         
                         ScrollView(.horizontal){
                             HStack{
@@ -96,21 +96,20 @@ struct SelectedCar: View {
                     .offset(y: bottomSheetTranslationProrated * 115)
                 }
             }
-            .toolbar(content: {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    Button {
-                        dismiss()
-                    } label: {
-//                        Text("Back")
+//            .toolbar(content: {
+//                ToolbarItemGroup(placement: .navigationBarLeading) {
+//                    Button {
+//                        dismiss()
+//                    } label: {
+//                        Image(systemName: "arrowshape.turn.up.backward.2")
 //                            .foregroundColor(.black)
-                        Image(systemName: "arrowshape.turn.up.backward.2")
-                            .foregroundColor(.black)
-                    }
-
-                }
-            })
+//                    }
+//
+//                }
+//            })
         }
-        .navigationBarHidden(true)
+        .navigationTitle(selectedCar.carName)
+        //.navigationBarHidden(true)
         .onAppear(
             perform: vm.fetchServicesArray
         )
