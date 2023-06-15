@@ -18,8 +18,6 @@ enum BotomSheetPosition: CGFloat, CaseIterable {
 }
 
 struct SelectedCar: View {
-    @Environment(\.dismiss) var dismiss
-    
     @State var bottomSheetPosition: BotomSheetPosition = .middle 
     @State var bottomSheetChange = false
     @State var bottomSheetTranslation: CGFloat = BotomSheetPosition.middle.rawValue
@@ -96,20 +94,8 @@ struct SelectedCar: View {
                     .offset(y: bottomSheetTranslationProrated * 115)
                 }
             }
-//            .toolbar(content: {
-//                ToolbarItemGroup(placement: .navigationBarLeading) {
-//                    Button {
-//                        dismiss()
-//                    } label: {
-//                        Image(systemName: "arrowshape.turn.up.backward.2")
-//                            .foregroundColor(.black)
-//                    }
-//
-//                }
-//            })
         }
-        .navigationTitle(selectedCar.carName)
-        //.navigationBarHidden(true)
+        .navigationTitle("\(selectedCar.carName) - \(selectedCar.carModel)")
         .onAppear(
             perform: vm.fetchServicesArray
         )
@@ -168,39 +154,6 @@ class ServicesViewModel: ObservableObject {
           self.decodedService = decodedServices
           decodedServices = []
         }
-    }
-    
-    func fetchServiceCodable() {
-        self.decodedService = []
-        var decodedServices: [Service] = []
-        var someService = Service(mileage: 0, date: Date(), doneService: false, checkMoney: 0,serviceType: "Gasoline", serviceDescription: "Beep")
-        
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else { return}
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document("\(uid)\(selectedCar?.carName ?? "")\(selectedCar?.carModel ?? "")") .collection("Services").addSnapshotListener { snapshot, error in
-            if let error = error {
-                print("error")
-                print(error.localizedDescription)
-            }
-            
-//            self.decodedService = snapshot!.documents.compactMap({ (QueryDocumentSnapshot) -> Service? in
-//                return try? QueryDocumentSnapshot.data(as: Service.self)
-//            })
-            
-            let doc = snapshot!.documents
-            
-            for eachDoc in doc {
-                do {
-                    someService = try! eachDoc.data(as: Service.self)
-                    decodedServices.append(someService)
-                }
-            }
-            
-            self.decodedService = decodedServices
-            print("Service codable")
-            print(self.decodedService)
-            decodedServices = []
-        }
-            
     }
 }
 

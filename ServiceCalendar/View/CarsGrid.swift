@@ -57,6 +57,7 @@ struct CarsGrid: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarBackground( .blue, for: .navigationBar)
         }
+        .tint(.black)
     }
     
     func signOut() {
