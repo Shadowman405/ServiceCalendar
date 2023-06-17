@@ -79,11 +79,22 @@ struct AddNewCarView: View {
 //                            .keyboardType(.numberPad)
 //                    }
                     Form {
-                        Section(header: Text("Add new car")) {
+                        Section(header: Text("Enter car mark")) {
+                            TextField("Car mark...", text: $carMark)
+                            .keyboardType(.numberPad)
+                        }
+                        Section(header: Text("Enter car model")) {
+                            TextField("Car model...", text: $carModel)
+                            .keyboardType(.numberPad)
+                        }
+                        Section(header: Text("Enter car mileage")) {
                             TextField("Mileage...", text: $carMileage)
                             .keyboardType(.numberPad)
                         }
                     }
+                    .frame(height: UIScreen.main.bounds.height/3)
+                    .cornerRadius(20)
+                    .padding()
                 }
                 
                 Button {
