@@ -59,24 +59,30 @@ struct AddNewCarView: View {
                 }
                 
                 VStack(alignment: .leading,spacing: 10) {
-                    HStack {
-                        Text("Enter Car mark")
-                            .padding()
-                        Spacer()
-                        TextField("Mark...", text: $carMark)
-                    }
-                    HStack {
-                        Text("Enter Car model")
-                            .padding()
-                        Spacer()
-                        TextField("Model...", text: $carModel)
-                    }
-                    HStack {
-                        Text("Enter Car mileage")
-                            .padding()
-                        Spacer()
-                        TextField("Mileage...", text: $carMileage)
+//                    HStack {
+//                        Text("Enter Car mark")
+//                            .padding()
+//                        Spacer()
+//                        TextField("Mark...", text: $carMark)
+//                    }
+//                    HStack {
+//                        Text("Enter Car model")
+//                            .padding()
+//                        Spacer()
+//                        TextField("Model...", text: $carModel)
+//                    }
+//                    HStack {
+//                        Text("Enter Car mileage")
+//                            .padding()
+//                        Spacer()
+//                        TextField("Mileage...", text: $carMileage)
+//                            .keyboardType(.numberPad)
+//                    }
+                    Form {
+                        Section(header: Text("Add new car")) {
+                            TextField("Mileage...", text: $carMileage)
                             .keyboardType(.numberPad)
+                        }
                     }
                 }
                 
