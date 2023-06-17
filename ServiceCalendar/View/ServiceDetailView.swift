@@ -14,38 +14,31 @@ struct ServiceDetailView: View {
     var body: some View {
             ZStack {
                 LinearGradient(colors: [Color.clear,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
-                VStack(alignment: .leading) {
-                    HStack(spacing: 50) {
-                        Text("Service at mileage :")
-                        Text("\(selectedService.mileage) Km")
+                
+                VStack {
+                    Form {
+                        Section(header: Text("Service at mileage: " + "\(selectedService.mileage)")) {
+                            Text("Service Type - " + selectedService.serviceType)
+                            Text("Cost - " + "\(selectedService.checkMoney)$")
+                            HStack {
+                                Text("Is service done:")
+                                if selectedService.doneService {
+                                    Image(systemName: "checkmark.circle")
+                                        .foregroundColor(.green)
+                                } else {
+                                    Image(systemName: "checkmark.circle.badge.xmark")
+                                        .foregroundColor(.red)
+                                }
+                            }
+                        }
+                        Section(header: Text("Date")) {
+                            Text("\(selectedService.date)")
+                        }
                     }
-                    .padding()
-                    
-                    HStack(spacing: 50) {
-                        Text("Date :")
-                        Text(selectedService.date, style: .date)
-                        Text(selectedService.date, style: .time)
-                    }
-                    .padding()
-                    
-                    HStack(spacing: 50) {
-                        Text("Spended money :")
-                        Text("\(selectedService.checkMoney)$")
-                    }
-                    .padding()
-                    
-                    HStack(spacing: 50) {
-                        Text("Service Type :")
-                        Text("\(selectedService.serviceType)")
-                    }
-                    .padding()
-                    
-                    HStack(spacing: 50) {
-                        Text("Service Description :")
-                        Text("\(selectedService.serviceDescription)")
-                    }
-                    .padding()
+                    .frame(height: 300)
+                    .cornerRadius(20)
                 }
+                .padding()
             }
         .ignoresSafeArea()
     }
@@ -53,6 +46,6 @@ struct ServiceDetailView: View {
 
 struct ServiceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: false, checkMoney: 200,serviceType: "Documents", serviceDescription: "Insurance"))
+        ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "Insurance"))
     }
 }
