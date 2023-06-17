@@ -32,12 +32,12 @@ struct ServiceDetailView: View {
                             }
                         }
                         Section(header: Text("Date")) {
-                            Text("\(selectedService.date)")
+                            Text("\(dateString(date:selectedService.date))")
                                 .lineLimit(nil)
                         }
                     }
                     .scrollDisabled(true)
-                    .frame(height: UIScreen.main.bounds.height/2.5)
+                    .frame(height: UIScreen.main.bounds.height/3)
                     .cornerRadius(20)
                     
                     VStack {
@@ -54,6 +54,13 @@ struct ServiceDetailView: View {
                 .padding()
             }
         .ignoresSafeArea()
+    }
+    
+    func dateString(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MMM-yyyy HH:mm:ss"
+        
+        return formatter.string(from: date)
     }
 }
 
