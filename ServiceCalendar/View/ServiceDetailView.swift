@@ -33,11 +33,24 @@ struct ServiceDetailView: View {
                         }
                         Section(header: Text("Date")) {
                             Text("\(selectedService.date)")
+                                .lineLimit(nil)
                         }
                     }
-                    .frame(height: 300)
+                    .scrollDisabled(true)
+                    .frame(height: UIScreen.main.bounds.height/2.5)
                     .cornerRadius(20)
-                }
+                    
+                    VStack {
+                        Form{
+                            Section(header: Text("Service Description")) {
+                                Text(selectedService.serviceDescription)
+                            }
+                        }
+                        .cornerRadius(20)
+                    }
+                    .frame(height: UIScreen.main.bounds.height/3)
+                    .padding(.top, 20)
+                    }
                 .padding()
             }
         .ignoresSafeArea()
@@ -46,6 +59,6 @@ struct ServiceDetailView: View {
 
 struct ServiceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "Insurance"))
+        ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance"))
     }
 }
