@@ -11,6 +11,7 @@ import Firebase
 import FirebaseFirestore
 
 struct AddNewCarView: View {
+    @Environment(\.dismiss) var dismiss
     @State private var carMark : String = ""
     @State private var carModel : String = ""
     @State private var carMileage : String = ""
@@ -22,6 +23,9 @@ struct AddNewCarView: View {
     
     var body: some View {
         ZStack {
+            LinearGradient(colors: [Color.clear, Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
+                    .ignoresSafeArea()
+            
             VStack {
                 PhotosPicker(selection: $carPhoto) {
                         Text("Add photo")
@@ -98,9 +102,8 @@ struct AddNewCarView: View {
                 }
                 
                 Button {
-                persistImageToStorage()
-                    
-                    
+                    persistImageToStorage()
+                    dismiss()
                 } label: {
                     Text("Save Car")
                 }
@@ -108,12 +111,6 @@ struct AddNewCarView: View {
                 .foregroundColor(.black)
             }
         }
-        .background(
-            Image("back_1")
-                .resizable()
-                .ignoresSafeArea(.all)
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        )
     }
     
     private func persistImageToStorage() {
