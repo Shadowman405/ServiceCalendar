@@ -17,7 +17,7 @@ struct ServiceDetailView: View {
         case edit
     }
     
-    @State var mode: Mode = .new
+    @State var presentEditSheet = false
     
     var body: some View {
             ZStack {
@@ -55,12 +55,6 @@ struct ServiceDetailView: View {
                             }
                         }
                         .cornerRadius(20)
-                        
-                        if mode == .edit {
-                            Button("Save"){
-                                print("Saved")
-                            }
-                        }
                     }
                     .frame(height: UIScreen.main.bounds.height/3)
                     .padding(.top, 20)
@@ -69,10 +63,13 @@ struct ServiceDetailView: View {
             }.toolbar{
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Edit"){
-                        self.mode = .edit
+                        self.presentEditSheet.toggle()
                     }
                 }
             }
+            .sheet(isPresented: self.$presentEditSheet, content: {
+                ServiceDetailView(selectedService: self.selectedService)
+            })
         .ignoresSafeArea()
     }
     
