@@ -12,6 +12,13 @@ struct ServiceDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     
+    enum Mode {
+        case new
+        case edit
+    }
+    
+    @State var mode: Mode = .new
+    
     var body: some View {
             ZStack {
                 LinearGradient(colors: [Color.clear,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
@@ -48,11 +55,23 @@ struct ServiceDetailView: View {
                             }
                         }
                         .cornerRadius(20)
+                        
+                        if mode == .edit {
+                            Button("Save"){
+                                print("Saved")
+                            }
+                        }
                     }
                     .frame(height: UIScreen.main.bounds.height/3)
                     .padding(.top, 20)
                     }
                 .padding()
+            }.toolbar{
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Edit"){
+                        self.mode = .edit
+                    }
+                }
             }
         .ignoresSafeArea()
     }
