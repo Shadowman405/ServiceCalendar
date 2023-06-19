@@ -12,11 +12,6 @@ struct ServiceDetailView: View {
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     
-    enum Mode {
-        case new
-        case edit
-    }
-    
     @State var presentEditSheet = false
     
     var body: some View {
