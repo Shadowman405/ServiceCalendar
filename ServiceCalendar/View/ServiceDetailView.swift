@@ -10,6 +10,7 @@ import SwiftUI
 struct ServiceDetailView: View {
     var selectedService : Service
     @Environment(\.dismiss) var dismiss
+    @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
             ZStack {
