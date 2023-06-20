@@ -29,6 +29,7 @@ struct EditServiceView: View {
                 }
                 Section("Date") {
                     DatePicker("Select Date", selection: $date)
+                        .datePickerStyle(.compact)
                 }
                 Section("Is service Done?") {
                     Toggle("Is service done?", isOn: $isDone)
@@ -37,13 +38,21 @@ struct EditServiceView: View {
                     TextField("mileage", text: $checkMoney)
                 }
                 Section("Service type") {
-                    TextField("mileage", text: $serviceType)
+                    Picker("Choose type of service", selection: $serviceType) {
+                        ForEach(typeOfServices, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                    .pickerStyle(.segmented)
                 }
                 Section("Service Description") {
-                    TextField("mileage", text: $serviceDescription)
+                    TextField("mileage", text: $serviceDescription, axis: .vertical)
+                        .lineLimit(200)
+                        .background(Color.green.opacity(0.2))
                 }
             }
             .padding()
+            .cornerRadius(20)
         }
         .ignoresSafeArea()
     }
