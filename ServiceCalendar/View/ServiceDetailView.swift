@@ -64,7 +64,7 @@ struct ServiceDetailView: View {
             }
             .sheet(isPresented: self.$presentEditSheet, content: {
                 //ServiceDetailView(selectedService: self.selectedService)
-                EditServiceView(selectedService: self.selectedService)
+                EditServiceView(selectedService: self.selectedService, mileage: "\(self.selectedService.mileage)")
             })
         .ignoresSafeArea()
     }
