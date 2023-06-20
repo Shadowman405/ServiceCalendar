@@ -54,6 +54,7 @@
 		BF4CBBB929DF1DE700EC5626 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */; };
 		BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */; };
 		BF5D783929F45AEE00DDAF4D /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783829F45AEE00DDAF4D /* ServicesView.swift */; };
+		BF6BE9352A421CF100C38218 /* EditServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BE9342A421CF100C38218 /* EditServiceView.swift */; };
 		BF9727C629F9A8850076A233 /* ForecastCardMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */; };
 		BF9727C829F9AA100076A233 /* ServiceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9727C729F9AA100076A233 /* ServiceWidget.swift */; };
 /* End PBXBuildFile section */
@@ -88,6 +89,7 @@
 		BF4CBBB829DF1DE700EC5626 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		BF5D783829F45AEE00DDAF4D /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
+		BF6BE9342A421CF100C38218 /* EditServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceView.swift; sourceTree = "<group>"; };
 		BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCardMoney.swift; sourceTree = "<group>"; };
 		BF9727C729F9AA100076A233 /* ServiceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +152,7 @@
 				BF2301B42A20029E00929FA8 /* PlusButton.swift */,
 				BF2301B62A21384000929FA8 /* AddNewServiceView.swift */,
 				BF2DD7CD2A310D45001E97BC /* ServicesCostAllWidget.swift */,
+				BF6BE9342A421CF100C38218 /* EditServiceView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				BF4CBBA929DDBE6500EC5626 /* ServiceCalendarApp.swift in Sources */,
 				BF1090BF29E5E84B007C8124 /* TabBar.swift in Sources */,
 				BF1090C729E74268007C8124 /* ForecastView.swift in Sources */,
+				BF6BE9352A421CF100C38218 /* EditServiceView.swift in Sources */,
 				BF420E6D2A0A8150006DD00E /* AddNewCarView.swift in Sources */,
 				BF1090CD29EC0605007C8124 /* SegmentedControl.swift in Sources */,
 				BF9727C829F9AA100076A233 /* ServiceWidget.swift in Sources */,
