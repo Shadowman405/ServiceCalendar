@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct EditServiceView: View {
+    @Environment(\.dismiss) var dismiss
     var selectedService : Service
     var typeOfServices = ["Gasoline", "Service", "Documents", "Other"]
     
@@ -54,6 +55,7 @@ struct EditServiceView: View {
                     }
                     Button("Save") {
                         print("Suck bebra")
+                        dismiss()
                     }
                     .foregroundColor(.green)
                 }
