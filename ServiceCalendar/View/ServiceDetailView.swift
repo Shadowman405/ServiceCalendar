@@ -63,7 +63,8 @@ struct ServiceDetailView: View {
                 }
             }
             .sheet(isPresented: self.$presentEditSheet, content: {
-                ServiceDetailView(selectedService: self.selectedService)
+                //ServiceDetailView(selectedService: self.selectedService)
+                EditServiceView(selectedService: self.selectedService)
             })
         .ignoresSafeArea()
     }
