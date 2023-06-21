@@ -56,6 +56,7 @@ struct EditServiceView: View {
                     }
                     Button("Save") {
                         print("Suck bebra")
+                        updateService()
                         dismiss()
                     }
                     .foregroundColor(.green)
