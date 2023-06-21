@@ -68,15 +68,19 @@ struct ServiceDetailView: View {
             .padding()
         }.toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Edit"){
-                    self.presentEditSheet.toggle()
+//                Button("Edit"){
+//                    self.presentEditSheet.toggle()
+//                }
+                
+                NavigationLink(destination: EditServiceView(selectedCar: selectedCar, selectedService: self.selectedService, mileage: "\(self.selectedService.mileage)", date: self.selectedService.date,  isDone: self.selectedService.doneService, checkMoney: "\(self.selectedService.checkMoney)", serviceType: self.selectedService.serviceType, serviceDescription: self.selectedService.serviceDescription)) {
+                    Text("Edit")
                 }
             }
         }
-        .sheet(isPresented: self.$presentEditSheet, content: {
-            //ServiceDetailView(selectedService: self.selectedService)
-            EditServiceView(selectedCar: selectedCar, selectedService: self.selectedService, mileage: "\(self.selectedService.mileage)", date: self.selectedService.date,  isDone: self.selectedService.doneService, checkMoney: "\(self.selectedService.checkMoney)", serviceType: self.selectedService.serviceType, serviceDescription: self.selectedService.serviceDescription)
-        })
+//        .sheet(isPresented: self.$presentEditSheet, content: {
+//            //ServiceDetailView(selectedService: self.selectedService)
+//            EditServiceView(selectedCar: selectedCar, selectedService: self.selectedService, mileage: "\(self.selectedService.mileage)", date: self.selectedService.date,  isDone: self.selectedService.doneService, checkMoney: "\(self.selectedService.checkMoney)", serviceType: self.selectedService.serviceType, serviceDescription: self.selectedService.serviceDescription)
+//        })
         .ignoresSafeArea()
     }
     
