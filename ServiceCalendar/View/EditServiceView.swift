@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditServiceView: View {
     @Environment(\.dismiss) var dismiss
+    var selectedCar: Car
     var selectedService : Service
     var typeOfServices = ["Gasoline", "Service", "Documents", "Other"]
     
@@ -66,10 +67,31 @@ struct EditServiceView: View {
         }
         .ignoresSafeArea()
     }
+    
+    func addNewService() {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
+        let uniqueService = "\(uid)\(date)"
+        let serviceData = [
+            "mileage":mileage ,
+            "date": date,
+            "isDone": isDone,
+            "checkMoney": checkMoney,
+            "serviceType": serviceType,
+            "serviceDescription": serviceDescription
+        ] as [String : Any]
+        FirebaseManager.shared.firestore.collection("users")
+            .document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)  { error in
+                if let error = error {
+                    print(error.localizedDescription)
+                    return
+                }
+            }
+    }
 }
 
 struct EditServiceView_Previews: PreviewProvider {
     static var previews: some View {
-        EditServiceView(selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance"), mileage: "100", date: Date.now, isDone: true, checkMoney: "200", serviceType: "Service", serviceDescription: "beep")
+        EditServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000),selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance"), mileage: "100", date: Date.now, isDone: true, checkMoney: "200", serviceType: "Service", serviceDescription: "beep")
     }
 }
