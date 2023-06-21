@@ -31,7 +31,7 @@ struct ForecastView: View {
                                 
                                 ForEach(selectedServices!) { service in
     //                                ForecastCard(service: service, segmentedControlChoice: .service)
-                                    NavigationLink(destination: ServiceDetailView(selectedService: service)) {
+                                    NavigationLink(destination: ServiceDetailView(selectedService: service, selectedCar: selectedCar!)) {
                                         ForecastCard(service: service, segmentedControlChoice: .service)
                                     }
                                 }
