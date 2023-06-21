@@ -81,13 +81,7 @@ struct EditServiceView: View {
             "serviceType": serviceType,
             "serviceDescription": serviceDescription
         ] as [String : Any]
-//        FirebaseManager.shared.firestore.collection("users")
-//            .document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)  { error in
-//                if let error = error {
-//                    print(error.localizedDescription)
-//                    return
-//                }
-//            }
+        
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)
     }
 }
