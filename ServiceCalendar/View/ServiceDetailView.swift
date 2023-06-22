@@ -10,20 +10,20 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct ServiceDetailView: View {
-    var selectedService : Service
+    @State var selectedService : Service
     var selectedCar: Car
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     
     @State var presentEditSheet = false
     
-    init(selectedService: Service, selectedCar: Car, presentEditSheet: Bool = false) {
-        self.selectedService = selectedService
-        self.selectedCar = selectedCar
-        self.presentEditSheet = presentEditSheet
-        
-        self.selectedService = updateCurrentService()
-    }
+//    init(selectedService: Service, selectedCar: Car, presentEditSheet: Bool = false) {
+//        self.selectedService = selectedService
+//        self.selectedCar = selectedCar
+//        self.presentEditSheet = presentEditSheet
+//        
+//        self.selectedService = updateCurrentService()
+//    }
     
     var body: some View {
         ZStack {
