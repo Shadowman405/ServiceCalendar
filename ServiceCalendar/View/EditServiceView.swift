@@ -31,12 +31,14 @@ struct EditServiceView: View {
                         TextField("mileage", text: $mileage)
                     }
                     Section("Date") {
-                        DatePicker("Select Date", selection: $date)
-                            .datePickerStyle(.compact)
+                        DatePicker("", selection: $date)
+                            .datePickerStyle(.automatic)
+                        
                     }
                     Section("Is service Done?") {
                         Toggle("Is service done?", isOn: $isDone)
                             .accentColor(.green)
+                            .tint(.green)
                     }
                     Section("Check Money") {
                         TextField("mileage", text: $checkMoney)
