@@ -57,10 +57,6 @@ struct ServiceDetailView: View {
                     Form{
                         Section(header: Text("Service Description")) {
                             Text(vm.decodedService.serviceDescription)
-                            Button("Update View") {
-                                vm.updateCurrentService()
-                            }
-                            .foregroundColor(.blue)
                         }
                     }
                     .cornerRadius(20)
@@ -77,18 +73,14 @@ struct ServiceDetailView: View {
             }
         }
         .sheet(isPresented: self.$presentEditSheet){
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 vm.updateCurrentService()
-            }
         } content: {
                     //ServiceDetailView(selectedService: self.selectedService)
                     EditServiceView(selectedCar: selectedCar, selectedService: self.vm.decodedService, mileage: "\(self.vm.decodedService.mileage)", date: self.vm.decodedService.date,  isDone: self.vm.decodedService.doneService, checkMoney: "\(self.vm.decodedService.checkMoney)", serviceType: self.vm.decodedService.serviceType, serviceDescription: self.vm.decodedService.serviceDescription)
                 }
         .ignoresSafeArea()
         .onAppear(){
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                 vm.updateCurrentService()
-            }
         }
     }
 }
