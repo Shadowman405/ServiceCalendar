@@ -21,7 +21,6 @@ struct ServiceDetailView: View {
     init(selectedService: Service, selectedCar: Car) {
         self.selectedService = selectedService
         self.selectedCar = selectedCar
-        //self.presentEditSheet = presentEditSheet
         self.vm = .init(decodedService: selectedService, selectedCar: selectedCar)
     }
     
@@ -31,12 +30,12 @@ struct ServiceDetailView: View {
             
             VStack {
                 Form {
-                    Section(header: Text("Service at mileage: " + "\(selectedService.mileage)")) {
-                        Text("Service Type - " + selectedService.serviceType)
-                        Text("Cost - " + "\(selectedService.checkMoney)$")
+                    Section(header: Text("Service at mileage: " + "\(vm.decodedService.mileage)")) {
+                        Text("Service Type - " + vm.decodedService.serviceType)
+                        Text("Cost - " + "\(vm.decodedService.checkMoney)$")
                         HStack {
                             Text("Is service done:")
-                            if selectedService.doneService {
+                            if vm.decodedService.doneService {
                                 Image(systemName: "checkmark.circle")
                                     .foregroundColor(.green)
                             } else {
@@ -46,7 +45,7 @@ struct ServiceDetailView: View {
                         }
                     }
                     Section(header: Text("Date")) {
-                        Text("\(dateString(date:selectedService.date))")
+                        Text("\(dateString(date:vm.decodedService.date))")
                             .lineLimit(nil)
                     }
                 }
@@ -57,7 +56,7 @@ struct ServiceDetailView: View {
                 VStack {
                     Form{
                         Section(header: Text("Service Description")) {
-                            Text(selectedService.serviceDescription)
+                            Text(vm.decodedService.serviceDescription)
                         }
                     }
                     .cornerRadius(20)
@@ -68,21 +67,23 @@ struct ServiceDetailView: View {
             .padding()
         }.toolbar{
             ToolbarItem(placement: .navigationBarTrailing) {
-//                Button("Edit"){
-//                    self.presentEditSheet.toggle()
-//                }
-                
-                NavigationLink(destination: EditServiceView(selectedCar: selectedCar, selectedService: self.selectedService, mileage: "\(self.selectedService.mileage)", date: self.selectedService.date,  isDone: self.selectedService.doneService, checkMoney: "\(self.selectedService.checkMoney)", serviceType: self.selectedService.serviceType, serviceDescription: self.selectedService.serviceDescription)) {
-                    Text("Edit")
-                }
+                                Button("Edit"){
+                                    self.presentEditSheet.toggle()
+                                }
             }
         }
-//        .sheet(isPresented: self.$presentEditSheet, content: {
-//            //ServiceDetailView(selectedService: self.selectedService)
-//            EditServiceView(selectedCar: selectedCar, selectedService: self.selectedService, mileage: "\(self.selectedService.mileage)", date: self.selectedService.date,  isDone: self.selectedService.doneService, checkMoney: "\(self.selectedService.checkMoney)", serviceType: self.selectedService.serviceType, serviceDescription: self.selectedService.serviceDescription)
-//        })
+        .sheet(isPresented: self.$presentEditSheet){
+            vm.updateCurrentService()
+        } content: {
+                    //ServiceDetailView(selectedService: self.selectedService)
+                    EditServiceView(selectedCar: selectedCar, selectedService: self.selectedService, mileage: "\(self.selectedService.mileage)", date: self.selectedService.date,  isDone: self.selectedService.doneService, checkMoney: "\(self.selectedService.checkMoney)", serviceType: self.selectedService.serviceType, serviceDescription: self.selectedService.serviceDescription)
+                }
         .ignoresSafeArea()
+        .onAppear{
+            vm.updateCurrentService()
+        }
     }
+}
     
     func dateString(date: Date) -> String {
         let formatter = DateFormatter()
@@ -90,36 +91,6 @@ struct ServiceDetailView: View {
         
         return formatter.string(from: date)
     }
-    
-    func updateCurrentService() -> Service {
-        var someService = self.selectedService
-        
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return someService}
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
-        let uniqueService = "\(uid)\(selectedService.date)"
-        
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).addSnapshotListener { snapshot, error in
-            if let error = error {
-                print(error.localizedDescription)
-            }
-            
-            let data = snapshot!.data()
-            
-            let mileage = data!["mileage"] as? String ?? ""
-            let checkmoney = data!["checkMoney"] as? String ?? ""
-            let time = data!["date"] as? Timestamp
-            let date = time?.dateValue()
-            let isDone = data!["isDone"] as? Bool ?? false
-            let serviceType = data!["serviceType"] as? String ?? ""
-            let serviceDescription = data!["serviceDescription"] as? String ?? ""
-            
-            someService = Service(mileage: Int(mileage) ?? 1, date: date ?? Date.now, doneService: isDone, checkMoney: Int(checkmoney) ?? 1, serviceType: serviceType, serviceDescription: serviceDescription)
-        }
-        
-        return someService
-    }
-    
-
     
     class ServiceDetailViewModel: ObservableObject {
         @Published var decodedService: Service
@@ -130,12 +101,12 @@ struct ServiceDetailView: View {
             self.decodedService = decodedService
         }
         
-        func updateCurrentService(selectedService: Service) -> Service {
-            var someService = selectedService
+        func updateCurrentService() {
+            var someService = self.decodedService
             
-            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return someService}
+            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
             let uniqueID = "\(uid)\(selectedCar!.carName)\(selectedCar!.carModel)"
-            let uniqueService = "\(uid)\(selectedService.date)"
+            let uniqueService = "\(uid)\(decodedService.date)"
             
             FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).addSnapshotListener { snapshot, error in
                 if let error = error {
@@ -155,7 +126,7 @@ struct ServiceDetailView: View {
                 someService = Service(mileage: Int(mileage) ?? 1, date: date ?? Date.now, doneService: isDone, checkMoney: Int(checkmoney) ?? 1, serviceType: serviceType, serviceDescription: serviceDescription)
             }
             
-            return someService
+            self.decodedService = someService
         }
     }
     
@@ -164,4 +135,3 @@ struct ServiceDetailView: View {
             ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance"), selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000) )
         }
     }
-}
