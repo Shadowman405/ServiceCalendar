@@ -10,20 +10,20 @@ import Firebase
 import FirebaseFirestoreSwift
 
 struct ServiceDetailView: View {
-    @State var selectedService : Service
+    var selectedService : Service
     var selectedCar: Car
     @Environment(\.dismiss) var dismiss
     @Environment(\.presentationMode) var presentationMode
     
     @State var presentEditSheet = false
+    @ObservedObject var vm: ServiceDetailViewModel
     
-//    init(selectedService: Service, selectedCar: Car, presentEditSheet: Bool = false) {
-//        self.selectedService = selectedService
-//        self.selectedCar = selectedCar
-//        self.presentEditSheet = presentEditSheet
-//        
-//        self.selectedService = updateCurrentService()
-//    }
+    init(selectedService: Service, selectedCar: Car) {
+        self.selectedService = selectedService
+        self.selectedCar = selectedCar
+        //self.presentEditSheet = presentEditSheet
+        self.vm = .init(decodedService: selectedService, selectedCar: selectedCar)
+    }
     
     var body: some View {
         ZStack {
@@ -119,9 +119,49 @@ struct ServiceDetailView: View {
         return someService
     }
     
+
+    
+    class ServiceDetailViewModel: ObservableObject {
+        @Published var decodedService: Service
+        var selectedCar: Car?
+        
+        init(decodedService: Service, selectedCar: Car?) {
+            self.selectedCar = selectedCar
+            self.decodedService = decodedService
+        }
+        
+        func updateCurrentService(selectedService: Service) -> Service {
+            var someService = selectedService
+            
+            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return someService}
+            let uniqueID = "\(uid)\(selectedCar!.carName)\(selectedCar!.carModel)"
+            let uniqueService = "\(uid)\(selectedService.date)"
+            
+            FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).addSnapshotListener { snapshot, error in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                let data = snapshot!.data()
+                
+                let mileage = data!["mileage"] as? String ?? ""
+                let checkmoney = data!["checkMoney"] as? String ?? ""
+                let time = data!["date"] as? Timestamp
+                let date = time?.dateValue()
+                let isDone = data!["isDone"] as? Bool ?? false
+                let serviceType = data!["serviceType"] as? String ?? ""
+                let serviceDescription = data!["serviceDescription"] as? String ?? ""
+                
+                someService = Service(mileage: Int(mileage) ?? 1, date: date ?? Date.now, doneService: isDone, checkMoney: Int(checkmoney) ?? 1, serviceType: serviceType, serviceDescription: serviceDescription)
+            }
+            
+            return someService
+        }
+    }
+    
     struct ServiceDetailView_Previews: PreviewProvider {
         static var previews: some View {
-            ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance"), selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000)   )
+            ServiceDetailView(selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance"), selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000) )
         }
     }
 }
