@@ -67,20 +67,20 @@ struct ServiceDetailView: View {
             .padding()
         }.toolbar{
             Menu {
-                Button {
-                    self.presentEditSheet.toggle()
-                } label: {
-                    Label("Edit", systemImage: "rectangle.and.pencil.and.ellipsis")
+                ControlGroup {
+                    Button {
+                        self.presentEditSheet.toggle()
+                    } label: {
+                        Label("Edit", systemImage: "rectangle.and.pencil.and.ellipsis")
+                    }
+                    
+                    Button(role: .destructive) {
+                        dismiss()
+                        vm.deleteService()
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
                 }
-                
-                Button(role: .destructive) {
-                    dismiss()
-                    vm.deleteService()
-                } label: {
-                    Label("Delete", systemImage: "trash")
-                }
-
-
             } label: {
                 Label("more", systemImage: "ellipsis.circle")
             }
