@@ -10,6 +10,7 @@ import Firebase
 import SDWebImageSwiftUI
 
 struct CarsGrid: View {
+    @Environment(\.dismiss) var dismiss
     @State var isUserLoggedIn : Bool = false
     @ObservedObject var carGrid: CarGrid
     @EnvironmentObject var logedInUser: isLogedInUser
@@ -35,6 +36,15 @@ struct CarsGrid: View {
                 .background(LinearGradient(colors: [Color.blue,Color.purple], startPoint: .top, endPoint: .bottom))
             }
             .toolbar {
+                ToolbarItemGroup(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                        isUserLoggedIn = false
+                    } label: {
+                        Text("Signout")
+                    }
+
+                }
 //                ToolbarItemGroup(placement: .navigationBarLeading) {
 //                    NavigationLink {
 //                        LoginView(logedIn: $isUserLoggedIn)
