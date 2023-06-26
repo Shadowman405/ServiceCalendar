@@ -66,23 +66,18 @@ struct ServiceDetailView: View {
             }
             .padding()
         }.toolbar{
-//            ToolbarItem(placement: .navigationBarTrailing) {
-//                                Button("Edit"){
-//                                    self.presentEditSheet.toggle()
-//                                }
-//            }
             Menu {
                 Button {
                     self.presentEditSheet.toggle()
                 } label: {
-                    Text("Edit")
+                    Label("Edit", systemImage: "rectangle.and.pencil.and.ellipsis")
                 }
                 
                 Button(role: .destructive) {
                     dismiss()
                     vm.deleteService()
                 } label: {
-                    Text("Delete")
+                    Label("Delete", systemImage: "trash")
                 }
 
 
@@ -94,7 +89,6 @@ struct ServiceDetailView: View {
         .sheet(isPresented: self.$presentEditSheet){
                vm.updateCurrentService()
         } content: {
-                    //ServiceDetailView(selectedService: self.selectedService)
                     EditServiceView(selectedCar: selectedCar, selectedService: self.vm.decodedService, mileage: "\(self.vm.decodedService.mileage)", date: self.vm.decodedService.date,  isDone: self.vm.decodedService.doneService, checkMoney: "\(self.vm.decodedService.checkMoney)", serviceType: self.vm.decodedService.serviceType, serviceDescription: self.vm.decodedService.serviceDescription)
                 }
         .ignoresSafeArea()
