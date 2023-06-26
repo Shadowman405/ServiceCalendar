@@ -77,6 +77,13 @@ struct ServiceDetailView: View {
                 } label: {
                     Text("Edit")
                 }
+                
+                Button(role: .destructive) {
+                    dismiss()
+                } label: {
+                    Text("Delete")
+                }
+
 
             } label: {
                 Label("more", systemImage: "ellipsis.circle")
