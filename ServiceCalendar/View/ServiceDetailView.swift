@@ -66,11 +66,22 @@ struct ServiceDetailView: View {
             }
             .padding()
         }.toolbar{
-            ToolbarItem(placement: .navigationBarTrailing) {
-                                Button("Edit"){
-                                    self.presentEditSheet.toggle()
-                                }
+//            ToolbarItem(placement: .navigationBarTrailing) {
+//                                Button("Edit"){
+//                                    self.presentEditSheet.toggle()
+//                                }
+//            }
+            Menu {
+                Button {
+                    self.presentEditSheet.toggle()
+                } label: {
+                    Text("Edit")
+                }
+
+            } label: {
+                Label("more", systemImage: "ellipsis.circle")
             }
+
         }
         .sheet(isPresented: self.$presentEditSheet){
                 vm.updateCurrentService()
