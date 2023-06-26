@@ -79,8 +79,8 @@ struct ServiceDetailView: View {
                 }
                 
                 Button(role: .destructive) {
-                    vm.deleteService()
                     dismiss()
+                    vm.deleteService()
                 } label: {
                     Text("Delete")
                 }
@@ -92,7 +92,7 @@ struct ServiceDetailView: View {
 
         }
         .sheet(isPresented: self.$presentEditSheet){
-                vm.updateCurrentService()
+               vm.updateCurrentService()
         } content: {
                     //ServiceDetailView(selectedService: self.selectedService)
                     EditServiceView(selectedCar: selectedCar, selectedService: self.vm.decodedService, mileage: "\(self.vm.decodedService.mileage)", date: self.vm.decodedService.date,  isDone: self.vm.decodedService.doneService, checkMoney: "\(self.vm.decodedService.checkMoney)", serviceType: self.vm.decodedService.serviceType, serviceDescription: self.vm.decodedService.serviceDescription)
@@ -132,19 +132,20 @@ struct ServiceDetailView: View {
                     print(error.localizedDescription)
                 }
                 
-                let data = snapshot!.data()
-                
-                let mileage = data!["mileage"] as? String ?? ""
-                let checkmoney = data!["checkMoney"] as? String ?? ""
-                let time = data!["date"] as? Timestamp
-                let date = time?.dateValue()
-                let isDone = data!["isDone"] as? Bool ?? false
-                let serviceType = data!["serviceType"] as? String ?? ""
-                let serviceDescription = data!["serviceDescription"] as? String ?? ""
-                
-                someService = Service(mileage: Int(mileage) ?? 1, date: date ?? Date.now, doneService: isDone, checkMoney: Int(checkmoney) ?? 1, serviceType: serviceType, serviceDescription: serviceDescription)
-                
-                self.decodedService = someService
+                if let data = snapshot!.data() {
+                    
+                    let mileage = data["mileage"] as? String ?? ""
+                    let checkmoney = data["checkMoney"] as? String ?? ""
+                    let time = data["date"] as? Timestamp
+                    let date = time?.dateValue()
+                    let isDone = data["isDone"] as? Bool ?? false
+                    let serviceType = data["serviceType"] as? String ?? ""
+                    let serviceDescription = data["serviceDescription"] as? String ?? ""
+                    
+                    someService = Service(mileage: Int(mileage) ?? 1, date: date ?? Date.now, doneService: isDone, checkMoney: Int(checkmoney) ?? 1, serviceType: serviceType, serviceDescription: serviceDescription)
+                    
+                    self.decodedService = someService
+                }
             }
         }
         
