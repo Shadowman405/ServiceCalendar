@@ -35,14 +35,14 @@ struct CarsGrid: View {
                 .background(LinearGradient(colors: [Color.blue,Color.purple], startPoint: .top, endPoint: .bottom))
             }
             .toolbar {
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    NavigationLink {
-                        LoginView(logedIn: $isUserLoggedIn)
-                    } label: {
-                        Text("Signout")
-                            .foregroundColor(.black)
-                    }
-                }
+//                ToolbarItemGroup(placement: .navigationBarLeading) {
+//                    NavigationLink {
+//                        LoginView(logedIn: $isUserLoggedIn)
+//                    } label: {
+//                        Text("Signout")
+//                            .foregroundColor(.black)
+//                    }
+//                }
                 ToolbarItemGroup(placement: .navigationBarTrailing) {
                     NavigationLink {
                         AddNewCarView()
