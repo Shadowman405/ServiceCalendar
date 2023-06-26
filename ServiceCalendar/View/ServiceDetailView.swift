@@ -79,6 +79,7 @@ struct ServiceDetailView: View {
                 }
                 
                 Button(role: .destructive) {
+                    vm.deleteService()
                     dismiss()
                 } label: {
                     Text("Delete")
@@ -145,6 +146,14 @@ struct ServiceDetailView: View {
                 
                 self.decodedService = someService
             }
+        }
+        
+        func deleteService() {
+            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
+            let uniqueID = "\(uid)\(selectedCar!.carName)\(selectedCar!.carModel)"
+            let uniqueService = "\(uid)\(decodedService.date)"
+            
+            FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
         }
     }
     
