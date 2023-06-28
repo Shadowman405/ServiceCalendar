@@ -58,7 +58,6 @@ struct EditServiceView: View {
                     }
                     Button("Save") {
                         if selectedService.date == date {
-                            print("Suck bebra")
                             updateService()
                             dismiss()
                         } else {
