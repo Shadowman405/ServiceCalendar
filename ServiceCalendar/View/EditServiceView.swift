@@ -75,43 +75,6 @@ struct EditServiceView: View {
         }
         .ignoresSafeArea()
     }
-    
-    func updateService() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
-        let uniqueService = "\(uid)\(selectedService.date)"
-        let serviceData = [
-            "mileage":mileage ,
-            "date": date,
-            "isDone": isDone,
-            "checkMoney": checkMoney,
-            "serviceType": serviceType,
-            "serviceDescription": serviceDescription
-        ] as [String : Any]
-        
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)
-    }
-    
-    func addNewService() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
-        let uniqueService = "\(uid)\(date)"
-        let serviceData = [
-            "mileage":mileage ,
-            "date": date,
-            "isDone": isDone,
-            "checkMoney": checkMoney,
-            "serviceType": serviceType,
-            "serviceDescription": serviceDescription
-        ] as [String : Any]
-        FirebaseManager.shared.firestore.collection("users")
-            .document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)  { error in
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-            }
-    }
 }
 
 struct EditServiceView_Previews: PreviewProvider {
