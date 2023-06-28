@@ -18,8 +18,6 @@ struct AddNewCarView: View {
     @State private var carPhoto: [PhotosPickerItem] = []
     @State private var selectedImages: [UIImage] = []
     @State var imagesArray : [String] = []
-
-
     
     var body: some View {
         ZStack {
@@ -63,25 +61,6 @@ struct AddNewCarView: View {
                 }
                 
                 VStack(alignment: .leading,spacing: 10) {
-//                    HStack {
-//                        Text("Enter Car mark")
-//                            .padding()
-//                        Spacer()
-//                        TextField("Mark...", text: $carMark)
-//                    }
-//                    HStack {
-//                        Text("Enter Car model")
-//                            .padding()
-//                        Spacer()
-//                        TextField("Model...", text: $carModel)
-//                    }
-//                    HStack {
-//                        Text("Enter Car mileage")
-//                            .padding()
-//                        Spacer()
-//                        TextField("Mileage...", text: $carMileage)
-//                            .keyboardType(.numberPad)
-//                    }
                     Form {
                         Section(header: Text("Enter car mark")) {
                             TextField("Car mark...", text: $carMark)
@@ -164,10 +143,6 @@ struct AddNewCarView: View {
                     return
                 }
             }
-    }
-    
-    func uploadPhoto() {
-        
     }
 }
 

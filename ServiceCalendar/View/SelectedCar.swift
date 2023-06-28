@@ -143,6 +143,6 @@ class ServicesViewModel: ObservableObject {
 struct SelectedCar_Previews: PreviewProvider {
     
     static var previews: some View {
-        SelectedCar(bottomSheetPosition: .middle, bottomSheetTranslation: 0, selectedCar:  Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000)    )
+        SelectedCar(bottomSheetPosition: .middle, bottomSheetTranslation: 0, selectedCar:  FireBaseHelper().mockCar)
     }
 }

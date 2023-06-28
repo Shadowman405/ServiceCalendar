@@ -86,6 +86,6 @@ struct AddNewServiceView: View {
 
 struct AddNewServiceView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000))
+        AddNewServiceView(selectedCar: FireBaseHelper().mockCar)
     }
 }

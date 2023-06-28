@@ -47,9 +47,7 @@ struct CarCell: View {
 }
 
 struct CarCell_Previews: PreviewProvider {
-    static var cars = Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000)
-    
     static var previews: some View {
-        CarCell(car: cars)
+        CarCell(car: FireBaseHelper().mockCar)
     }
 }

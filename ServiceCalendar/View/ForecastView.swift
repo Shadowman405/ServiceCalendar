@@ -121,6 +121,6 @@ struct ForecastView: View {
 
 struct ForecastView_Previews: PreviewProvider {
     static var previews: some View {
-        ForecastView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000), selectedServices: Service.mockService)
+        ForecastView(selectedCar: FireBaseHelper().mockCar, selectedServices: Service.mockService)
     }
 }
