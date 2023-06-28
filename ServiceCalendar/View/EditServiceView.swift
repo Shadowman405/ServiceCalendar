@@ -62,7 +62,7 @@ struct EditServiceView: View {
                             dismiss()
                         } else {
                             FireBaseHelper().deleteService(selectedCar: selectedCar, selectedService: selectedService)
-                            FireBaseHelper().addNewService(selectedCar: selectedCar, selectedService: selectedService, mileage: mileage, date: date, isDone: isDone, checkMoney: checkMoney, serviceType: serviceType, serviceDescription: serviceDescription)
+                            FireBaseHelper().replaceNewService(selectedCar: selectedCar, selectedService: selectedService, mileage: mileage, date: date, isDone: isDone, checkMoney: checkMoney, serviceType: serviceType, serviceDescription: serviceDescription)
                             dismiss()
                         }
                     }
