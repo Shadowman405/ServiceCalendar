@@ -62,7 +62,9 @@ struct EditServiceView: View {
                             updateService()
                             dismiss()
                         } else {
-                            
+                            deleteService()
+                            addNewService()
+                            dismiss()
                         }
                     }
                     .foregroundColor(.green)
