@@ -76,7 +76,7 @@ struct ServiceDetailView: View {
                     
                     Button(role: .destructive) {
                         dismiss()
-                        vm.deleteService()
+                        FirebaseManager().deleteService(selectedCar: selectedCar, selectedService: selectedService)
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }

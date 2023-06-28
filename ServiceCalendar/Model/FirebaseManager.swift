@@ -29,10 +29,10 @@ class FirebaseManager: NSObject {
     
     
     func deleteService(selectedCar: Car, selectedService: Service) {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
+        guard let uid = Auth.auth().currentUser?.uid else {return }
         let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
         let uniqueService = "\(uid)\(selectedService.date)"
         
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
+        Firestore.firestore().collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
     }
 }
