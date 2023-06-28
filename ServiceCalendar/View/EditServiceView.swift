@@ -79,6 +79,6 @@ struct EditServiceView: View {
 
 struct EditServiceView_Previews: PreviewProvider {
     static var previews: some View {
-        EditServiceView(selectedCar: Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000),selectedService: Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance"), mileage: "100", date: Date.now, isDone: true, checkMoney: "200", serviceType: "Service", serviceDescription: "beep")
+        EditServiceView(selectedCar: FireBaseHelper().mockCar,selectedService: FireBaseHelper().mockService, mileage: "100", date: Date.now, isDone: true, checkMoney: "200", serviceType: "Service", serviceDescription: "beep")
     }
 }

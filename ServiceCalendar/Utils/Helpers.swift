@@ -13,6 +13,8 @@ import FirebaseFirestore
 class FireBaseHelper {
     static let shared = FireBaseHelper()
     
+    let mockCar = Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000)
+    let mockService = Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance")
     
     //MARK: - Add
     func addNewService(selectedCar: Car,mileage: String,
