@@ -57,9 +57,13 @@ struct EditServiceView: View {
                             .background(Color.green.opacity(0.2))
                     }
                     Button("Save") {
-                        print("Suck bebra")
-                        updateService()
-                        dismiss()
+                        if selectedService.date == date {
+                            print("Suck bebra")
+                            updateService()
+                            dismiss()
+                        } else {
+                            
+                        }
                     }
                     .foregroundColor(.green)
                 }
