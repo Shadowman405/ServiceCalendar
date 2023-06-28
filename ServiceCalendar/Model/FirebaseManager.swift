@@ -26,13 +26,4 @@ class FirebaseManager: NSObject {
         
         super.init()
     }
-    
-    
-    func deleteService(selectedCar: Car, selectedService: Service) {
-        guard let uid = Auth.auth().currentUser?.uid else {return }
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
-        let uniqueService = "\(uid)\(selectedService.date)"
-        
-        Firestore.firestore().collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
-    }
 }

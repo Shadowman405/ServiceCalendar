@@ -55,6 +55,7 @@
 		BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */; };
 		BF5D783929F45AEE00DDAF4D /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783829F45AEE00DDAF4D /* ServicesView.swift */; };
 		BF6BE9352A421CF100C38218 /* EditServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BE9342A421CF100C38218 /* EditServiceView.swift */; };
+		BF6BE9372A4CA83000C38218 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BE9362A4CA83000C38218 /* Helpers.swift */; };
 		BF9727C629F9A8850076A233 /* ForecastCardMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */; };
 		BF9727C829F9AA100076A233 /* ServiceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9727C729F9AA100076A233 /* ServiceWidget.swift */; };
 /* End PBXBuildFile section */
@@ -90,6 +91,7 @@
 		BF5D783629F1C8AA00DDAF4D /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
 		BF5D783829F45AEE00DDAF4D /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 		BF6BE9342A421CF100C38218 /* EditServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceView.swift; sourceTree = "<group>"; };
+		BF6BE9362A4CA83000C38218 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCardMoney.swift; sourceTree = "<group>"; };
 		BF9727C729F9AA100076A233 /* ServiceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -183,6 +185,7 @@
 				BF1090C129E73A49007C8124 /* Shapes.swift */,
 				BF1090C829E981A1007C8124 /* Blur.swift */,
 				BF1090CA29E98322007C8124 /* Extensions.swift */,
+				BF6BE9362A4CA83000C38218 /* Helpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 				BF9727C629F9A8850076A233 /* ForecastCardMoney.swift in Sources */,
 				BF1090BC29E5E6A8007C8124 /* SelectedCar.swift in Sources */,
 				BF1090B429E08C0D007C8124 /* Car.swift in Sources */,
+				BF6BE9372A4CA83000C38218 /* Helpers.swift in Sources */,
 				BF5D783729F1C8AA00DDAF4D /* NavigationBar.swift in Sources */,
 				BF4CBBAB29DDBE6500EC5626 /* ContentView.swift in Sources */,
 				BF1090B029E08BC9007C8124 /* CarCell.swift in Sources */,
