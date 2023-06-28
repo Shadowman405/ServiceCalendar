@@ -58,11 +58,11 @@ struct EditServiceView: View {
                     }
                     Button("Save") {
                         if selectedService.date == date {
-                            updateService()
+                            FireBaseHelper().updateService(selectedCar: selectedCar, selectedService: selectedService, mileage: mileage, date: date, isDone: isDone, checkMoney: checkMoney, serviceType: serviceType, serviceDescription: serviceDescription)
                             dismiss()
                         } else {
-                            deleteService()
-                            addNewService()
+                            FireBaseHelper().deleteService(selectedCar: selectedCar, selectedService: selectedService)
+                            FireBaseHelper().addNewService(selectedCar: selectedCar, selectedService: selectedService, mileage: mileage, date: date, isDone: isDone, checkMoney: checkMoney, serviceType: serviceType, serviceDescription: serviceDescription)
                             dismiss()
                         }
                     }
@@ -90,14 +90,6 @@ struct EditServiceView: View {
         ] as [String : Any]
         
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)
-    }
-    
-    func deleteService() {
-        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
-        let uniqueService = "\(uid)\(selectedService.date)"
-        
-        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
     }
     
     func addNewService() {
