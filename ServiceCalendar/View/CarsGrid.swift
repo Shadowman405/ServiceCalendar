@@ -36,23 +36,6 @@ struct CarsGrid: View {
                 .background(LinearGradient(colors: [Color.blue,Color.purple], startPoint: .top, endPoint: .bottom))
             }
             .toolbar {
-//                ToolbarItemGroup(placement: .navigationBarLeading) {
-//                    NavigationLink {
-//                        LoginView(logedIn: $isUserLoggedIn)
-//                    } label: {
-//                        Text("Signout")
-//                            .foregroundColor(.black)
-//                    }
-//                }
-//                ToolbarItemGroup(placement: .navigationBarTrailing) {
-//                    NavigationLink {
-//                        AddNewCarView()
-//                    } label: {
-//                        Image(systemName: "plus.circle")
-//                            .foregroundColor(.black)
-//                    }
-//                }
-                
                 Menu {
                     ControlGroup{
                         // to login
@@ -67,8 +50,6 @@ struct CarsGrid: View {
                         } label: {
                             Label("Add new car", systemImage: "plus.circle")
                         }
-                        //to edit current
-                        
                     }
                 }  label: {
                     Label("more", systemImage: "ellipsis.circle")
@@ -99,8 +80,6 @@ class CarsViewModel: ObservableObject {
     @Published var decodedService: [Service] = []
     
     init() {
-       // fetchCars()
-        //fetchCarsArray()
         fetchCarsArrayNested()
     }
     

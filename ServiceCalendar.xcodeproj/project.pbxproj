@@ -56,6 +56,7 @@
 		BF5D783929F45AEE00DDAF4D /* ServicesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5D783829F45AEE00DDAF4D /* ServicesView.swift */; };
 		BF6BE9352A421CF100C38218 /* EditServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BE9342A421CF100C38218 /* EditServiceView.swift */; };
 		BF6BE9372A4CA83000C38218 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BE9362A4CA83000C38218 /* Helpers.swift */; };
+		BF6BE9392A4F7EFA00C38218 /* CarEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6BE9382A4F7EFA00C38218 /* CarEditView.swift */; };
 		BF9727C629F9A8850076A233 /* ForecastCardMoney.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */; };
 		BF9727C829F9AA100076A233 /* ServiceWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF9727C729F9AA100076A233 /* ServiceWidget.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +93,7 @@
 		BF5D783829F45AEE00DDAF4D /* ServicesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesView.swift; sourceTree = "<group>"; };
 		BF6BE9342A421CF100C38218 /* EditServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditServiceView.swift; sourceTree = "<group>"; };
 		BF6BE9362A4CA83000C38218 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		BF6BE9382A4F7EFA00C38218 /* CarEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarEditView.swift; sourceTree = "<group>"; };
 		BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastCardMoney.swift; sourceTree = "<group>"; };
 		BF9727C729F9AA100076A233 /* ServiceWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceWidget.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +157,7 @@
 				BF2301B62A21384000929FA8 /* AddNewServiceView.swift */,
 				BF2DD7CD2A310D45001E97BC /* ServicesCostAllWidget.swift */,
 				BF6BE9342A421CF100C38218 /* EditServiceView.swift */,
+				BF6BE9382A4F7EFA00C38218 /* CarEditView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				BF1090C929E981A1007C8124 /* Blur.swift in Sources */,
 				BF1090B829E44CCD007C8124 /* Route.swift in Sources */,
 				BF420E922A0E57BC006DD00E /* FirebaseManager.swift in Sources */,
+				BF6BE9392A4F7EFA00C38218 /* CarEditView.swift in Sources */,
 				BF2301B52A20029F00929FA8 /* PlusButton.swift in Sources */,
 				BF5D783929F45AEE00DDAF4D /* ServicesView.swift in Sources */,
 				BF1090BA29E45C5E007C8124 /* LoginView.swift in Sources */,
