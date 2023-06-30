@@ -55,12 +55,20 @@ struct CarsGrid: View {
                 
                 Menu {
                     ControlGroup{
+                        // to login
                         NavigationLink {
                             LoginView(logedIn: $isUserLoggedIn)
                         } label: {
-                            Text("Signout")
-                                .foregroundColor(.black)
+                            Label("Signout", systemImage: "person.crop.circle.badge.xmark")
                         }
+                        // to add new car VC
+                        NavigationLink {
+                            AddNewCarView()
+                        } label: {
+                            Label("Add new car", systemImage: "plus.circle")
+                        }
+                        //to edit current
+                        
                     }
                 }  label: {
                     Label("more", systemImage: "ellipsis.circle")
