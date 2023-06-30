@@ -37,31 +37,23 @@ struct CarsGrid: View {
             }
             .toolbar {
 //                ToolbarItemGroup(placement: .navigationBarLeading) {
-//                    Button {
-//                        dismiss()
-//                        isUserLoggedIn = false
+//                    NavigationLink {
+//                        LoginView(logedIn: $isUserLoggedIn)
 //                    } label: {
 //                        Text("Signout")
+//                            .foregroundColor(.black)
 //                    }
-//
+//                }
+//                ToolbarItemGroup(placement: .navigationBarTrailing) {
+//                    NavigationLink {
+//                        AddNewCarView()
+//                    } label: {
+//                        Image(systemName: "plus.circle")
+//                            .foregroundColor(.black)
+//                    }
 //                }
                 
-                ToolbarItemGroup(placement: .navigationBarLeading) {
-                    NavigationLink {
-                        LoginView(logedIn: $isUserLoggedIn)
-                    } label: {
-                        Text("Signout")
-                            .foregroundColor(.black)
-                    }
-                }
-                ToolbarItemGroup(placement: .navigationBarTrailing) {
-                    NavigationLink {
-                        AddNewCarView()
-                    } label: {
-                        Image(systemName: "plus.circle")
-                            .foregroundColor(.black)
-                    }
-                }
+                
             }
             .navigationTitle("My Cars")
             .navigationBarTitleDisplayMode(.inline)
