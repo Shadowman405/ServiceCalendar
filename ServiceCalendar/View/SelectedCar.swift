@@ -89,6 +89,25 @@ struct SelectedCar: View {
                 }
             }
         }
+        .toolbar{
+            Menu {
+                ControlGroup {
+                    Button {
+                        print("edit")
+                    } label: {
+                        Label("Edit", systemImage: "rectangle.and.pencil.and.ellipsis")
+                    }
+                    
+                    Button(role: .destructive) {
+                        print("delete")
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                }
+            } label: {
+                Label("more", systemImage: "ellipsis.circle")
+            }
+        }
         .navigationTitle("\(selectedCar.carName) - \(selectedCar.carModel)")
         .onAppear(
             perform: vm.fetchServicesArray
