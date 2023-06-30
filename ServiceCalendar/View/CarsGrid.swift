@@ -53,7 +53,18 @@ struct CarsGrid: View {
 //                    }
 //                }
                 
-                
+                Menu {
+                    ControlGroup{
+                        NavigationLink {
+                            LoginView(logedIn: $isUserLoggedIn)
+                        } label: {
+                            Text("Signout")
+                                .foregroundColor(.black)
+                        }
+                    }
+                }  label: {
+                    Label("more", systemImage: "ellipsis.circle")
+                }
             }
             .navigationTitle("My Cars")
             .navigationBarTitleDisplayMode(.inline)
