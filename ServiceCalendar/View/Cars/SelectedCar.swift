@@ -93,7 +93,7 @@ struct SelectedCar: View {
         .toolbar{
             Menu {
                 ControlGroup {
-                    NavigationLink(destination: CarEditView()) {
+                    NavigationLink(destination: CarEditView(selectedCar: selectedCar)) {
                         Button {
                             print("edit")
                         } label: {

@@ -6,8 +6,18 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct CarEditView: View {
+    var selectedCar: Car
+    @Environment(\.dismiss) var dismiss
+    @State private var carMark : String = ""
+    @State private var carModel : String = ""
+    @State private var carMileage : String = ""
+    @State private var carPhoto: [PhotosPickerItem] = []
+    @State private var selectedImages: [UIImage] = []
+    @State var imagesArray : [String] = []
+    
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
@@ -15,6 +25,6 @@ struct CarEditView: View {
 
 struct CarEditView_Previews: PreviewProvider {
     static var previews: some View {
-        CarEditView()
+        CarEditView(selectedCar: FireBaseHelper().mockCar)
     }
 }
