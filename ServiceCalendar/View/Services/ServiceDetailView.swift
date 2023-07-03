@@ -86,7 +86,7 @@ struct ServiceDetailView: View {
                 Label("more", systemImage: "ellipsis.circle")
             }
 
-        }
+        } 
         .sheet(isPresented: self.$presentEditSheet){
                vm.updateCurrentService()
         } content: {

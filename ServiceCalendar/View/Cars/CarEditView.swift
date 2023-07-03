@@ -9,6 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct CarEditView: View {
+    @ObservedObject var vm: CarDetailViewModel
     var selectedCar: Car
     @Environment(\.dismiss) var dismiss
     @State private var carMark : String = ""
@@ -17,6 +18,12 @@ struct CarEditView: View {
     @State private var carPhoto: [PhotosPickerItem] = []
     @State private var selectedImages: [UIImage] = []
     @State var imagesArray : [String] = []
+    
+    
+    init(selectedCar: Car, vm: CarDetailViewModel) {
+        self.selectedCar = selectedCar
+        self.vm = .init(selectedCar: selectedCar)
+    }
     
     var body: some View {
         ZStack {
@@ -81,6 +88,15 @@ struct CarEditView: View {
             }
         }
     }
+}
+
+class CarDetailViewModel: ObservableObject {
+    var selectedCar: Car?
+    
+    init(selectedCar: Car?) {
+        self.selectedCar = selectedCar
+    }
+    
 }
 
 struct CarEditView_Previews: PreviewProvider {
