@@ -11,11 +11,11 @@ import PhotosUI
 struct CarEditView: View {
     var selectedCar: Car
     @Environment(\.dismiss) var dismiss
-    @State private var carMark : String
-    @State private var carModel : String
-    @State private var carMileage : String
-    @State private var carPhoto: [PhotosPickerItem] = []
-    @State private var selectedImages: [UIImage] = []
+    @State var carMark : String
+    @State var carModel : String
+    @State var carMileage : String
+    @State var carPhoto: [PhotosPickerItem] = []
+    @State var selectedImages: [UIImage] = []
     @State var imagesArray : [String]
     
     var body: some View {
@@ -85,6 +85,6 @@ struct CarEditView: View {
 
 struct CarEditView_Previews: PreviewProvider {
     static var previews: some View {
-        CarEditView(selectedCar: FireBaseHelper().mockCar, vm: CarDetailViewModel(selectedCar: FireBaseHelper().mockCar))
+        CarEditView(selectedCar: FireBaseHelper().mockCar, carMark: FireBaseHelper().mockCar.carName, carModel: FireBaseHelper().mockCar.carModel, carMileage: String(FireBaseHelper().mockCar.carMileage), imagesArray: FireBaseHelper().mockCar.carImage)
     }
 }
