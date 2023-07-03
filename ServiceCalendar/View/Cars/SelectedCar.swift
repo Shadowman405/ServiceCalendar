@@ -93,10 +93,12 @@ struct SelectedCar: View {
         .toolbar{
             Menu {
                 ControlGroup {
-                    Button {
-                        print("edit")
-                    } label: {
-                        Label("Edit", systemImage: "rectangle.and.pencil.and.ellipsis")
+                    NavigationLink(destination: CarEditView()) {
+                        Button {
+                            print("edit")
+                        } label: {
+                            Label("Edit", systemImage: "rectangle.and.pencil.and.ellipsis")
+                        }
                     }
                     
                     Button(role: .destructive) {
