@@ -16,7 +16,9 @@ class FireBaseHelper {
     let mockCar = Car(carName: "Mercedes-Benz", carModel: "S203", carImage: ["MB"], carMileage: 205000)
     let mockService = Service(mileage: 200000, date: .now, doneService: true, checkMoney: 200,serviceType: "Documents", serviceDescription: "InsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsuranceInsurance")
     
-    //MARK: - Add
+    //MARK: - Service Methods
+    
+    //Add Service
     func addNewService(selectedCar: Car,mileage: String,
                        date: Date, isDone: Bool, checkMoney: String,serviceType: String, serviceDescription: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
@@ -39,7 +41,7 @@ class FireBaseHelper {
             }
     }
     
-    //MARK: - Delete
+    //Delete Service
     func deleteService(selectedCar: Car, selectedService: Service ) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
         let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
@@ -48,7 +50,7 @@ class FireBaseHelper {
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
     }
     
-    //MARK: - Replace ( added for edit view - replace current servicee when date is changing)
+    //Replace Service ( added for edit view - replace current servicee when date is changing)
     func replaceNewService(selectedCar: Car, selectedService: Service, mileage: String,
                        date: Date, isDone: Bool, checkMoney: String,serviceType: String, serviceDescription: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
@@ -71,7 +73,7 @@ class FireBaseHelper {
             }
     }
     
-    //MARK: - Update
+    //Update Service
     func updateService(selectedCar: Car, selectedService: Service, mileage: String,
                        date: Date, isDone: Bool, checkMoney: String,serviceType: String, serviceDescription: String) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
@@ -87,5 +89,16 @@ class FireBaseHelper {
         ] as [String : Any]
         
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)
+    }
+    
+    
+    // MARK: - Cars methods
+    
+    //Delete Car
+    func deleteCar(selectedCar: Car) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
+        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
+        
+        FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).delete()
     }
 }
