@@ -139,25 +139,17 @@
 			isa = PBXGroup;
 			children = (
 				BF4CBBA829DDBE6500EC5626 /* ServiceCalendarApp.swift */,
+				BF6BE93B2A531BE100C38218 /* Cars */,
+				BF6BE93A2A531BB800C38218 /* Services */,
 				BF4CBBAA29DDBE6500EC5626 /* ContentView.swift */,
 				BF1090B929E45C5E007C8124 /* LoginView.swift */,
 				BF1090AB29DF5A16007C8124 /* RegisterView.swift */,
-				BF1090AD29DF5F9E007C8124 /* CarsGrid.swift */,
-				BF1090AF29E08BC9007C8124 /* CarCell.swift */,
-				BF1090BB29E5E6A8007C8124 /* SelectedCar.swift */,
 				BF1090C629E74268007C8124 /* ForecastView.swift */,
 				BF1090CC29EC0605007C8124 /* SegmentedControl.swift */,
 				BF1090D029EE9D28007C8124 /* ForecastCard.swift */,
 				BF9727C529F9A8850076A233 /* ForecastCardMoney.swift */,
-				BF5D783829F45AEE00DDAF4D /* ServicesView.swift */,
-				BF9727C729F9AA100076A233 /* ServiceWidget.swift */,
-				BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */,
-				BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */,
 				BF2301B42A20029E00929FA8 /* PlusButton.swift */,
-				BF2301B62A21384000929FA8 /* AddNewServiceView.swift */,
 				BF2DD7CD2A310D45001E97BC /* ServicesCostAllWidget.swift */,
-				BF6BE9342A421CF100C38218 /* EditServiceView.swift */,
-				BF6BE9382A4F7EFA00C38218 /* CarEditView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -230,6 +222,30 @@
 				BF4CBBAF29DDBE6700EC5626 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BF6BE93A2A531BB800C38218 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BF5D783829F45AEE00DDAF4D /* ServicesView.swift */,
+				BF420E6A2A0977C3006DD00E /* ServiceDetailView.swift */,
+				BF6BE9342A421CF100C38218 /* EditServiceView.swift */,
+				BF2301B62A21384000929FA8 /* AddNewServiceView.swift */,
+				BF9727C729F9AA100076A233 /* ServiceWidget.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		BF6BE93B2A531BE100C38218 /* Cars */ = {
+			isa = PBXGroup;
+			children = (
+				BF1090AD29DF5F9E007C8124 /* CarsGrid.swift */,
+				BF1090BB29E5E6A8007C8124 /* SelectedCar.swift */,
+				BF1090AF29E08BC9007C8124 /* CarCell.swift */,
+				BF420E6C2A0A8150006DD00E /* AddNewCarView.swift */,
+				BF6BE9382A4F7EFA00C38218 /* CarEditView.swift */,
+			);
+			path = Cars;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
