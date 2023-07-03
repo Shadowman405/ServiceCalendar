@@ -26,6 +26,7 @@ struct SelectedCar: View {
     }
     
     @ObservedObject var vm: ServicesViewModel
+    @Environment(\.dismiss) var dismiss
     
     var selectedCar: Car
     
@@ -99,7 +100,8 @@ struct SelectedCar: View {
                     }
                     
                     Button(role: .destructive) {
-                        print("delete")
+                        FireBaseHelper().deleteCar(selectedCar: selectedCar)
+                        dismiss()
                     } label: {
                         Label("Delete", systemImage: "trash")
                     }
