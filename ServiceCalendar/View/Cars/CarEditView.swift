@@ -45,13 +45,13 @@ struct CarEditView: View {
                         ForEach(0..<selectedImages.count, id: \.self) { i in
                             Image(uiImage: selectedImages[i])
                                 .resizable()
-                                .frame(height: 320)
+                                .frame( height: UIScreen.main.bounds.height/2.5)
                                 .cornerRadius(30)
                                 .scaledToFit()
                                 .padding()
                         }
                     }
-                    .frame(height: 320)
+                    .frame(height: UIScreen.main.bounds.height/2.9)
                     .tabViewStyle(.page)
                     
                 } else {
@@ -75,9 +75,21 @@ struct CarEditView: View {
                                 .keyboardType(.numberPad)
                         }
                     }
-                    .frame(height: UIScreen.main.bounds.height/3)
+                    .frame(height: UIScreen.main.bounds.height/2.9)
                     .cornerRadius(20)
                     .padding()
+                    
+                    HStack(alignment: .center) {
+                        Button {
+                            print("updated=")
+                        } label: {
+                            Text("Update")
+                        }
+                        .foregroundColor(.black)
+                        .background(.green)
+                        .padding()
+                    .cornerRadius(20)
+                    }
                 }
             }
         }
