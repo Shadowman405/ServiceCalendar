@@ -56,12 +56,12 @@ struct CarEditView: View {
                     TabView {
                         ForEach(0..<imagesArray.count, id: \.self) { i in
                             AsyncImage(url: URL(string: imagesArray[i]))
-                                .frame(height: 320)
+                                .frame(width: UIScreen.main.bounds.width - 20, height: 320)
                                 .cornerRadius(30)
                                 .scaledToFit()
                                 .padding()
                         }
-                        .frame(height: 320)
+                        //.frame(width: UIScreen.main.bounds.width - 20, height: 320)
                         .tabViewStyle(.page)
                     }
                 } else {
