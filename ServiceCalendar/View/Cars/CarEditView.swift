@@ -40,17 +40,10 @@ struct CarEditView: View {
                     }
                 }
                 
-                if !imagesArray.isEmpty {
+                if !selectedImages.isEmpty {
                     TabView {
                         ForEach(0..<selectedImages.count, id: \.self) { i in
-                            
-//                            Image(uiImage: selectedImages[i])
-//                                .resizable()
-//                                .frame(height: 320)
-//                                .cornerRadius(30)
-//                                .scaledToFit()
-//                                .padding()
-                            Image(uiImage: imagesArray[i].toImage()!)
+                            Image(uiImage: selectedImages[i])
                                 .resizable()
                                 .frame(height: 320)
                                 .cornerRadius(30)
@@ -60,6 +53,7 @@ struct CarEditView: View {
                     }
                     .frame(height: 320)
                     .tabViewStyle(.page)
+                    
                 } else {
                     Image(systemName: "photo.on.rectangle")
                         .resizable()
@@ -84,6 +78,27 @@ struct CarEditView: View {
                     .frame(height: UIScreen.main.bounds.height/3)
                     .cornerRadius(20)
                     .padding()
+                }
+            }
+        }
+        .onAppear{
+            downloadImages(from: imagesArray)
+        }
+    }
+    
+    func downloadImages(from strings: [String]) {
+        var imgUrls = [URL]()
+        
+        for i in 0..<strings.count {
+            guard let url = URL(string: strings[i]) else {return}
+            imgUrls.append(url)
+        }
+        
+        for j in 0..<imgUrls.count {
+            DispatchQueue.global().async {
+                guard let data = try? Data(contentsOf: imgUrls[j]) else { return}
+                DispatchQueue.main.async {
+                    selectedImages.append(UIImage(data: data)!)
                 }
             }
         }
