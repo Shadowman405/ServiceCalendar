@@ -64,11 +64,11 @@ struct CarEditView: View {
                     Form {
                         Section(header: Text("Enter car mark")) {
                             TextField("Car mark...", text: $carMark)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.default)
                         }
                         Section(header: Text("Enter car model")) {
                             TextField("Car model...", text: $carModel)
-                                .keyboardType(.numberPad)
+                                .keyboardType(.default)
                         }
                         Section(header: Text("Enter car mileage")) {
                             TextField("Mileage...", text: $carMileage)
@@ -92,11 +92,9 @@ struct CarEditView: View {
         for i in 0..<strings.count {
             guard let url = URL(string: strings[i]) else {return}
             imgUrls.append(url)
-        }
-        
-        for j in 0..<imgUrls.count {
+            
             DispatchQueue.global().async {
-                guard let data = try? Data(contentsOf: imgUrls[j]) else { return}
+                guard let data = try? Data(contentsOf: imgUrls[i]) else { return}
                 DispatchQueue.main.async {
                     selectedImages.append(UIImage(data: data)!)
                 }

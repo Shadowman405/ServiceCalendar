@@ -102,12 +102,3 @@ class FireBaseHelper {
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).delete()
     }
 }
-
-public extension String {
-    func toImage() -> UIImage? {
-        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
-            return UIImage(data: data)
-        }
-        return nil
-    }
-}
