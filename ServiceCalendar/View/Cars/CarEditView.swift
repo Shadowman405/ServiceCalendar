@@ -153,7 +153,8 @@ struct CarEditView: View {
     
     private func storeUserInfo(carImg: [String]) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let uniqueID = "\(uid)\(self.carMark)\(self.carModel)"
+        //let uniqueID = "\(uid)\(self.carMark)\(self.carModel)"
+        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
         let carData = ["uid": uid,
                        "carMark": self.carMark,
                        "carModel": self.carModel,
