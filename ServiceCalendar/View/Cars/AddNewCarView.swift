@@ -64,11 +64,11 @@ struct AddNewCarView: View {
                     Form {
                         Section(header: Text("Enter car mark")) {
                             TextField("Car mark...", text: $carMark)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.default)
                         }
                         Section(header: Text("Enter car model")) {
                             TextField("Car model...", text: $carModel)
-                            .keyboardType(.numberPad)
+                            .keyboardType(.default)
                         }
                         Section(header: Text("Enter car mileage")) {
                             TextField("Mileage...", text: $carMileage)
