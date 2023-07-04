@@ -40,19 +40,30 @@ struct CarEditView: View {
                     }
                 }
                 
-                if !selectedImages.isEmpty {
+                if !imagesArray.isEmpty {
+//                    TabView {
+//                        ForEach(0..<selectedImages.count, id: \.self) { i in
+//                            Image(uiImage: selectedImages[i])
+//                                .resizable()
+//                                .frame(height: 320)
+//                                .cornerRadius(30)
+//                                .scaledToFit()
+//                                .padding()
+//                        }
+//                    }
+//                    .frame(height: 320)
+//                    .tabViewStyle(.page)
                     TabView {
-                        ForEach(0..<selectedImages.count, id: \.self) { i in
-                            Image(uiImage: selectedImages[i])
-                                .resizable()
+                        ForEach(0..<imagesArray.count, id: \.self) { i in
+                            AsyncImage(url: URL(string: imagesArray[i]))
                                 .frame(height: 320)
                                 .cornerRadius(30)
                                 .scaledToFit()
                                 .padding()
                         }
+                        .frame(height: 320)
+                        .tabViewStyle(.page)
                     }
-                    .frame(height: 320)
-                    .tabViewStyle(.page)
                 } else {
                     Image(systemName: "photo.on.rectangle")
                         .resizable()
