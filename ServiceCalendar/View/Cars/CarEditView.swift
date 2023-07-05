@@ -172,6 +172,7 @@ struct CarEditView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             FireBaseHelper().addNewServicesForEditCar(selectedCarName: self.carMark, selectedCarModel: self.carModel, selectedServices: selectedServices)
             
+            FireBaseHelper().deleteAllService(selectedCar: selectedCar, selectedService: selectedServices)
             FireBaseHelper().deleteCar(selectedCar: selectedCar)
             dismiss()
         }

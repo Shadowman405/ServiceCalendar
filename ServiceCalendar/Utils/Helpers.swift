@@ -75,6 +75,17 @@ class FireBaseHelper {
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
     }
     
+    //Delete all services
+    func deleteAllService(selectedCar: Car, selectedService: [Service] ) {
+        for i in 0..<selectedService.count {
+            guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
+            let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
+            let uniqueService = "\(uid)\(selectedService[i].date)"
+            
+            FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).delete()
+        }
+    }
+    
     //Replace Service ( added for edit view - replace current servicee when date is changing)
     func replaceNewService(selectedCar: Car, selectedService: Service, mileage: String,
                        date: Date, isDone: Bool, checkMoney: String,serviceType: String, serviceDescription: String) {
