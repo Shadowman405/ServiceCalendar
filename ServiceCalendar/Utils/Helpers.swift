@@ -49,10 +49,10 @@ class FireBaseHelper {
         for i in 0..<selectedServices.count {
             let uniqueService = "\(uid)\(selectedServices[i].date)"
             let serviceData = [
-                "mileage":selectedServices[i].mileage ,
+                "mileage": String(selectedServices[i].mileage) ,
                 "date": selectedServices[i].date,
                 "isDone": selectedServices[i].doneService,
-                "checkMoney": selectedServices[i].checkMoney,
+                "checkMoney": String(selectedServices[i].checkMoney),
                 "serviceType": selectedServices[i].serviceType,
                 "serviceDescription": selectedServices[i].serviceDescription
             ] as [String : Any]
