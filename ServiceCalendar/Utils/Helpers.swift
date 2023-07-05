@@ -41,6 +41,31 @@ class FireBaseHelper {
             }
     }
     
+    //Add array of service (for Car Edit View)
+    func addNewServices(selectedCar: Car, selectedServices: [Service]) {
+        guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
+        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
+        
+        for i in 0..<selectedServices.count {
+            let uniqueService = "\(uid)\(selectedServices[i].date)"
+            let serviceData = [
+                "mileage":selectedServices[i].mileage ,
+                "date": selectedServices[i].date,
+                "isDone": selectedServices[i].doneService,
+                "checkMoney": selectedServices[i].checkMoney,
+                "serviceType": selectedServices[i].serviceType,
+                "serviceDescription": selectedServices[i].serviceDescription
+            ] as [String : Any]
+            FirebaseManager.shared.firestore.collection("users")
+                .document(uid).collection("cars").document(uniqueID).collection("Services").document(uniqueService).setData(serviceData)  { error in
+                    if let error = error {
+                        print(error.localizedDescription)
+                        return
+                    }
+                }
+        }
+    }
+    
     //Delete Service
     func deleteService(selectedCar: Car, selectedService: Service ) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return }
