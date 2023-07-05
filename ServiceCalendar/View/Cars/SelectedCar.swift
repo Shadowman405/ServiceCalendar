@@ -97,7 +97,7 @@ struct SelectedCar: View {
                         Button {
                             print("beep")
                         } label: {
-                            Text("Edit")
+                            Text("Edit Car")
                         }
 
                     }
@@ -106,7 +106,7 @@ struct SelectedCar: View {
                         FireBaseHelper().deleteCar(selectedCar: selectedCar)
                         dismiss()
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label("Delete Car", systemImage: "trash")
                     }
                 }
             } label: {
