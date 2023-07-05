@@ -83,7 +83,7 @@ struct CarEditView: View {
                     HStack(alignment: .center) {
                         Button {
                             persistImageToStorage()
-                            dismiss()
+                            //dismiss()
                             
                         } label: {
                             Text("Update")
@@ -154,8 +154,8 @@ struct CarEditView: View {
     
     private func storeUserInfo(carImg: [String]) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        //let uniqueID = "\(uid)\(self.carMark)\(self.carModel)"
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)" // didnt workout - duplicate data instead of updating
+        let uniqueID = "\(uid)\(self.carMark)\(self.carModel)"
+//        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
         let carData = ["uid": uid,
                        "carMark": self.carMark,
                        "carModel": self.carModel,
@@ -169,7 +169,11 @@ struct CarEditView: View {
                 }
             }
         
-        FireBaseHelper().addNewServicesForEditCar(selectedCarName: carMark, selectedCarModel: carModel, selectedServices: selectedServices)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            FireBaseHelper().addNewServicesForEditCar(selectedCarName: self.carMark, selectedCarModel: self.carModel, selectedServices: selectedServices)
+            
+            dismiss()
+        }
     }
 }
 
