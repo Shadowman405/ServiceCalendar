@@ -93,7 +93,7 @@ struct SelectedCar: View {
         .toolbar{
             Menu {
                 ControlGroup {
-                    NavigationLink(destination: CarEditView(selectedCar: selectedCar, carMark: selectedCar.carName, carModel: selectedCar.carModel, carMileage: String(selectedCar.carMileage), imagesArray: selectedCar.carImage)) {
+                    NavigationLink(destination: CarEditView(selectedCar: selectedCar, selectedServices: vm.decodedService, carMark: selectedCar.carName, carModel: selectedCar.carModel, carMileage: String(selectedCar.carMileage), imagesArray: selectedCar.carImage)) {
                         Button {
                             print("beep")
                         } label: {

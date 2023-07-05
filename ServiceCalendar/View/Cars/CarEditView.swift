@@ -10,6 +10,7 @@ import PhotosUI
 
 struct CarEditView: View {
     var selectedCar: Car
+    var selectedServices: [Service]
     @Environment(\.dismiss) var dismiss
     @State var carMark : String
     @State var carModel : String
@@ -81,8 +82,10 @@ struct CarEditView: View {
                     
                     HStack(alignment: .center) {
                         Button {
-                            persistImageToStorage()
-                            dismiss()
+//                            persistImageToStorage()
+//                            dismiss()
+                            
+                            print(selectedServices)
                         } label: {
                             Text("Update")
                         }
@@ -119,7 +122,6 @@ struct CarEditView: View {
         FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-//                let ref = FirebaseManager.shared.storage.reference(withPath: uid)
                 
                 for i in 0...selectedImages.count - 1 {
                     let ref = FirebaseManager.shared.storage.reference().child("images/\(UUID().uuidString)")
@@ -172,6 +174,6 @@ struct CarEditView: View {
 
 struct CarEditView_Previews: PreviewProvider {
     static var previews: some View {
-        CarEditView(selectedCar: FireBaseHelper().mockCar, carMark: FireBaseHelper().mockCar.carName, carModel: FireBaseHelper().mockCar.carModel, carMileage: String(FireBaseHelper().mockCar.carMileage), imagesArray: FireBaseHelper().mockCar.carImage)
+        CarEditView(selectedCar: FireBaseHelper().mockCar,selectedServices: [FireBaseHelper().mockService] , carMark: FireBaseHelper().mockCar.carName, carModel: FireBaseHelper().mockCar.carModel, carMileage: String(FireBaseHelper().mockCar.carMileage), imagesArray: FireBaseHelper().mockCar.carImage)
     }
 }
