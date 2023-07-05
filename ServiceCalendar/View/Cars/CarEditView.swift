@@ -169,7 +169,7 @@ struct CarEditView: View {
                 }
             }
         
-        
+        FireBaseHelper().addNewServicesForEditCar(selectedCarName: carMark, selectedCarModel: carModel, selectedServices: selectedServices)
     }
 }
 
