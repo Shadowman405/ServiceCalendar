@@ -42,9 +42,9 @@ class FireBaseHelper {
     }
     
     //Add array of service (for Car Edit View)
-    func addNewServices(selectedCar: Car, selectedServices: [Service]) {
+    func addNewServicesForEditCar(selectedCarName: String, selectedCarModel: String , selectedServices: [Service]) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
+        let uniqueID = "\(uid)\(selectedCarName)\(selectedCarModel)"
         
         for i in 0..<selectedServices.count {
             let uniqueService = "\(uid)\(selectedServices[i].date)"

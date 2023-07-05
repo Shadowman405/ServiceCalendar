@@ -82,10 +82,9 @@ struct CarEditView: View {
                     
                     HStack(alignment: .center) {
                         Button {
-//                            persistImageToStorage()
-//                            dismiss()
+                            persistImageToStorage()
+                            dismiss()
                             
-                            print(selectedServices)
                         } label: {
                             Text("Update")
                         }
@@ -169,6 +168,8 @@ struct CarEditView: View {
                     return
                 }
             }
+        
+        
     }
 }
 
