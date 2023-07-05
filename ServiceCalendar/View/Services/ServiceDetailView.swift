@@ -26,7 +26,7 @@ struct ServiceDetailView: View {
     
     var body: some View {
         ZStack {
-            LinearGradient(colors: [Color.clear,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [Color.white, Color.clear,Color.blue, Color.purple], startPoint: .top, endPoint: .bottom)
             
             VStack {
                 Form {

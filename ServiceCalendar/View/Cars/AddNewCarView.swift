@@ -87,7 +87,7 @@ struct AddNewCarView: View {
                     Text("Save Car")
                 }
                 .buttonStyle(.borderedProminent)
-                .foregroundColor(.black)
+                .foregroundColor(.gray)
             }
         }
     }
