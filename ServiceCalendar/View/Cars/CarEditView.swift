@@ -92,6 +92,20 @@ struct CarEditView: View {
                         .background(.green)
                         .padding()
                     .cornerRadius(20)
+                        
+                        
+                        Button {
+                            //persistImageToStorage()
+                            //dismiss()
+                            print(imagesArray)
+                            
+                        } label: {
+                            Text("Debug")
+                        }
+                        .foregroundColor(.black)
+                        .background(.green)
+                        .padding()
+                    .cornerRadius(20)
                     }
                 }
             }
