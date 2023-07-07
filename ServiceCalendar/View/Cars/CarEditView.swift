@@ -153,12 +153,21 @@ struct CarEditView: View {
     
     private func storeUserInfo(carImg: [String]) {
         guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
-        let uniqueID = "\(uid)\(self.carMark)\(self.carModel)"
+        let uniqueID = "\(uid)\(carMark)\(carModel)"
+        var carMarkUpdated = ""
+        var carModelUpdated = ""
 //        let uniqueID = "\(uid)\(selectedCar.carName)\(selectedCar.carModel)"
+        if carMark == selectedCar.carName {
+            carMarkUpdated = carMark
+        }
+        if carModel == selectedCar.carModel {
+            carModelUpdated = carModel + "*"
+        }
+        
         let carData = ["uid": uid,
-                       "carMark": self.carMark,
-                       "carModel": self.carModel,
-                       "carMileage": self.carMileage,
+                       "carMark": carMarkUpdated,
+                       "carModel": carModelUpdated,
+                       "carMileage": carMileage,
                        "carImage" : ["carImage": carImg]] as [String : Any]
         FirebaseManager.shared.firestore.collection("users")
             .document(uid).collection("cars").document(uniqueID).setData(carData) { error in
