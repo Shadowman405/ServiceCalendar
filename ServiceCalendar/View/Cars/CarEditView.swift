@@ -160,7 +160,7 @@ struct CarEditView: View {
             carMarkUpdated = carMark
         }
         if carModel == selectedCar.carModel {
-            carModelUpdated = carModel + "*"
+            carModelUpdated = carModel + " "
         }
         
         let uniqueID = "\(uid)\(carMarkUpdated)\(carModelUpdated)"
@@ -181,7 +181,7 @@ struct CarEditView: View {
             FireBaseHelper().deleteAllService(selectedCar: selectedCar, selectedService: selectedServices)
             FireBaseHelper().deleteCar(selectedCar: selectedCar)
         
-            FireBaseHelper().addNewServicesForEditCar(selectedCarName: self.carMark, selectedCarModel: self.carModel, selectedServices: selectedServices)
+            FireBaseHelper().addNewServicesForEditCar(selectedCarName: carMarkUpdated, selectedCarModel: carModelUpdated, selectedServices: selectedServices)
             
             dismiss()
     }
