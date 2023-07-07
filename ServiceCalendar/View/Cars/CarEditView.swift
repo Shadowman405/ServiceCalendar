@@ -83,24 +83,8 @@ struct CarEditView: View {
                     HStack(alignment: .center) {
                         Button {
                             persistImageToStorage()
-                            //dismiss()
-                            
                         } label: {
                             Text("Update")
-                        }
-                        .foregroundColor(.black)
-                        .background(.green)
-                        .padding()
-                    .cornerRadius(20)
-                        
-                        
-                        Button {
-                            //persistImageToStorage()
-                            //dismiss()
-                            print(imagesArray)
-                            
-                        } label: {
-                            Text("Debug")
                         }
                         .foregroundColor(.black)
                         .background(.green)
@@ -132,6 +116,7 @@ struct CarEditView: View {
     }
     
     private func persistImageToStorage() {
+        imagesArray = []
         FirebaseManager.shared.auth.addStateDidChangeListener { auth, user in
             if user != nil {
                 guard let uid = FirebaseManager.shared.auth.currentUser?.uid else {return}
