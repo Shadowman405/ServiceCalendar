@@ -168,10 +168,11 @@ struct CarEditView: View {
                 }
             }
         
-            FireBaseHelper().addNewServicesForEditCar(selectedCarName: self.carMark, selectedCarModel: self.carModel, selectedServices: selectedServices)
-            
             FireBaseHelper().deleteAllService(selectedCar: selectedCar, selectedService: selectedServices)
             FireBaseHelper().deleteCar(selectedCar: selectedCar)
+        
+            FireBaseHelper().addNewServicesForEditCar(selectedCarName: self.carMark, selectedCarModel: self.carModel, selectedServices: selectedServices)
+            
             dismiss()
     }
 }
