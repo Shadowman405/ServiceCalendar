@@ -29,7 +29,6 @@ struct SelectedCar: View {
     @Environment(\.dismiss) var dismiss
     
     var selectedCar: Car
-    @State var selectedImages: [UIImage] = []
     
     init(bottomSheetPosition: BotomSheetPosition, bottomSheetChange: Bool = false, bottomSheetTranslation: CGFloat,selectedCar: Car) {
         self.vm = .init(selectedCar: selectedCar)
@@ -113,23 +112,6 @@ struct SelectedCar: View {
         .onAppear(
             perform: vm.fetchServicesArray
         )    }
-    
-    func downloadImages(from strings: [String]) {
-        var imgUrls = [URL]()
-        
-        for i in 0..<strings.count {
-            guard let url = URL(string: strings[i]) else {return}
-            imgUrls.append(url)
-            
-            DispatchQueue.global().async {
-                guard let data = try? Data(contentsOf: imgUrls[i]) else { return}
-                DispatchQueue.main.async {
-                    selectedImages.append(UIImage(data: data)!)
-                }
-            }
-        }
-    }
-
 }
 
 class ServicesViewModel: ObservableObject {
