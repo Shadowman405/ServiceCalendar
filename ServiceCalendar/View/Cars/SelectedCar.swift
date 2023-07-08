@@ -29,6 +29,7 @@ struct SelectedCar: View {
     @Environment(\.dismiss) var dismiss
     
     var selectedCar: Car
+    @State private var showAlert = false
     
     init(bottomSheetPosition: BotomSheetPosition, bottomSheetChange: Bool = false, bottomSheetTranslation: CGFloat,selectedCar: Car) {
         //self.dismiss = dismiss
@@ -95,18 +96,23 @@ struct SelectedCar: View {
                 ControlGroup {
                     NavigationLink(destination: CarEditView(selectedCar: selectedCar, selectedServices: vm.decodedService, carMark: selectedCar.carName, carModel: selectedCar.carModel, carMileage: String(selectedCar.carMileage), imagesArray: selectedCar.carImage)) {
                         Button {
-                            print("beep")
                         } label: {
                             Text("Edit Car")
                         }
 
                     }
                     
-                    Button(role: .destructive) {
-                        FireBaseHelper().deleteCar(selectedCar: selectedCar)
-                        dismiss()
+                    Button() {
+//                        FireBaseHelper().deleteCar(selectedCar: selectedCar)
+//                        dismiss()
+                        showAlert = true
                     } label: {
                         Label("Delete Car", systemImage: "trash")
+                    }
+                    .alert(isPresented: $showAlert) {
+                        Alert(title: Text("Deleting car"), primaryButton: .default(Text("Ok"),action: {
+                            print("delete")
+                        }), secondaryButton: .destructive(Text("Cancel")))
                     }
                 }
             } label: {
