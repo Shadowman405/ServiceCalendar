@@ -29,13 +29,8 @@ struct SelectedCar: View {
     @Environment(\.dismiss) var dismiss
     
     var selectedCar: Car
-    @State private var showAlert = false
     
     init(bottomSheetPosition: BotomSheetPosition, bottomSheetChange: Bool = false, bottomSheetTranslation: CGFloat,selectedCar: Car) {
-        //self.dismiss = dismiss
-//        self.bottomSheetPosition = bottomSheetPosition
-//        self.bottomSheetChange = bottomSheetChange
-//        self.bottomSheetTranslation = bottomSheetTranslation
         self.vm = .init(selectedCar: selectedCar)
         self.selectedCar = selectedCar
     }
@@ -91,7 +86,6 @@ struct SelectedCar: View {
                 }
             }
         }
-        .alert(item:)
         .toolbar{
             Menu {
                 ControlGroup {
@@ -127,10 +121,6 @@ class ServicesViewModel: ObservableObject {
     
     init(selectedCar: Car?) {
         self.selectedCar = selectedCar
-//        print("Selected car\n\(selectedCar?.carName ?? "some car")")
-       // fetchCars()
-        //fetchServicesArray()
-        //fetchServiceCodable()
     }
     
     
