@@ -91,6 +91,7 @@ struct SelectedCar: View {
                 }
             }
         }
+        .alert(item:)
         .toolbar{
             Menu {
                 ControlGroup {
@@ -102,17 +103,11 @@ struct SelectedCar: View {
 
                     }
                     
-                    Button() {
-//                        FireBaseHelper().deleteCar(selectedCar: selectedCar)
-//                        dismiss()
-                        showAlert = true
+                    Button(role: .destructive) {
+                        FireBaseHelper().deleteCar(selectedCar: selectedCar)
+                        dismiss()
                     } label: {
                         Label("Delete Car", systemImage: "trash")
-                    }
-                    .alert(isPresented: $showAlert) {
-                        Alert(title: Text("Deleting car"), primaryButton: .default(Text("Ok"),action: {
-                            print("delete")
-                        }), secondaryButton: .destructive(Text("Cancel")))
                     }
                 }
             } label: {
@@ -122,8 +117,7 @@ struct SelectedCar: View {
         .navigationTitle("\(selectedCar.carName) - \(selectedCar.carModel)")
         .onAppear(
             perform: vm.fetchServicesArray
-        )
-    }
+        )    }
 }
 
 class ServicesViewModel: ObservableObject {

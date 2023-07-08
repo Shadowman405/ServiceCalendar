@@ -138,3 +138,11 @@ class FireBaseHelper {
         FirebaseManager.shared.firestore.collection("users").document(uid).collection("cars").document(uniqueID).delete()
     }
 }
+
+
+extension String: Identifiable {
+    public typealias ID = Int
+    public var id: Int {
+        return hash
+    }
+}
