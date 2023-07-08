@@ -31,14 +31,14 @@ struct CarCell: View {
 
             }
             Text("\(car.carName)" + " - \(car.carModel)")
-                .font(.custom("Snell Roundhand", size: 30))
+                .font(.custom("Futura", size: 20))
                 .fontWeight(.thin)
                 .foregroundColor(.black)
                 .offset(y: -90)
             
             
             Text( "Milage - \(car.carMileage)")
-                .font(.custom("Snell Roundhand", size: 30))
+                .font(.custom("Futura", size: 20))
                 .fontWeight(.thin)
                 .foregroundColor(.black)
                 .offset(y: 100)
