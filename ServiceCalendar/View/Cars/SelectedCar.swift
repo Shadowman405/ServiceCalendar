@@ -25,6 +25,7 @@ struct SelectedCar: View {
         (bottomSheetTranslation - BotomSheetPosition.middle.rawValue) / (BotomSheetPosition.top.rawValue - BotomSheetPosition.middle.rawValue)
     }
     
+    
     @ObservedObject var vm: ServicesViewModel
     @Environment(\.dismiss) var dismiss
     
